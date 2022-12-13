@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+  <head>
+    <title>GreaseMonkeyU</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Car Mechanic University" />
+    <meta name="keywords" content="GMU, GreaseMonkey, Car, Repair, Education" />
+    <meta name="author" content="Sabrina Tochkov" />
+    <link rel="stylesheet" href="styles/site.css" />
+    <link rel="icon" href="images/monkey.png" />
+    <meta
+      name="viewport"
+      content="width=device=width,
+initial-scale=1.0, maximum-scale=2.0, user-scalable=yes"
+    />
+  </head>
+  <body>
+    <header class="notDesktop">Enroll</header>
+    <nav class="logo">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="teachers.html">Teachers</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a class="notMobile current" href="enroll.html">Enroll</a></li>
+        <li><a class="notMobile" href="students.html">Students</a></li>
+        <li><a class="notMobile" href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h1 class="notMobile">Enroll</h1>
+      <article>
+        <form>
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="John Smith"
+          /><br />
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="johnsmith@gmail.com"
+          /><br />
+          <label for="phone">Phone Number</label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder="123-321-1234"
+          />
+          <br />
+          <label for="reg">Region</label>
+          <select name="reg" id="reg">
+            <option>--Select--</option>
+            <option value="Gatineau">Gatineau</option>
+            <option value="Ottawa">Ottawa</option>
+            <option value="Chelsea">Chelsea</option>
+            <option value="Barrhaven">Barrhaven</option>
+            <option value="Other">Other</option>
+          </select>
+          <fieldset>
+            <legend>Select your desired course(s)</legend>
+            <input type="checkbox" name="fluid" id="fluid" />
+            <label for="fluid">Fluid Changes</label><br />
+            <input type="checkbox" name="spark" id="spark" />
+            <label for="spark">Spark Plugs</label><br />
+            <input type="checkbox" name="j&b" id="j&b" />
+            <label for="j&b">Jumpstart & Battery</label><br />
+            <input type="checkbox" name="brk" id="brk" />
+            <label for="brk">Brakes</label><br />
+            <input type="checkbox" name="ext" id="ext" />
+            <label for="ext">External Maintenance</label><br />
+          </fieldset>
+          <fieldset>
+            <legend>How much do you know about these topics?</legend>
+            <input type="radio" name="kno" id="not" />
+            <label for="not"
+              >Absolutely none - I'm here to learn the basics</label
+            ><br />
+            <input type="radio" name="kno" id="bit" />
+            <label for="bit"
+              >A little bit - I'm looking to expand my knowledge</label
+            ><br />
+            <input type="radio" name="kno" id="med" />
+            <label for="med"
+              >A good amount - I've had a bit of practical experience</label
+            ><br />
+            <input type="radio" name="kno" id="exp" />
+            <label for="exp">A lot - I'm looking to refine my skills</label>
+          </fieldset>
+          <fieldset>
+            <legend>Anything else you'd like us to know?</legend>
+            <textarea name="cmt" id="cmt" rows="4"></textarea>
+          </fieldset>
+          <button>Submit</button>
+        </form>
+      </article>
+    </main>
+    <nav id="bottom">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="teachers.html">Teachers</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a class="notMobile current" href="enroll.html">Enroll</a></li>
+        <li><a class="notMobile" href="students.html">Students</a></li>
+        <li><a class="notMobile" href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <footer>
+      <a href="contact.html" class="contact">Contact Us</a><br /><br />
+      Copyright &copy; 2022 GreaseMonkey University, Founded by the Tochkov
+      Family - site by Sabrina Tochkov<br />
+      Delorean Design by
+      <a
+        target="_blank"
+        href="https://www.neatoshop.com/product/You-built-a-time-machine-out-of-a-delorean"
+        >neatoshop</a
+      ><br />
+      All other photos by Sabrina Tochkov
+    </footer>
+  </body>
+</html>
