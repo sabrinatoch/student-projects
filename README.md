@@ -15,3 +15,9 @@ and display them in a professional setting.
 * Web Programming I
 * Hardware & Operating Systems
 * Math for Computer Science
+
+### Courses (Winter 2023):
+* Programming II
+* Web Programming II
+* Networks
+* Business in the Workplace
