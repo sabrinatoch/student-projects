@@ -12,13 +12,13 @@ and display them in a professional setting.
 
 ### Courses
 
-## Fall 2022:
+#### Fall 2022:
 * Programming I
 * Web Programming I
 * Hardware & Operating Systems
 * Math for Computer Science
 
-## Winter 2023:
+#### Winter 2023:
 * Programming II
 * Web Programming II
 * Networks
