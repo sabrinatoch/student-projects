@@ -1,0 +1,9 @@
+body {
+    background-color: rgb(238, 219, 135);
+}
+
+h1 {
+    color: navy;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.2em;
+}

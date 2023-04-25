@@ -1,0 +1,13 @@
+body {
+    background-color: black;
+}
+
+img {
+    width: 260px;
+    height: 364px;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+}

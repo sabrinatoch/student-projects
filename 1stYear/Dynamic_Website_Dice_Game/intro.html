@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link href="style/game.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+    <title>Hazard</title>
+  </head>
+
+  <body>
+    <header>
+      <div id="bannerimage">
+        <h1>Login</h1>
+      </div>
+    </header>
+    <form action="game.html" id="form" method="get" class="form">
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-6">
+            <label for="firstName">First Name:</label>
+            <input
+              id="firstName"
+              class="form-control"
+              placeholder="John"
+              type="text"
+            />
+            <div class="errorMsg" id="firstErr"></div>
+          </div>
+          <div class="col-md-6">
+            <label for="lastName">Last Name:</label>
+            <input
+              id="lastName"
+              class="form-control"
+              placeholder="Smith"
+              type="text"
+            />
+            <div class="errorMsg" id="lastErr"></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6">
+            <label for="user">Username:</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-at"></i></div>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                id="user"
+                placeholder="John5"
+              />
+            </div>
+            <div class="errorMsg" id="userErr"></div>
+          </div>
+          <div class="col-md-6">
+            <label for="email">Email Address:</label>
+            <input
+              id="email"
+              class="form-control"
+              placeholder="john.smith@outlook.ca"
+              type="text"
+            />
+            <div class="errorMsg" id="emailErr"></div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-6">
+            <label for="phoneNumber">Phone Number:</label>
+            <input
+              id="phoneNumber"
+              class="form-control"
+              placeholder="(819) 888-8888"
+              type="text"
+            />
+            <div class="errorMsg" id="phoneErr"></div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="city">City:</label>
+            <input
+              id="city"
+              class="form-control"
+              placeholder="Gatineau"
+              type="text"
+            />
+            <div class="errorMsg" id="cityErr"></div>
+          </div>
+        </div>
+
+        <label for="amt">Starting Amount of Money:</label>
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+          </div>
+          <input type="text" class="form-control" id="amt" placeholder="300" />
+        </div>
+        <div class="errorMsg" id="amtErr"></div>
+        <br />
+
+        <div id="btns">
+          <input type="submit" value="Submit" class="btn" />
+          <input
+            type="reset"
+            value="Clear"
+            class="btn btn-secondary"
+            id="clear"
+          />
+        </div>
+      </div>
+    </form>
+    <script src="js/intro.js"></script>
+  </body>
+</html>
