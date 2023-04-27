@@ -14,10 +14,12 @@ let user = new User(
 let game = new Game();
 
 let userInfo = $$("#userInfo");
+let loginInfo = $$("#loginInfo")
 let stat = $$("#status");
 // user info
 let bankP = document.createElement("p");
 let betP = document.createElement("p");
+let chanceP = document.createElement("p");
 let mainP = document.createElement("p");
 
 bankP.appendChild(tn(`Bank: $${localStorage.bank}`));
@@ -47,11 +49,11 @@ p4.appendChild(t4);
 p5.appendChild(t5);
 p6.appendChild(t6);
 
-userInfo.appendChild(p1);
-userInfo.appendChild(p3);
-userInfo.appendChild(p4);
-userInfo.appendChild(p5);
-userInfo.appendChild(p6);
+loginInfo.appendChild(p1);
+loginInfo.appendChild(p3);
+loginInfo.appendChild(p4);
+loginInfo.appendChild(p5);
+loginInfo.appendChild(p6);
 
 // status
 let winP = document.createElement("p");
@@ -266,7 +268,9 @@ function setDice1() {
   stat.appendChild(winP);
 
   if (game.hasWon() == null) {
-    winP.textContent = `You rolled a chance of ${game.chance}. Let's roll again!`;
+    winP.textContent = `Chance: ${game.chance}. Let's roll again!`;
+    chanceP.appendChild(tn(`Chance: ${game.chance}`));
+    userInfo.appendChild(chanceP);
     roll.removeEventListener("click", rollDice);
     roll.addEventListener("click", rollAgain);
   } // else if no win or loss
@@ -289,7 +293,7 @@ function setDice2() {
 
   diceP.textContent = `You rolled ${game.dice.getOutcome()}.`;
   if (game.hasWon() == null) {
-    winP.textContent = `Chance: ${game.chance}. Let's roll again!`;
+    winP.textContent = `Let's roll again!`;
   } // if no win or loss
   else if (game.hasWon()) {
     win();
@@ -299,26 +303,29 @@ function setDice2() {
   } // else main is rolled
 } // setDice2()
 
-function win() {
-  user.getResults();
-  winP.textContent = `Congratulations! You won $${user.bet}.`;
+function style() {
   winP.classList.add("blink");
-  winP.style.color = "greenyellow";
+  winP.style.fontSize = "1.3em";
+  winP.style.fontFamily = "Courier New";
   winP.style.backgroundColor = "black";
   winP.style.fontWeight = "bold";
-  winP.style.padding = "5px";
+  winP.style.padding = "2px";
+}
+
+function win() {
+  user.getResults();
+  winP.textContent = `WIN! +$${user.bet}`;
+  winP.style.color = "greenyellow";
+  style();
   $$(".win").classList.remove("vanish");
   playAgain();
 } // win()
 
 function lose() {
   user.getResults();
-  winP.textContent = `Oh no! You lost $${user.bet}.`;
-  winP.classList.add("blink");
+  winP.textContent = `GAME OVER! -$${user.bet}`;
   winP.style.color = "rgb(255, 52, 52)";
-  winP.style.backgroundColor = "black";
-  winP.style.fontWeight = "bold";
-  winP.style.padding = "5px";
+  style();
   $$(".fall").classList.remove("vanish");
   playAgain();
 } // lose()

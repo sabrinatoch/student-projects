@@ -16,6 +16,22 @@ body {
   color: white;
 }
 
+#logo1 {
+  width: 110px;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  margin-left: 0;
+}
+
+#logo2 {
+  width: 110px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  margin-left: 0;
+}
+
 form {
   width: 70%;
   margin-bottom:0;
@@ -29,7 +45,7 @@ form {
 }
 
 #playForm {
-  width: fit-content;
+  width: 80%;
 }
 
 h1 {
@@ -65,18 +81,35 @@ footer {
 }
 
 #userInfo {
-  border: solid 2px white;
+  border: solid 2px gray;
   border-radius: 10px;
   padding: 10px;
-  font-size: 15.5px;
+  font-size: 18px;
   backdrop-filter: blur(8px);
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
-  max-width: fit-content;
+  width: 300px;
 }
 
-#userInfo p {
+#loginInfo {
+  border: solid 2px gray;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 15.5px;
+  backdrop-filter: blur(8px);
+  max-width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+}
+
+#userInfo p{
+  margin-bottom: 0;
+  text-align: center;
+}
+
+#loginInfo p {
   margin-bottom: 0;
 }
 
@@ -159,14 +192,18 @@ img {
   display: none;
 }
 
-#userInfo p:nth-child(7),
-#userInfo p:nth-child(8) {
+#userInfo p:nth-child(2),
+#userInfo p:nth-child(3), #userInfo p:nth-child(4)  {
   text-align: center;
   color: rgb(255, 255, 255);
   backdrop-filter: blur(3px);
   background-color: rgba(255, 192, 203, 0.586);
   border-radius: 10px;
   margin: 5px;
+}
+
+#userInfo p:nth-child(4) {
+  background-color: rgba(177, 159, 162, 0.586);
 }
 
 input[type="submit"],
@@ -195,7 +232,7 @@ input[type="text"] {
 #status {
   text-align: center;
   font-size: larger;
-  width: fit-content;
+  width: 300px;
   border-radius: 15px;
   padding: 6px;
   background-color: rgba(233, 98, 202, 0.792);
@@ -257,6 +294,7 @@ input[type="text"] {
   animation: blinker 1.5s linear infinite;
 }
 
+
 @keyframes blinker {
   50% {
     opacity: 0;
@@ -274,25 +312,29 @@ input[type="text"] {
     height: 160px;
   }
 
+  #playForm {
+    width: 400px;
+  }
+
+  #logo1 {
+    width: 160px;
+  }
+  
+  #logo2 {
+    width: 160px;
+  }
+
   .dice img {
     width: 100px;
   }
 
-  .flex {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-  }
-
-  #playForm {
-    margin-right: 0;
-    width: 400px;
-  }
-
-  #userInfo {
-    margin-left: 0;
-    height: fit-content;
-    margin-top: 70px
+  #loginInfo {
+    position: absolute;
+    margin-top: 0;
+    top: 8px;
+    left: 8px;
+    height: 160px;
+    padding-top: 20px;
   }
 
   .fall img:nth-of-type(1), .win img:nth-of-type(1)  {
