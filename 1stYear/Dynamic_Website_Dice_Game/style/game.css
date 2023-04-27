@@ -175,10 +175,6 @@ img {
   transform: translateY(4px);
 }
 
-.btns:hover {
-  background-color: rgb(178, 152, 156);
-}
-
 #rollDiv {
   margin-top: 1em;
   margin-bottom: 1em;
