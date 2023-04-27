@@ -1,0 +1,77 @@
+body {
+  background-color: pink;
+  animation: color-change 4s linear;
+}
+
+canvas {
+  position: absolute;
+  top: 3%;
+  left: 35%;
+}
+
+img {
+  position: absolute;
+  animation: move-cursor 10s linear;
+  top: 6%;
+  left: 45%;
+}
+
+@keyframes color-change {
+  0% {
+    background: #ffffff;
+  }
+  100% {
+    background: pink;
+  }
+}
+
+@keyframes move-cursor {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  10% {
+    left: 50%;
+    top: 15%;
+  }
+
+  20% {
+    top: 30%;
+    left: 10%;
+  }
+
+ 30% {
+  top: 60%;
+  left: 60%;
+ }
+
+ 40% {
+  top: 30%;
+  left: 10%;
+ }
+
+ 50% {
+  left: 50%;
+  top: 15%;
+ }
+
+ 60% {
+  left: 0;
+  top: 0;
+ }
+
+ 75% {
+  left: 10%;
+  top: 50%;
+ }
+
+ 90% {
+  top: 5%;
+  left: 60%;
+ }
+
+ 100% {
+  top: 6%;
+  left: 45%;
+ }
+}
