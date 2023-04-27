@@ -14,7 +14,7 @@ let user = new User(
 let game = new Game();
 
 let userInfo = $$("#userInfo");
-let loginInfo = $$("#loginInfo")
+let loginInfo = $$("#loginInfo");
 let stat = $$("#status");
 // user info
 let bankP = document.createElement("p");
@@ -169,11 +169,14 @@ function clearBet() {
 // game setup/reset //
 function setupGame() {
   playForm.classList.add("vanish");
-  userInfo.style.margin = "auto";
+  // userInfo.style.margin = "auto";
   userInfo.style.marginTop = "10px";
   $$("#rollDiv").appendChild(roll);
+  $$("#rollDiv").classList.add("fadeIn");
   $$("#d1").classList.remove("vanish");
+  $$("#d1").classList.add("fadeIn");
   $$("#d2").classList.remove("vanish");
+  $$("#d2").classList.add("fadeIn");
 
   roll.addEventListener("click", rollDice);
 

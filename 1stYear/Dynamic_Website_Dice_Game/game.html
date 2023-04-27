@@ -43,47 +43,47 @@
       <img src="./media/falling.webp" alt="Falling Man" />
       <img src="./media/falling.webp" alt="Falling Man" />
     </div>
-      <form id="playForm" method="get" class="form">
-        <label for="bet">Bet:</label>
-        <div class="input-group mb-2">
-          <div class="input-group-prepend">
-            <div class="input-group-text">
-              <i class="fas fa-dollar-sign"></i>
-            </div>
+    <form id="playForm" method="get" class="form">
+      <label for="bet">Bet:</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-dollar-sign"></i>
           </div>
-          <input type="text" class="form-control" id="bet" placeholder="20" />
         </div>
-        <div class="errorMsg" id="betErr"></div>
-        <label for="main">Dice Main:</label>
-        <div class="input-group mb-2">
-          <div class="input-group-prepend">
-            <div class="input-group-text">
-              <i class="fas fa-chevron-circle-right"></i>
-            </div>
+        <input type="text" class="form-control" id="bet" placeholder="20" />
+      </div>
+      <div class="errorMsg" id="betErr"></div>
+      <label for="main">Dice Main:</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-chevron-circle-right"></i>
           </div>
-          <input
-            type="number"
-            class="form-control"
-            id="main"
-            min="5"
-            max="9"
-            placeholder="5-9"
-          />
         </div>
-        <div class="errorMsg" id="mainErr"></div>
-        <br />
-        <div id="betBtn">
-          <input type="button" value="Place Bet" class="btn" id="btnBet" />
-          <input
-            type="reset"
-            value="Clear"
-            class="btn btn-secondary"
-            id="betClear"
-          />
-        </div>
-      </form>
-      <div id="userInfo"></div>
-      <div id="loginInfo"></div>
+        <input
+          type="number"
+          class="form-control"
+          id="main"
+          min="5"
+          max="9"
+          placeholder="5-9"
+        />
+      </div>
+      <div class="errorMsg" id="mainErr"></div>
+      <br />
+      <div id="betBtn">
+        <input type="button" value="Place Bet" class="btn" id="btnBet" />
+        <input
+          type="reset"
+          value="Clear"
+          class="btn btn-secondary"
+          id="betClear"
+        />
+      </div>
+    </form>
+    <div id="userInfo"></div>
+    <div id="loginInfo"></div>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="

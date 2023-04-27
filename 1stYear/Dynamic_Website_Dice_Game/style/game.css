@@ -34,7 +34,7 @@ body {
 
 form {
   width: 70%;
-  margin-bottom:0;
+  margin-bottom: 0;
   margin-right: auto;
   margin-left: auto;
   margin-top: 2em;
@@ -46,6 +46,7 @@ form {
 
 #playForm {
   width: 80%;
+  animation: fly 1s ease-out;
 }
 
 h1 {
@@ -65,7 +66,6 @@ h1 {
   background-position: center;
 }
 
-
 #btns {
   text-align: right;
 }
@@ -77,10 +77,10 @@ header {
 
 footer {
   background-color: black;
-
 }
 
 #userInfo {
+  animation: fly 1s ease-out;
   border: solid 2px gray;
   border-radius: 10px;
   padding: 10px;
@@ -93,6 +93,7 @@ footer {
 }
 
 #loginInfo {
+  animation: fly 1s ease-out;
   border: solid 2px gray;
   border-radius: 10px;
   padding: 10px;
@@ -104,7 +105,7 @@ footer {
   margin-top: 10px;
 }
 
-#userInfo p{
+#userInfo p {
   margin-bottom: 0;
   text-align: center;
 }
@@ -193,7 +194,8 @@ img {
 }
 
 #userInfo p:nth-child(2),
-#userInfo p:nth-child(3), #userInfo p:nth-child(4)  {
+#userInfo p:nth-child(3),
+#userInfo p:nth-child(4) {
   text-align: center;
   color: rgb(255, 255, 255);
   backdrop-filter: blur(3px);
@@ -270,11 +272,12 @@ input[type="text"] {
   width: 90px;
 }
 
-.fall img, .win img {
+.fall img,
+.win img {
   display: none;
 }
 
-.fall img:nth-of-type(1){
+.fall img:nth-of-type(1) {
   width: 270px;
   margin-top: 10px;
 }
@@ -294,6 +297,15 @@ input[type="text"] {
   animation: blinker 1.5s linear infinite;
 }
 
+.fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 1s linear;
+}
+
+.fadeIn {
+  animation: fly 1s ease-out;
+}
 
 @keyframes blinker {
   50% {
@@ -301,8 +313,16 @@ input[type="text"] {
   }
 }
 
-@media all and (min-width: 768px) {
+@keyframes fly {
+  0% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
 
+@media all and (min-width: 768px) {
   h1 {
     padding-top: 50px;
     padding-bottom: 55px;
@@ -319,7 +339,7 @@ input[type="text"] {
   #logo1 {
     width: 160px;
   }
-  
+
   #logo2 {
     width: 160px;
   }
@@ -337,7 +357,8 @@ input[type="text"] {
     padding-top: 20px;
   }
 
-  .fall img:nth-of-type(1), .win img:nth-of-type(1)  {
+  .fall img:nth-of-type(1),
+  .win img:nth-of-type(1) {
     display: block;
     position: absolute;
     top: 185px;
@@ -347,7 +368,8 @@ input[type="text"] {
     margin-top: 0;
   }
 
-  .fall img:nth-of-type(2), .win img:nth-of-type(2)  {
+  .fall img:nth-of-type(2),
+  .win img:nth-of-type(2) {
     display: block;
     position: absolute;
     top: 185px;
@@ -355,5 +377,4 @@ input[type="text"] {
     margin-left: 0;
     width: 30%;
   }
-
 }
