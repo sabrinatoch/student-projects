@@ -12,3 +12,6 @@ function draw() {
 }
 
 window.onload = draw;
+document.querySelector("body").onclick = function() {
+  location.href = "intro.html";
+}
