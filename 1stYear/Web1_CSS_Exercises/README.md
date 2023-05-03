@@ -1,0 +1,2 @@
+### Lab #8 of the Web I Course
+This Lab demonstrates a few different exercises using CSS to format web pages in unique ways. In this lab, I worked with the "grid" and "flex" properties, angling headers, creating neon labels and formatting tables.
