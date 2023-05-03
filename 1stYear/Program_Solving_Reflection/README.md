@@ -1,2 +1,2 @@
 ### Math for Computer Science Reflection
- Final Assignment in Math for Computer Science course.<br> I worked with an algorithm used in computer graphics, and reflected on how it would be useful for a career as a Graphics Developer.
+ **Final Assignment in Math for Computer Science course.**<br> I worked with an algorithm used in computer graphics, and reflected on how it would be useful for a career as a Graphics Developer.
