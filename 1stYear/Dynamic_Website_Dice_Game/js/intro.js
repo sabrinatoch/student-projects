@@ -172,6 +172,7 @@ function validForm() {
   if (!validAmt()) valid = false;
 
   if (valid) {
+    let myDate = new Date();
     localStorage.setItem("firstName", fName.value);
     localStorage.setItem("lastName", lName.value);
     localStorage.setItem("username", user.value);
@@ -179,9 +180,16 @@ function validForm() {
     localStorage.setItem("phoneNumber", tel.value);
     localStorage.setItem("city", city.value);
     localStorage.setItem("bank", amt.value);
+    localStorage.date = myDate.toUTCString();
   }
   return valid;
 } // validForm()
+
+function checkStorage() {
+  if (localStorage.length != 0) {
+    location.href = "game.html";
+  }
+} // checkStorage
 
 fName.onblur = validFirst;
 lName.onblur = validLast;
@@ -194,6 +202,8 @@ amt.onblur = validAmt;
 const form = $$("#form");
 form.onsubmit = validForm;
 form.onreset = clearForm;
+
+window.onload = checkStorage;
 
 function clearForm() {
   $$("#firstErr").textContent = "";

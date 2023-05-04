@@ -1,77 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Orbitron|Press+Start+2P");
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+}
+
 body {
-  background-color: pink;
-  animation: color-change 4s linear;
+  overflow: hidden;
+  color: white;
 }
 
-canvas {
-  position: absolute;
-  top: 3%;
-  left: 35%;
+p {
+  width: fit-content;
+  padding: 10px;
+  animation: color-change 2.5s linear infinite;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  top: 250px;
 }
 
-img {
+.center {
+  text-align: center;
+}
+
+.click {
   position: absolute;
-  animation: move-cursor 10s linear;
-  top: 6%;
-  left: 45%;
+  right: 15px;
+  top: 10px;
+  border-width: 2px;
+  padding: 10px;
+  background-color: rgba(255, 192, 203, 0.726);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+section {
+  position: relative;
+  background-color: black;
+}
+
+svg {
+  position: absolute;
+  width: 200px;
+  fill: pink;
+}
+
+#blob {
+  border-radius: 10px;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  padding-left: 6px;
+  margin-top: 250px;
+  transition-duration: 2s;
+  transition-property: transform;
+}
+
+.roller {
+  transform: rotate(1080deg);
+  -webkit-transform: rotate(1080deg);
 }
 
 @keyframes color-change {
   0% {
-    background: #ffffff;
+    background-color: black;
+  }
+  50% {
+    background-color: rgba(255, 192, 203, 0.853);
   }
   100% {
-    background: pink;
+    background-color: black;
   }
 }
 
-@keyframes move-cursor {
-  0% {
-    left: 0;
-    top: 0;
+@media (max-width: 768px) {
+  svg {
+    width: 150px;
   }
-  10% {
-    left: 50%;
-    top: 15%;
-  }
-
-  20% {
-    top: 30%;
-    left: 10%;
-  }
-
- 30% {
-  top: 60%;
-  left: 60%;
- }
-
- 40% {
-  top: 30%;
-  left: 10%;
- }
-
- 50% {
-  left: 50%;
-  top: 15%;
- }
-
- 60% {
-  left: 0;
-  top: 0;
- }
-
- 75% {
-  left: 10%;
-  top: 50%;
- }
-
- 90% {
-  top: 5%;
-  left: 60%;
- }
-
- 100% {
-  top: 6%;
-  left: 45%;
- }
 }
