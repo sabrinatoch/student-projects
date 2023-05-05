@@ -44,6 +44,11 @@ form {
   padding: 15px;
 }
 
+a {
+  color: skyblue;
+  text-decoration: underline;
+}
+
 #playForm {
   width: 80%;
   animation: fly 1s ease-out;

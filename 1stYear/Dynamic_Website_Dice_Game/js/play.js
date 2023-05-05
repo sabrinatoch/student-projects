@@ -34,26 +34,25 @@ let p3 = document.createElement("p");
 let p4 = document.createElement("p");
 let p5 = document.createElement("p");
 let p6 = document.createElement("p");
+let p7 = document.createElement("p");
+let p8 = document.createElement("p");
 
-let t1 = document.createTextNode(
-  `Name: ${localStorage.firstName} ${localStorage.lastName}`
-);
-let t3 = document.createTextNode(`Username: ${localStorage.username}`);
-let t4 = document.createTextNode(`Email: ${localStorage.email}`);
-let t5 = document.createTextNode(`Phone #: ${localStorage.phoneNumber}`);
-let t6 = document.createTextNode(`City: ${localStorage.city}`);
+p1.textContent = `Welcome back, ${localStorage.firstName} ${localStorage.lastName}`;
+p3.textContent = `Username: ${localStorage.username}`;
+p4.textContent = `Email: ${localStorage.email}`;
+p5.textContent = `Phone #: ${localStorage.phoneNumber}`;
+p6.textContent = `City: ${localStorage.city}`;
+p7.textContent = `Last Visit: ${localStorage.date}`;
+p8.innerHTML = `Not ${localStorage.firstName} ${localStorage.lastName}? <a id="change" href="#">Change your credentials</a>`;
 
-p1.appendChild(t1);
-p3.appendChild(t3);
-p4.appendChild(t4);
-p5.appendChild(t5);
-p6.appendChild(t6);
 
 loginInfo.appendChild(p1);
 loginInfo.appendChild(p3);
 loginInfo.appendChild(p4);
 loginInfo.appendChild(p5);
 loginInfo.appendChild(p6);
+loginInfo.appendChild(p7);
+loginInfo.appendChild(p8);
 
 // status
 let winP = document.createElement("p");
@@ -358,3 +357,17 @@ $$("#exit").onclick = function () {
 };
 btnBet.onclick = validBoth;
 betClear.onclick = clearBet;
+
+$$("#change").onclick = () => {
+  localStorage.removeItem("firstName");
+  localStorage.removeItem("lastName");
+  localStorage.removeItem("username");
+  localStorage.removeItem("email");
+  localStorage.removeItem("phoneNumber");
+  localStorage.removeItem("city");
+  localStorage.removeItem("bank");
+  localStorage.removeItem("date");
+  location.href = "intro.html";
+}
+
+
