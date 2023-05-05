@@ -323,7 +323,7 @@ input[type="text"] {
   }
 }
 
-@media all and (min-width: 768px) {
+@media all and (min-width: 800px) {
   h1 {
     padding-top: 50px;
     padding-bottom: 55px;
@@ -355,7 +355,8 @@ input[type="text"] {
     top: 8px;
     left: 8px;
     height: 160px;
-    padding-top: 20px;
+    font-size: 16px;
+    padding-top: 5px;
   }
 
   .fall img:nth-of-type(1),

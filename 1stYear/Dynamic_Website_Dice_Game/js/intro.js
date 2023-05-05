@@ -1,30 +1,28 @@
-let $$ = (sel) => document.querySelector(sel);
-
-const fName = $$("#firstName");
-const lName = $$("#lastName");
-const user = $$("#user");
-const email = $$("#email");
-const tel = $$("#phoneNumber");
-const city = $$("#city");
-const amt = $$("#amt");
+const fName = $("#firstName");
+const lName = $("#lastName");
+const user = $("#user");
+const email = $("#email");
+const tel = $("#phoneNumber");
+const city = $("#city");
+const amt = $("#amt");
 
 function validFirst() {
   let valid = true;
   let regex = /(^[A-Z][A-Z\'\`\-\s]*?(?<!\`)$){1,20}/i;
-  if (fName.value === "") {
-    fName.classList.add("errRed");
-    $$("#firstErr").classList.add("errDisplay");
-    $$("#firstErr").textContent = "⚠ You must enter a first name";
+  if (fName.val() === "") {
+    fName.addClass("errRed");
+    $("#firstErr").addClass("errDisplay");
+    $("#firstErr").text("⚠ You must enter a first name");
     valid = false;
-  } else if (!regex.test(fName.value)) {
-    fName.classList.add("errRed");
-    $$("#firstErr").classList.add("errDisplay");
-    $$("#firstErr").textContent = "⚠ Invalid first name";
+  } else if (!regex.test(fName.val())) {
+    fName.addClass("errRed");
+    $("#firstErr").addClass("errDisplay");
+    $("#firstErr").text("⚠ Invalid first name");
     valid = false;
   } else {
-    fName.classList.remove("errRed");
-    $$("#firstErr").classList.remove("errDisplay");
-    $$("#firstErr").textContent = "";
+    fName.removeClass("errRed");
+    $("#firstErr").removeClass("errDisplay");
+    $("#firstErr").text("");
   }
   return valid;
 } // validFirst()
@@ -32,20 +30,20 @@ function validFirst() {
 function validLast() {
   let valid = true;
   let regex = /(^[A-Z][A-Z\'\`\-\s]*?(?<!\`)$){1,30}/i;
-  if (lName.value === "") {
-    lName.classList.add("errRed");
-    $$("#lastErr").classList.add("errDisplay");
-    $$("#lastErr").textContent = "⚠ You must enter a last name";
+  if (lName.val() === "") {
+    lName.addClass("errRed");
+    $("#lastErr").addClass("errDisplay");
+    $("#lastErr").text("⚠ You must enter a last name");
     valid = false;
-  } else if (!regex.test(lName.value)) {
-    lName.classList.add("errRed");
-    $$("#lastErr").classList.add("errDisplay");
-    $$("#lastErr").textContent = "⚠ Invalid last name";
+  } else if (!regex.test(lName.val())) {
+    lName.addClass("errRed");
+    $("#lastErr").addClass("errDisplay");
+    $("#lastErr").text("⚠ Invalid last name");
     valid = false;
   } else {
-    lName.classList.remove("errRed");
-    $$("#lastErr").classList.remove("errDisplay");
-    $$("#lastErr").textContent = "";
+    lName.removeClass("errRed");
+    $("#lastErr").removeClass("errDisplay");
+    $("#lastErr").text("");
   }
   return valid;
 } // validLast()
@@ -53,20 +51,20 @@ function validLast() {
 function validUser() {
   let valid = true;
   let regex = /^[A-Z][a-z]{3}[0-5]$/;
-  if (user.value === "") {
-    user.classList.add("errRed");
-    $$("#userErr").classList.add("errDisplay");
-    $$("#userErr").textContent = "⚠ You must enter a username";
+  if (user.val() === "") {
+    user.addClass("errRed");
+    $("#userErr").addClass("errDisplay");
+    $("#userErr").text("⚠ You must enter a username");
     valid = false;
-  } else if (!regex.test(user.value)) {
-    user.classList.add("errRed");
-    $$("#userErr").classList.add("errDisplay");
-    $$("#userErr").textContent = "⚠ Invalid username";
+  } else if (!regex.test(user.val())) {
+    user.addClass("errRed");
+    $("#userErr").addClass("errDisplay");
+    $("#userErr").text("⚠ Invalid username");
     valid = false;
   } else {
-    user.classList.remove("errRed");
-    $$("#userErr").classList.remove("errDisplay");
-    $$("#userErr").textContent = "";
+    user.removeClass("errRed");
+    $("#userErr").removeClass("errDisplay");
+    $("#userErr").text("");
   }
   return valid;
 } // validUser()
@@ -74,20 +72,20 @@ function validUser() {
 function validEmail() {
   let valid = true;
   let regex = /^[A-Za-z0-9_\-.]*@[A-Za-z0-9_]*.(ca|org)$/;
-  if (email.value === "") {
-    email.classList.add("errRed");
-    $$("#emailErr").classList.add("errDisplay");
-    $$("#emailErr").textContent = "⚠ You must enter an email";
+  if (email.val() === "") {
+    email.addClass("errRed");
+    $("#emailErr").addClass("errDisplay");
+    $("#emailErr").text("⚠ You must enter an email");
     valid = false;
-  } else if (!regex.test(email.value)) {
-    email.classList.add("errRed");
-    $$("#emailErr").classList.add("errDisplay");
-    $$("#emailErr").textContent = "⚠ Invalid email";
+  } else if (!regex.test(email.val())) {
+    email.addClass("errRed");
+    $("#emailErr").addClass("errDisplay");
+    $("#emailErr").text("⚠ Invalid email");
     valid = false;
   } else {
-    email.classList.remove("errRed");
-    $$("#emailErr").classList.remove("errDisplay");
-    $$("#emailErr").textContent = "";
+    email.removeClass("errRed");
+    $("#emailErr").removeClass("errDisplay");
+    $("#emailErr").text("");
   }
   return valid;
 } // validEmail()
@@ -95,20 +93,20 @@ function validEmail() {
 function validTel() {
   let valid = true;
   let regex = /^\([0-9]{3}\)\s[0-9]{3}\-[0-9]{4}$/;
-  if (tel.value === "") {
-    tel.classList.add("errRed");
-    $$("#phoneErr").classList.add("errDisplay");
-    $$("#phoneErr").textContent = "⚠ You must enter a phone #";
+  if (tel.val() === "") {
+    tel.addClass("errRed");
+    $("#phoneErr").addClass("errDisplay");
+    $("#phoneErr").text("⚠ You must enter a phone #");
     valid = false;
-  } else if (!regex.test(tel.value)) {
-    tel.classList.add("errRed");
-    $$("#phoneErr").classList.add("errDisplay");
-    $$("#phoneErr").textContent = "⚠ Invalid phone #";
+  } else if (!regex.test(tel.val())) {
+    tel.addClass("errRed");
+    $("#phoneErr").addClass("errDisplay");
+    $("#phoneErr").text("⚠ Invalid phone #");
     valid = false;
   } else {
-    tel.classList.remove("errRed");
-    $$("#phoneErr").classList.remove("errDisplay");
-    $$("#phoneErr").textContent = "";
+    tel.removeClass("errRed");
+    $("#phoneErr").removeClass("errDisplay");
+    $("#phoneErr").text("");
   }
   return valid;
 } // validTel()
@@ -116,20 +114,20 @@ function validTel() {
 function validCity() {
   let valid = true;
   let regex = /^[A-Za-z\s]{1,42}$/;
-  if (city.value === "") {
-    city.classList.add("errRed");
-    $$("#cityErr").classList.add("errDisplay");
-    $$("#cityErr").textContent = "⚠ You must enter a city";
+  if (city.val() === "") {
+    city.addClass("errRed");
+    $("#cityErr").addClass("errDisplay");
+    $("#cityErr").text("⚠ You must enter a city");
     valid = false;
-  } else if (!regex.test(city.value)) {
-    city.classList.add("errRed");
-    $$("#cityErr").classList.add("errDisplay");
-    $$("#cityErr").textContent = "⚠ Invalid city";
+  } else if (!regex.test(city.val())) {
+    city.addClass("errRed");
+    $("#cityErr").addClass("errDisplay");
+    $("#cityErr").text("⚠ Invalid city");
     valid = false;
   } else {
-    city.classList.remove("errRed");
-    $$("#cityErr").classList.remove("errDisplay");
-    $$("#cityErr").textContent = "";
+    city.removeClass("errRed");
+    $("#cityErr").removeClass("errDisplay");
+    $("#cityErr").text("");
   }
   return valid;
 } // validCity()
@@ -137,25 +135,26 @@ function validCity() {
 function validAmt() {
   let valid = true;
   let regex = /^[0-9]*$/;
-  if (amt.value === "") {
-    amt.classList.add("errRed");
-    $$("#amtErr").textContent = "⚠ You must enter a starting amount";
+  if (amt.val() === "") {
+    amt.addClass("errRed");
+    $("#amtErr").text("⚠ You must enter a starting amount");
     valid = false;
-  } else if (!regex.test(amt.value)) {
-    amt.classList.add("errRed");
-    $$("#amtErr").textContent = "⚠ Invalid amount";
+  } else if (!regex.test(amt.val())) {
+    amt.addClass("errRed");
+    $("#amtErr").text("⚠ Invalid amount");
     valid = false;
-  } else if (regex.test(amt.value)) {
-    let num = parseInt(amt.value);
+  } else if (regex.test(amt.val())) {
+    let num = parseInt(amt.val());
     if (num < 5 || num > 5000 || num % 3 != 0) {
-      amt.classList.add("errRed");
-      $$("#amtErr").textContent =
-        "⚠ Invalid amount (must be between $5 & $5000 and divisble by 3)";
+      amt.addClass("errRed");
+      $("#amtErr").text(
+        "⚠ Invalid amount (must be between $5 & $5000 and divisble by 3)"
+      );
       valid = false;
     } // if improper range
     else {
-      amt.classList.remove("errRed");
-      $$("#amtErr").textContent = "";
+      amt.removeClass("errRed");
+      $("#amtErr").text("");
     } // valid
   }
   return valid;
@@ -173,13 +172,13 @@ function validForm() {
 
   if (valid) {
     let myDate = new Date();
-    localStorage.setItem("firstName", fName.value);
-    localStorage.setItem("lastName", lName.value);
-    localStorage.setItem("username", user.value);
-    localStorage.setItem("email", email.value);
-    localStorage.setItem("phoneNumber", tel.value);
-    localStorage.setItem("city", city.value);
-    localStorage.setItem("bank", amt.value);
+    localStorage.setItem("firstName", fName.val());
+    localStorage.setItem("lastName", lName.val());
+    localStorage.setItem("username", user.val());
+    localStorage.setItem("email", email.val());
+    localStorage.setItem("phoneNumber", tel.val());
+    localStorage.setItem("city", city.val());
+    localStorage.setItem("bank", amt.val());
     localStorage.date = myDate.toUTCString();
   }
   return valid;
@@ -191,40 +190,40 @@ function checkStorage() {
   }
 } // checkStorage
 
-fName.onblur = validFirst;
-lName.onblur = validLast;
-user.onblur = validUser;
-email.onblur = validEmail;
-tel.onblur = validTel;
-city.onblur = validCity;
-amt.onblur = validAmt;
+fName.on("blur", validFirst);
+lName.on("blur", validLast);
+user.on("blur", validUser);
+email.on("blur", validEmail);
+tel.on("blur", validTel);
+city.on("blur", validCity);
+amt.on("blur", validAmt);
 
-const form = $$("#form");
-form.onsubmit = validForm;
-form.onreset = clearForm;
+const form = $("#form");
+form.on("submit", validForm);
+form.on("reset", clearForm);
 
-window.onload = checkStorage;
+window.on("load", checkStorage);
 
 function clearForm() {
-  $$("#firstErr").textContent = "";
-  $$("#firstErr").classList.remove("errDisplay");
-  fName.classList.remove("errRed");
-  $$("#lastErr").textContent = "";
-  $$("#lastErr").classList.remove("errDisplay");
-  lName.classList.remove("errRed");
-  $$("#userErr").textContent = "";
-  $$("#userErr").classList.remove("errDisplay");
-  user.classList.remove("errRed");
-  $$("#emailErr").textContent = "";
-  $$("#emailErr").classList.remove("errDisplay");
-  email.classList.remove("errRed");
-  $$("#phoneErr").textContent = "";
-  $$("#phoneErr").classList.remove("errDisplay");
-  tel.classList.remove("errRed");
-  $$("#cityErr").textContent = "";
-  $$("#cityErr").classList.remove("errDisplay");
-  city.classList.remove("errRed");
-  $$("#amtErr").textContent = "";
-  $$("#amtErr").classList.remove("errDisplay");
-  amt.classList.remove("errRed");
+  $("#firstErr").text("");
+  $("#firstErr").removeClass("errDisplay");
+  fName.removeClass("errRed");
+  $("#lastErr").text("");
+  $("#lastErr").removeClass("errDisplay");
+  lName.removeClass("errRed");
+  $("#userErr").text("");
+  $("#userErr").removeClass("errDisplay");
+  user.removeClass("errRed");
+  $("#emailErr").text("");
+  $("#emailErr").removeClass("errDisplay");
+  email.removeClass("errRed");
+  $("#phoneErr").text("");
+  $("#phoneErr").removeClass("errDisplay");
+  tel.removeClass("errRed");
+  $("#cityErr").text("");
+  $("#cityErr").removeClass("errDisplay");
+  city.removeClass("errRed");
+  $("#amtErr").text("");
+  $("#amtErr").removeClass("errDisplay");
+  amt.removeClass("errRed");
 } // clearForm()

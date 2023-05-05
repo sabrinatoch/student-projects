@@ -22,7 +22,7 @@ let betP = document.createElement("p");
 let chanceP = document.createElement("p");
 let mainP = document.createElement("p");
 
-bankP.appendChild(tn(`Bank: $${localStorage.bank}`));
+bankP.textContent = `Bank: $${localStorage.bank}`;
 bankP.style.color = "pink";
 bankP.style.fontWeight = "bold";
 
@@ -37,14 +37,14 @@ let p6 = document.createElement("p");
 let p7 = document.createElement("p");
 let p8 = document.createElement("p");
 
-p1.textContent = `Welcome back, ${localStorage.firstName} ${localStorage.lastName}`;
-p3.textContent = `Username: ${localStorage.username}`;
+p1.textContent = `Welcome back, ${localStorage.firstName} ${localStorage.lastName}!`;
+p3.textContent = `Username: ${localStorage.username} | City: ${localStorage.city}`;
 p4.textContent = `Email: ${localStorage.email}`;
 p5.textContent = `Phone #: ${localStorage.phoneNumber}`;
-p6.textContent = `City: ${localStorage.city}`;
-p7.textContent = `Last Visit: ${localStorage.date}`;
-p8.innerHTML = `Not ${localStorage.firstName} ${localStorage.lastName}? <a id="change" href="#">Change your credentials</a>`;
+p6.textContent = `Last Visit: ${localStorage.date}`;
+p7.innerHTML = `Not ${localStorage.firstName} ${localStorage.lastName}? <a id="change" href="#">Change credentials</a>`;
 
+p1.style.color = "pink";
 
 loginInfo.appendChild(p1);
 loginInfo.appendChild(p3);
@@ -52,7 +52,6 @@ loginInfo.appendChild(p4);
 loginInfo.appendChild(p5);
 loginInfo.appendChild(p6);
 loginInfo.appendChild(p7);
-loginInfo.appendChild(p8);
 
 // status
 let winP = document.createElement("p");
@@ -220,6 +219,7 @@ function finishGame() {
   $$("#d1").classList.add("vanish");
   $$("#d2").classList.add("vanish");
   winP.classList.remove("blink");
+  chanceP.classList.add("vanish");
   if (localStorage.bank > 0) {
     $$(".win").classList.add("vanish");
     $$(".fall").classList.add("vanish");
@@ -353,7 +353,7 @@ main.onblur = validMain;
 yes.onclick = resetGame;
 no.onclick = finishGame;
 $$("#exit").onclick = function () {
-  location.href = "intro.html";
+  location.href = "index.html";
 };
 btnBet.onclick = validBoth;
 betClear.onclick = clearBet;
@@ -368,6 +368,4 @@ $$("#change").onclick = () => {
   localStorage.removeItem("bank");
   localStorage.removeItem("date");
   location.href = "intro.html";
-}
-
-
+};
