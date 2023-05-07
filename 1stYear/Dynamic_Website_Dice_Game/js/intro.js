@@ -202,7 +202,7 @@ const form = $("#form");
 form.on("submit", validForm);
 form.on("reset", clearForm);
 
-window.on("load", checkStorage);
+$(window).on("load", checkStorage);
 
 function clearForm() {
   $("#firstErr").text("");

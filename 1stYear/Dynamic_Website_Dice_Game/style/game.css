@@ -304,6 +304,10 @@ input[type="text"] {
   transition: visibility 0s 2s, opacity 1s linear;
 }
 
+.error {
+  color:rgb(255, 188, 188);
+}
+
 .fadeIn {
   animation: fly 1s ease-out;
 }
