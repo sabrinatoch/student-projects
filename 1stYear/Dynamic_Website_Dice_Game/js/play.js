@@ -28,30 +28,14 @@ bankP.style.fontWeight = "bold";
 
 userInfo.appendChild(bankP);
 
-let p1 = document.createElement("p");
-let p2 = document.createElement("p");
-let p3 = document.createElement("p");
-let p4 = document.createElement("p");
-let p5 = document.createElement("p");
-let p6 = document.createElement("p");
-let p7 = document.createElement("p");
-let p8 = document.createElement("p");
+$$("#p1").textContent = `Welcome back, ${localStorage.firstName} ${localStorage.lastName}!`;
+$$("#p2").textContent = `Username: ${localStorage.username} | City: ${localStorage.city}`;
+$$("#p3").textContent = `Email: ${localStorage.email}`;
+$$("#p4").textContent = `Phone #: ${localStorage.phoneNumber}`;
+$$("#p5").textContent = `Last Visit: ${localStorage.date}`;
+$$("#p6").innerHTML = `Not ${localStorage.firstName} ${localStorage.lastName}? <a id="change" href="#">Change credentials</a>`;
 
-p1.textContent = `Welcome back, ${localStorage.firstName} ${localStorage.lastName}!`;
-p3.textContent = `Username: ${localStorage.username} | City: ${localStorage.city}`;
-p4.textContent = `Email: ${localStorage.email}`;
-p5.textContent = `Phone #: ${localStorage.phoneNumber}`;
-p6.textContent = `Last Visit: ${localStorage.date}`;
-p7.innerHTML = `Not ${localStorage.firstName} ${localStorage.lastName}? <a id="change" href="#">Change credentials</a>`;
-
-p1.style.color = "pink";
-
-loginInfo.appendChild(p1);
-loginInfo.appendChild(p3);
-loginInfo.appendChild(p4);
-loginInfo.appendChild(p5);
-loginInfo.appendChild(p6);
-loginInfo.appendChild(p7);
+$$("#p1").style.color = "pink";
 
 // status
 let winP = document.createElement("p");
@@ -246,12 +230,14 @@ function finishGame() {
 function rollDice() {
   game.roll();
   rollAnimation();
+  $$("button").disabled = true;
   setTimeout(setDice1, 550);
 } // rollDice()
 
 function rollAgain() {
   game.rollAgain();
   rollAnimation();
+  $$("button").disabled = true;
   setTimeout(setDice2, 550);
 } // rollAgain()
 
@@ -263,6 +249,7 @@ function setDice1() {
   for (i = 1; i < 7; ++i) {
     if (game.dice.die2 == i) $$("#d2").src = `./media/d${i}.jpg`;
   }
+  $$("button").disabled = false;
   diceP.textContent = `You rolled ${game.dice.getOutcome()}.`;
   stat.appendChild(diceP);
   stat.classList.remove("vanish");
@@ -292,7 +279,7 @@ function setDice2() {
   for (i = 1; i < 7; ++i) {
     if (game.dice.die2 == i) $$("#d2").src = `./media/d${i}.jpg`;
   }
-
+  $$("button").disabled = false;
   diceP.textContent = `You rolled ${game.dice.getOutcome()}.`;
   if (game.hasWon() == null) {
     winP.textContent = `Let's roll again!`;
@@ -369,3 +356,19 @@ $$("#change").onclick = () => {
   localStorage.removeItem("date");
   location.href = "intro.html";
 };
+
+const modalWindow = $(".modal");
+const closeModal = $("#close-btn");
+const modalDetails = $(".modalDetails");
+
+const toggleModal = () => modalWindow.classList.toggle("showModal");
+const checkClose = (e) => e.target === modalWindow ? toggleModal() : null;
+
+const processErrors = function (errMessage) {
+  modalDetails.innerHTML = `Error: ${errMessage} occurred`;
+  toggleModal();
+};
+
+$(window).on("error", processErrors);
+closeModal.addEventListener('click', toggleModal);
+window.addEventListener('click', checkClose, true);

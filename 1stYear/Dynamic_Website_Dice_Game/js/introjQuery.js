@@ -99,3 +99,19 @@ $(window).on("load", () => {
 $("#clear").on("click", () => {
   location.reload();
 });
+
+const modalWindow = $(".modal");
+const closeModal = $("#close-btn");
+const modalDetails = $(".modalDetails");
+
+const toggleModal = () => modalWindow.classList.toggle("showModal");
+const checkClose = (e) => e.target === modalWindow ? toggleModal() : null;
+
+const processErrors = function (errMessage) {
+  modalDetails.innerHTML = `Error: ${errMessage} occurred`;
+  toggleModal();
+};
+
+$(window).on("error", processErrors);
+closeModal.addEventListener('click', toggleModal);
+window.addEventListener('click', checkClose, true);
