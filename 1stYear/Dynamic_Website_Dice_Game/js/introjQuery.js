@@ -1,14 +1,22 @@
 $(() => {
+  jQuery.validator.addMethod(
+    "divisble",
+    function (value, element) {
+      return this.optional(element) || parseFloat(value) % 3 == 0;
+    },
+    "⚠ Amount must be divisible by 3"
+  );
+
   $("#form").validate({
     rules: {
       firstName: {
         required: true,
-        pattern: /^[A-Z][A-Z\'\`\-\s]*?(?<!\`)$/,
+        pattern: /(^[A-Z][A-Z\'\`\-\s]*?(?<!\`)$){1,20}/i,
         maxlength: 20,
       },
       lastName: {
         required: true,
-        pattern: /^[A-Z][A-Z\'\`\-\s]*?(?<!\`)$/,
+        pattern: /(^[A-Z][A-Z\'\`\-\s]*?(?<!\`)$){1,30}/i,
         maxlength: 30,
       },
       user: {
@@ -31,8 +39,9 @@ $(() => {
         required: true,
         digits: true,
         range: [5, 5000],
+        divisble: true,
       },
-    },
+    }, // rules
     messages: {
       firstName: {
         required: "⚠ Please enter your first name",
@@ -62,13 +71,30 @@ $(() => {
         required: "⚠ Please enter your starting amount",
         pattern: "⚠ Invalid starting amount",
       },
-    },
-  });
-});
+    }, // messages
+  }); // validate
+}); // fct
+
+function store() {
+  if ($("#form").valid()) {
+    let myDate = new Date();
+    localStorage.firstName = $("#firstName").val();
+    localStorage.lastName = $("#lastName").val();
+    localStorage.username = $("#user").val();
+    localStorage.email = $("#email").val();
+    localStorage.phoneNumber = $("#phoneNumber").val();
+    localStorage.city = $("#city").val();
+    localStorage.bank = $("#amt").val();
+    localStorage.date = myDate.toUTCString();
+    return true;
+  } else return false;
+} // validForm()
+
+$("#form").on("submit", store);
 
 $(window).on("load", () => {
-    if (localStorage.length != 0) location.href = "game.html";
-  }); // check localStorage
+  if (localStorage.length != 0) location.href = "game.html";
+}); // check localStorage
 
 $("#clear").on("click", () => {
   location.reload();
