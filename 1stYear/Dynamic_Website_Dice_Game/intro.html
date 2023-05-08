@@ -38,7 +38,6 @@
               placeholder="John"
               type="text"
             />
-            <div class="errorMsg" id="firstErr"></div>
           </div>
           <div class="col-md-6">
             <label for="lastName">Last Name:</label>
@@ -49,25 +48,18 @@
               placeholder="Smith"
               type="text"
             />
-            <div class="errorMsg" id="lastErr"></div>
           </div>
         </div>
         <div class="form-row">
           <div class="col-md-6">
             <label for="user">Username:</label>
-            <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text"><i class="fas fa-at"></i></div>
-              </div>
-              <input
-                type="text"
-                class="form-control"
-                id="user"
-                name="user"
-                placeholder="John5"
-              />
-            </div>
-            <div class="errorMsg" id="userErr"></div>
+            <input
+              type="text"
+              class="form-control"
+              id="user"
+              name="user"
+              placeholder="John5"
+            />
           </div>
           <div class="col-md-6">
             <label for="email">Email Address:</label>
@@ -78,7 +70,6 @@
               placeholder="john.smith@outlook.ca"
               type="text"
             />
-            <div class="errorMsg" id="emailErr"></div>
           </div>
         </div>
 
@@ -92,7 +83,6 @@
               placeholder="(819) 888-8888"
               type="text"
             />
-            <div class="errorMsg" id="phoneErr"></div>
           </div>
 
           <div class="col-md-6">
@@ -104,30 +94,21 @@
               placeholder="Gatineau"
               type="text"
             />
-            <div class="errorMsg" id="cityErr"></div>
           </div>
         </div>
 
         <label for="amt">Starting Amount of Money:</label>
-        <div class="input-group mb-2">
-          <div class="input-group-prepend">
-            <div class="input-group-text">
-              <i class="fas fa-dollar-sign"></i>
-            </div>
-          </div>
-          <input
-            type="text"
-            class="form-control"
-            id="amt"
-            name="amt"
-            placeholder="300"
-          />
-        </div>
-        <div class="errorMsg" id="amtErr"></div>
+        <input
+          type="text"
+          class="form-control"
+          id="amt"
+          name="amt"
+          placeholder="300"
+        />
         <br />
 
         <div id="btns">
-          <input type="submit" value="Submit" class="btn" />
+          <input type="submit" value="Submit" class="btn" id="submit" />
           <input
             type="reset"
             value="Clear"
@@ -142,7 +123,7 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-      <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.3/jquery.validate.min.js"></script>
     <script src="js/introjQuery.js"></script>
   </body>
 </html>
