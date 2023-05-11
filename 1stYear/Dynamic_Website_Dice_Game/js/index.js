@@ -62,6 +62,11 @@ function draw() {
   ctx.arc(195, 195, 10, 0, Math.PI * 2, true);
   ctx.fill();
   ctx.closePath();
+
+  document.querySelector("canvas").classList.add("roller");
+  setTimeout(function () {
+    location.href = "intro.html";
+  }, 10000)
 }
 
 window.onresize = () => {
@@ -72,13 +77,14 @@ window.onresize = () => {
 };
 
 window.onload = draw;
+
 document.querySelector("input[type='button']").onclick = function () {
   location.href = "intro.html";
 };
 
-document.querySelector("p").onclick = () => {
-  document.querySelector("canvas").classList.add("roller");
-  setTimeout(function () {
-    location.href = "intro.html";
-  }, 2000)
-}
+// document.querySelector("p").onclick = () => {
+//   document.querySelector("canvas").classList.add("roller");
+//   setTimeout(function () {
+//     location.href = "intro.html";
+//   }, 2000)
+// }

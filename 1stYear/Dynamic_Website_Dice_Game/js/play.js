@@ -21,7 +21,6 @@ let bankP = document.createElement("p");
 let betP = document.createElement("p");
 let chanceP = document.createElement("p");
 let mainP = document.createElement("p");
-
 bankP.textContent = `Bank: $${localStorage.bank}`;
 bankP.style.color = "pink";
 bankP.style.fontWeight = "bold";
@@ -34,7 +33,6 @@ $$("#p3").textContent = `Email: ${localStorage.email}`;
 $$("#p4").textContent = `Phone #: ${localStorage.phoneNumber}`;
 $$("#p5").textContent = `Last Visit: ${localStorage.date}`;
 $$("#p6").innerHTML = `Not ${localStorage.firstName} ${localStorage.lastName}? <a id="change" href="#">Change credentials</a>`;
-
 $$("#p1").style.color = "pink";
 
 // status
@@ -299,7 +297,7 @@ function style() {
   winP.style.backgroundColor = "black";
   winP.style.fontWeight = "bold";
   winP.style.padding = "2px";
-}
+} // style()
 
 function win() {
   user.getResults();
@@ -357,6 +355,7 @@ $$("#change").onclick = () => {
   location.href = "intro.html";
 };
 
+// error handler
 const modalWindow = $(".modal");
 const closeModal = $("#close-btn");
 const modalDetails = $(".modalDetails");

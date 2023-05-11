@@ -73,7 +73,7 @@ $(() => {
       },
     }, // messages
   }); // validate
-}); // fct
+}); 
 
 function store() {
   if ($("#form").valid()) {
@@ -90,6 +90,8 @@ function store() {
   } else return false;
 } // validForm()
 
+// event handlers
+
 $("#form").on("submit", store);
 
 $(window).on("load", () => {
@@ -100,6 +102,7 @@ $("#clear").on("click", () => {
   location.reload();
 });
 
+// error handler
 const modalWindow = $(".modal");
 const closeModal = $("#close-btn");
 const modalDetails = $(".modalDetails");

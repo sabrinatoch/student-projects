@@ -200,30 +200,9 @@ amt.on("blur", validAmt);
 
 const form = $("#form");
 form.on("submit", validForm);
-form.on("reset", clearForm);
+
+$("#clear").on("click", () => {
+  location.reload();
+});
 
 $(window).on("load", checkStorage);
-
-function clearForm() {
-  $("#firstErr").text("");
-  $("#firstErr").removeClass("errDisplay");
-  fName.removeClass("errRed");
-  $("#lastErr").text("");
-  $("#lastErr").removeClass("errDisplay");
-  lName.removeClass("errRed");
-  $("#userErr").text("");
-  $("#userErr").removeClass("errDisplay");
-  user.removeClass("errRed");
-  $("#emailErr").text("");
-  $("#emailErr").removeClass("errDisplay");
-  email.removeClass("errRed");
-  $("#phoneErr").text("");
-  $("#phoneErr").removeClass("errDisplay");
-  tel.removeClass("errRed");
-  $("#cityErr").text("");
-  $("#cityErr").removeClass("errDisplay");
-  city.removeClass("errRed");
-  $("#amtErr").text("");
-  $("#amtErr").removeClass("errDisplay");
-  amt.removeClass("errRed");
-} // clearForm()

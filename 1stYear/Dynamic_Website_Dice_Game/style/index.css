@@ -1,6 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Orbitron|Press+Start+2P");
-
 
 * {
   box-sizing: border-box;
@@ -14,7 +12,7 @@ body {
   color: white;
 }
 
-p {
+/* p {
   width: fit-content;
   padding: 10px;
   animation: color-change 2.5s linear infinite;
@@ -23,7 +21,7 @@ p {
   position: relative;
   top: 250px;
   cursor: pointer;
-}
+} */
 
 .center {
   text-align: center;
@@ -61,7 +59,8 @@ svg {
   width: 200px;
   padding-left: 6px;
   margin-top: 250px;
-  transition-duration: 2s;
+  animation: color-change 2.5s linear infinite;
+  transition-duration: 9s;
   transition-property: transform;
 }
 
