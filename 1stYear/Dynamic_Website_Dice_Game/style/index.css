@@ -12,19 +12,25 @@ body {
   color: white;
 }
 
-/* p {
+p {
   width: fit-content;
+  font-size: 2em;
+  color: palevioletred;
   padding: 10px;
-  animation: color-change 2.5s linear infinite;
+  animation: fly 3s ease-out;
   margin-right: auto;
   margin-left: auto;
   position: relative;
   top: 250px;
   cursor: pointer;
-} */
+}
 
 .center {
   text-align: center;
+}
+
+.hidden {
+  display: none;
 }
 
 .click {
@@ -59,14 +65,13 @@ svg {
   width: 200px;
   padding-left: 6px;
   margin-top: 250px;
-  animation: color-change 2.5s linear infinite;
-  transition-duration: 9s;
+  animation: color-change 1.8s linear infinite;
+  transition-duration: 8s;
   transition-property: transform;
 }
 
 .roller {
-  transform: rotate(1080deg);
-  -webkit-transform: rotate(1080deg);
+  transform: rotate(2070deg);
 }
 
 @keyframes color-change {
@@ -78,6 +83,15 @@ svg {
   }
   100% {
     background-color: black;
+  }
+}
+
+@keyframes fly {
+  0% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(0%);
   }
 }
 

@@ -63,11 +63,14 @@ function draw() {
   ctx.fill();
   ctx.closePath();
 
-  document.querySelector("canvas").classList.add("roller");
+  setTimeout(function() {
+    document.querySelector("canvas").classList.add("roller");
+  }, 2000);
   setTimeout(function () {
-    location.href = "intro.html";
-  }, 10000)
-}
+    document.querySelector("p").classList.remove("hidden");
+    setTimeout(() => {location.href = "intro.html";}, 4000)
+  }, 8000)
+} // draw
 
 window.onresize = () => {
   xPosition = 10;
@@ -81,10 +84,3 @@ window.onload = draw;
 document.querySelector("input[type='button']").onclick = function () {
   location.href = "intro.html";
 };
-
-// document.querySelector("p").onclick = () => {
-//   document.querySelector("canvas").classList.add("roller");
-//   setTimeout(function () {
-//     location.href = "intro.html";
-//   }, 2000)
-// }

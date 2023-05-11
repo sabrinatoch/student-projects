@@ -27,12 +27,18 @@ bankP.style.fontWeight = "bold";
 
 userInfo.appendChild(bankP);
 
-$$("#p1").textContent = `Welcome back, ${localStorage.firstName} ${localStorage.lastName}!`;
-$$("#p2").textContent = `Username: ${localStorage.username} | City: ${localStorage.city}`;
+$$(
+  "#p1"
+).textContent = `Welcome back, ${localStorage.firstName} ${localStorage.lastName}!`;
+$$(
+  "#p2"
+).textContent = `Username: ${localStorage.username} | City: ${localStorage.city}`;
 $$("#p3").textContent = `Email: ${localStorage.email}`;
 $$("#p4").textContent = `Phone #: ${localStorage.phoneNumber}`;
 $$("#p5").textContent = `Last Visit: ${localStorage.date}`;
-$$("#p6").innerHTML = `Not ${localStorage.firstName} ${localStorage.lastName}? <a id="change" href="#">Change credentials</a>`;
+$$(
+  "#p6"
+).innerHTML = `Not ${localStorage.firstName} ${localStorage.lastName}? <a id="change" href="#">Change credentials</a>`;
 $$("#p1").style.color = "pink";
 
 // status
@@ -343,6 +349,11 @@ $$("#exit").onclick = function () {
 btnBet.onclick = validBoth;
 betClear.onclick = clearBet;
 
+window.onload = () => {
+  let myDate = new Date();
+  localStorage.date = myDate.toUTCString();
+};
+
 $$("#change").onclick = () => {
   localStorage.removeItem("firstName");
   localStorage.removeItem("lastName");
@@ -361,7 +372,7 @@ const closeModal = $("#close-btn");
 const modalDetails = $(".modalDetails");
 
 const toggleModal = () => modalWindow.classList.toggle("showModal");
-const checkClose = (e) => e.target === modalWindow ? toggleModal() : null;
+const checkClose = (e) => (e.target === modalWindow ? toggleModal() : null);
 
 const processErrors = function (errMessage) {
   modalDetails.innerHTML = `Error: ${errMessage} occurred`;
@@ -369,5 +380,5 @@ const processErrors = function (errMessage) {
 };
 
 $(window).on("error", processErrors);
-closeModal.addEventListener('click', toggleModal);
-window.addEventListener('click', checkClose, true);
+closeModal.addEventListener("click", toggleModal);
+window.addEventListener("click", checkClose, true);
