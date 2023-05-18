@@ -9,8 +9,8 @@ section.style.width = `${window.innerWidth}px`;
 
 let xPosition = 10;
 let yPosition = 10;
-let xSpeed = 3;
-let ySpeed = 3;
+let xSpeed = 5;
+let ySpeed = 5;
 
 function move() {
   logo.style.left = `${xPosition}px`;
