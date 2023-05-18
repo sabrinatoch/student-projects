@@ -95,7 +95,8 @@ function store() {
 $("#form").on("submit", store);
 
 $(window).on("load", () => {
-  if (localStorage.length != 0) location.href = "game.html";
+  if (localStorage.firstName != null)
+    location.href = "game.html";
 }); // check localStorage
 
 $("#clear").on("click", () => {
@@ -116,5 +117,5 @@ const processErrors = function (errMessage) {
 };
 
 $(window).on("error", processErrors);
-closeModal.addEventListener('click', toggleModal);
-window.addEventListener('click', checkClose, true);
+closeModal.on('click', toggleModal);
+$(window).on('click', checkClose);
