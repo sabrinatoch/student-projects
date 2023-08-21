@@ -1,1 +1,1 @@
-Contains my resume in various formats
+Contains my resume.
