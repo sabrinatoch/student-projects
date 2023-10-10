@@ -23,3 +23,9 @@ and display them in a professional setting.
 * Web Programming II
 * Networks
 * Business in the Workplace
+
+#### Fall 2023:
+* Programming III
+* Web Programming III
+* Database Management I
+* Systems Analysis
