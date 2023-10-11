@@ -16,6 +16,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 
 import javax.swing.SwingConstants;
 import javax.imageio.ImageIO;
@@ -28,9 +29,10 @@ import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.SystemColor;
 
-public class HangmanFrame extends JFrame {
+public class HangmanFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
+	private JMenuItem exitMenuItem;
 
 	/**
 	 * Launch the application.
@@ -55,7 +57,7 @@ public class HangmanFrame extends JFrame {
 	 */
 	public HangmanFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 955, 566);
+		setBounds(50, 50, 955, 566);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 
@@ -63,7 +65,8 @@ public class HangmanFrame extends JFrame {
 		background.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 15));
 		background.setBounds(0, 0, 941, 507);
 
-		getContentPane().add(background);
+//		getContentPane().add(background);
+		setContentPane(background);
 
 		background.setLayout(new FlowLayout());
 
@@ -79,8 +82,13 @@ public class HangmanFrame extends JFrame {
 		JMenuItem saveMenuItem = new JMenuItem("Save");
 		gameMenu.add(saveMenuItem);
 
-		JMenuItem exitMenuItem = new JMenuItem("Exit");
+		exitMenuItem = new JMenuItem("Exit");
 		gameMenu.add(exitMenuItem);
+		exitMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ev) {
+				System.exit(0);
+			}
+		});
 
 		JMenu viewMenu = new JMenu("View");
 		menuBar.add(viewMenu);
@@ -92,104 +100,59 @@ public class HangmanFrame extends JFrame {
 		viewMenu.add(rulesMenuItem);
 
 		background.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-//		setContentPane(background);
 		background.setLayout(null);
 
 		JLabel lblHangman = new JLabel("HANGMAN");
 		lblHangman.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblHangman.setForeground(Color.WHITE);
-		lblHangman.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 37));
+		lblHangman.setFont(new Font("Forte", Font.BOLD, 37));
 		lblHangman.setBounds(635, 10, 267, 83);
 		background.add(lblHangman);
 
-		JButton btnA = new JButton("A");
-		btnA.setForeground(Color.WHITE);
-		btnA.setBackground(Color.BLACK);
-		btnA.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 13));
-		btnA.setBounds(555, 220, 49, 41);
-		background.add(btnA);
-
-		JButton btnB = new JButton("B");
-		btnB.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnB.setForeground(Color.WHITE);
-		btnB.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 13));
-		btnB.setBackground(Color.BLACK);
-		btnB.setBounds(619, 220, 49, 41);
-		background.add(btnB);
-
-		JButton btnC = new JButton("C");
-		btnC.setForeground(Color.WHITE);
-		btnC.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 13));
-		btnC.setBackground(Color.BLACK);
-		btnC.setBounds(678, 220, 49, 41);
-		background.add(btnC);
+		JLabel lblWord = new JLabel("Word:  _ _ _ _ _ _ _ _ _");
+		lblWord.setForeground(Color.WHITE);
+		lblWord.setFont(new Font("Rockwell", Font.BOLD, 25));
+		lblWord.setBounds(70, 70, 567, 83);
+		background.add(lblWord);
 
 		JButton btnHint = new JButton("Hint!");
 		btnHint.setForeground(Color.WHITE);
-		btnHint.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 13));
-		btnHint.setBackground(new Color(0, 0, 128));
-		btnHint.setBounds(786, 440, 116, 41);
+		btnHint.setFont(new Font("Rockwell", Font.BOLD, 15));
+		btnHint.setBackground(new Color(0, 128, 192));
+		btnHint.setBounds(746, 410, 116, 41);
 		background.add(btnHint);
 
 		JPanel imagePanel = new JPanel();
 		imagePanel.setBackground(Color.BLACK);
-		imagePanel.setBounds(39, 101, 407, 320);
+		imagePanel.setBounds(110, 151, 307, 270);
+		imagePanel.setOpaque(false);
 		background.add(imagePanel);
 
-		ImageIcon img = new ImageIcon("skull.png");
-		imagePanel.add(new JLabel(img));
-		
-		JLabel lblUnder1_4_1 = new JLabel("_");
-		background.add(lblUnder1_4_1);
-		lblUnder1_4_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUnder1_4_1.setForeground(SystemColor.textHighlightText);
-		lblUnder1_4_1.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 19));
-		lblUnder1_4_1.setBounds(744, 113, 78, 43);
-		
-		JLabel lblUnder1_4 = new JLabel("_");
-		background.add(lblUnder1_4);
-		lblUnder1_4.setForeground(SystemColor.textHighlightText);
-		lblUnder1_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUnder1_4.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 19));
-		lblUnder1_4.setBounds(682, 113, 78, 43);
-		
-		JLabel lblUnder1_3 = new JLabel("_");
-		background.add(lblUnder1_3);
-		lblUnder1_3.setForeground(SystemColor.textHighlightText);
-		lblUnder1_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUnder1_3.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 19));
-		lblUnder1_3.setBounds(620, 113, 78, 43);
-		
-		JLabel lblUnder1_2 = new JLabel("_");
-		background.add(lblUnder1_2);
-		lblUnder1_2.setForeground(SystemColor.textHighlightText);
-		lblUnder1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUnder1_2.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 19));
-		lblUnder1_2.setBounds(565, 113, 78, 43);
-		
-		JLabel lblUnder1_1 = new JLabel("_");
-		background.add(lblUnder1_1);
-		lblUnder1_1.setForeground(SystemColor.textHighlightText);
-		lblUnder1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUnder1_1.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 19));
-		lblUnder1_1.setBounds(507, 113, 78, 43);
-		
-		JLabel lblUnder1 = new JLabel("_");
-		background.add(lblUnder1);
-		lblUnder1.setForeground(SystemColor.textHighlightText);
-		lblUnder1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUnder1.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 19));
-		lblUnder1.setBounds(452, 113, 78, 43);
-		
-		JLabel lblUnder1_2_1 = new JLabel("_");
-		background.add(lblUnder1_2_1);
-		lblUnder1_2_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUnder1_2_1.setForeground(SystemColor.textHighlightText);
-		lblUnder1_2_1.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 19));
-		lblUnder1_2_1.setBounds(808, 113, 78, 43);
+		ImageIcon img = new ImageIcon("cloaked.gif");
+		imagePanel.setLayout(null);
+		JLabel label = new JLabel(img);
+		label.setBounds(40, 0, 250, 250);
+		imagePanel.add(label);
+
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.setBounds(505, 160, 350, 200);
+		buttonPanel.setOpaque(false);
+		background.add(buttonPanel);
+
+		for (int i = 0; i < 26; i++) {
+			Character letter = (char) (i + 'A');
+			JButton button = new JButton(letter.toString());
+			button.setForeground(Color.WHITE);
+			button.setBackground(Color.BLACK);
+			button.setFont(new Font("Arial", Font.BOLD, 12));
+			button.setPreferredSize(new Dimension(45, 45));
+			buttonPanel.add(button);
+		} // for
+
 	} // HangmanFrame()
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
+	} // actionPerformed(ActionEvent)
 } // HangmanFrame class
