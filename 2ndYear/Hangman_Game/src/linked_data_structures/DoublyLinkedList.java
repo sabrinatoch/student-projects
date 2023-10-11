@@ -122,7 +122,7 @@ public class DoublyLinkedList<E>
 		E theElement = target.getElement();
 		DLNode<E> pred = target.getPredecessor();
 
-		// link target to cursorÕs successor
+		// link target to cursorï¿½s successor
 		pred.setSuccessor(target.getSuccessor());
 		((DLNode<E>) target.getSuccessor()).setPredecessor(pred);
 
@@ -150,7 +150,7 @@ public class DoublyLinkedList<E>
 		p.setSuccessor(newnode);
 	}
 
-	private DLNode<E> find(E target)
+	public DLNode<E> find(E target)
 	{
 		DLNode<E> cursor = (DLNode<E>) head.getSuccessor();
 

@@ -5,6 +5,7 @@ package hangman_package;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Scanner;
 
 import linked_data_structures.SinglyLinkedList;
@@ -13,7 +14,7 @@ import linked_data_structures.SinglyLinkedList;
  * @author Sabrina Tochkov
  *
  */
-public class Dictionary {
+public class Dictionary implements Serializable {
 
 	private SinglyLinkedList<String> wordList;
 
@@ -44,7 +45,7 @@ public class Dictionary {
 			String word = wordList.getElementAt(0);
 			wordList.remove(0); // delete word
 			return word;
-		}
+		} // if the list is not empty
 		return "n/a";
 	} // generateRandomWord()
 

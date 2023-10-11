@@ -4,12 +4,13 @@
 package hangman_package;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * @author Sabrina Tochkov
  *
  */
-public class Player {
+public class Player implements Serializable {
 	
 	private String name;
 	private int numberGamesPlayed;
