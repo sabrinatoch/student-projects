@@ -20,6 +20,7 @@ import java.awt.Dimension;
 
 import javax.swing.SwingConstants;
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -47,10 +48,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 	private JPanel imagePanel;
 	private JPanel buttonPanel;
 	private JLabel label;
-	
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -63,7 +61,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 					e.printStackTrace();
 				} // catch
 			} // run
-		});
+		}); // Runnable
 	} // main()
 
 	public HangmanFrame() {
@@ -72,7 +70,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 
-		background = new JLabel(new ImageIcon("background-image.png"));
+		background = new JLabel(new ImageIcon("images/background-image.png"));
 		background.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 15));
 		background.setBounds(0, 0, 941, 507);
 
@@ -115,7 +113,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		lblHangman = new JLabel("HANGMAN");
 		lblHangman.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblHangman.setForeground(Color.WHITE);
-		lblHangman.setFont(new Font("Forte", Font.BOLD, 37));
+		lblHangman.setFont(new Font("Forte", Font.BOLD, 39));
 		lblHangman.setBounds(635, 10, 267, 83);
 		background.add(lblHangman);
 
@@ -138,7 +136,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		imagePanel.setOpaque(false);
 		background.add(imagePanel);
 
-		ImageIcon img = new ImageIcon("cloaked.gif");
+		ImageIcon img = new ImageIcon("images/cloaked.gif");
 		imagePanel.setLayout(null);
 		label = new JLabel(img);
 		label.setBounds(40, 0, 250, 250);
@@ -155,7 +153,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 			button.setForeground(Color.WHITE);
 			button.setBackground(Color.BLACK);
 			button.setFont(new Font("Arial", Font.BOLD, 12));
-			button.setPreferredSize(new Dimension(45, 45));
+			button.setPreferredSize(new Dimension(45, 45)); 
 			buttonPanel.add(button);
 		} // for
 
@@ -163,6 +161,6 @@ public class HangmanFrame extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
 	} // actionPerformed(ActionEvent)
+	
 } // HangmanFrame class

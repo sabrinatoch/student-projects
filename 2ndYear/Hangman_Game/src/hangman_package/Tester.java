@@ -30,7 +30,6 @@ public class Tester {
 		game.guessLetter(letter.charAt(0));
 		System.out.println(game.displayWordState());
 		
-		
 	} // main()
 
 } // Tester class
