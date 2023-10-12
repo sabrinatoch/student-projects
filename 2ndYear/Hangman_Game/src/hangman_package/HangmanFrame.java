@@ -33,7 +33,21 @@ public class HangmanFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JMenuItem exitMenuItem;
-
+	private JLabel background;
+	private JMenuBar menuBar;
+	private JMenu gameMenu;
+	private JMenuItem newGameMenuItem;
+	private JMenuItem saveMenuItem;
+	private JMenu viewMenu;
+	private JMenuItem scoreMenuItem;
+	private JMenuItem rulesMenuItem;
+	private JLabel lblHangman;
+	private JLabel lblWord;
+	private JButton btnHint;
+	private JPanel imagePanel;
+	private JPanel buttonPanel;
+	private JLabel label;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -47,39 +61,35 @@ public class HangmanFrame extends JFrame implements ActionListener {
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
-				}
-			}
+				} // catch
+			} // run
 		});
-	}
+	} // main()
 
-	/**
-	 * Create the frame.
-	 */
 	public HangmanFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(50, 50, 955, 566);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 
-		JLabel background = new JLabel(new ImageIcon("background-image.png"));
+		background = new JLabel(new ImageIcon("background-image.png"));
 		background.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 15));
 		background.setBounds(0, 0, 941, 507);
 
-//		getContentPane().add(background);
 		setContentPane(background);
 
 		background.setLayout(new FlowLayout());
 
-		JMenuBar menuBar = new JMenuBar();
+		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
-		JMenu gameMenu = new JMenu("Game");
+		gameMenu = new JMenu("Game");
 		menuBar.add(gameMenu);
 
-		JMenuItem newGameMenuItem = new JMenuItem("New Game");
+		newGameMenuItem = new JMenuItem("New Game");
 		gameMenu.add(newGameMenuItem);
 
-		JMenuItem saveMenuItem = new JMenuItem("Save");
+		saveMenuItem = new JMenuItem("Save");
 		gameMenu.add(saveMenuItem);
 
 		exitMenuItem = new JMenuItem("Exit");
@@ -87,42 +97,42 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		exitMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				System.exit(0);
-			}
+			} // actionPerformed()
 		});
 
-		JMenu viewMenu = new JMenu("View");
+		viewMenu = new JMenu("View");
 		menuBar.add(viewMenu);
 
-		JMenuItem scoreMenuItem = new JMenuItem("Scoreboard");
+		scoreMenuItem = new JMenuItem("Scoreboard");
 		viewMenu.add(scoreMenuItem);
 
-		JMenuItem rulesMenuItem = new JMenuItem("Rules");
+		rulesMenuItem = new JMenuItem("Rules");
 		viewMenu.add(rulesMenuItem);
 
 		background.setBorder(new EmptyBorder(5, 5, 5, 5));
 		background.setLayout(null);
 
-		JLabel lblHangman = new JLabel("HANGMAN");
+		lblHangman = new JLabel("HANGMAN");
 		lblHangman.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblHangman.setForeground(Color.WHITE);
 		lblHangman.setFont(new Font("Forte", Font.BOLD, 37));
 		lblHangman.setBounds(635, 10, 267, 83);
 		background.add(lblHangman);
 
-		JLabel lblWord = new JLabel("Word:  _ _ _ _ _ _ _ _ _");
+		lblWord = new JLabel("Word:  _ _ _ _ _ _ _ _ _");
 		lblWord.setForeground(Color.WHITE);
 		lblWord.setFont(new Font("Rockwell", Font.BOLD, 25));
 		lblWord.setBounds(70, 70, 567, 83);
 		background.add(lblWord);
 
-		JButton btnHint = new JButton("Hint!");
+		btnHint = new JButton("Hint!");
 		btnHint.setForeground(Color.WHITE);
 		btnHint.setFont(new Font("Rockwell", Font.BOLD, 15));
 		btnHint.setBackground(new Color(0, 128, 192));
 		btnHint.setBounds(746, 410, 116, 41);
 		background.add(btnHint);
 
-		JPanel imagePanel = new JPanel();
+		imagePanel = new JPanel();
 		imagePanel.setBackground(Color.BLACK);
 		imagePanel.setBounds(110, 151, 307, 270);
 		imagePanel.setOpaque(false);
@@ -130,11 +140,11 @@ public class HangmanFrame extends JFrame implements ActionListener {
 
 		ImageIcon img = new ImageIcon("cloaked.gif");
 		imagePanel.setLayout(null);
-		JLabel label = new JLabel(img);
+		label = new JLabel(img);
 		label.setBounds(40, 0, 250, 250);
 		imagePanel.add(label);
 
-		JPanel buttonPanel = new JPanel();
+		buttonPanel = new JPanel();
 		buttonPanel.setBounds(505, 160, 350, 200);
 		buttonPanel.setOpaque(false);
 		background.add(buttonPanel);
