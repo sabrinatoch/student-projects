@@ -9,9 +9,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.Color;
@@ -24,13 +26,16 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.File;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.SystemColor;
 
-public class HangmanFrame extends JFrame implements ActionListener {
+public class HangmanFrame extends JFrame implements ActionListener, WindowListener {
 
 	private JPanel contentPane;
 	private JMenuItem exitMenuItem;
@@ -48,6 +53,16 @@ public class HangmanFrame extends JFrame implements ActionListener {
 	private JPanel imagePanel;
 	private JPanel buttonPanel;
 	private JLabel label;
+	private HangmanGame game;
+	private Player player;
+	private JButton alphaButton[][];
+	private ImageIcon heartImg1;
+	private ImageIcon heartImg2;
+	private ImageIcon heartImg3;
+	private ImageIcon heartImg4;
+	private ImageIcon heartImg5;
+	private ImageIcon heartImg6;
+	private JLabel lblHealth6;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -120,7 +135,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		lblWord = new JLabel("Word:  _ _ _ _ _ _ _ _ _");
 		lblWord.setForeground(Color.WHITE);
 		lblWord.setFont(new Font("Rockwell", Font.BOLD, 25));
-		lblWord.setBounds(70, 70, 567, 83);
+		lblWord.setBounds(40, 60, 567, 83);
 		background.add(lblWord);
 
 		btnHint = new JButton("Hint!");
@@ -142,25 +157,155 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		label.setBounds(40, 0, 250, 250);
 		imagePanel.add(label);
 
+		heartImg1 = new ImageIcon("images/heart.png");
+		JLabel lblHealth = new JLabel(heartImg1);
+		lblHealth.setBounds(0, 10, 50, 30);
+		background.add(lblHealth);
+
+		heartImg2 = new ImageIcon("images/heart.png");
+		JLabel lblHealth2 = new JLabel(heartImg2);
+		lblHealth2.setBounds(0, 10, 120, 30);
+		background.add(lblHealth2);
+
+		heartImg3 = new ImageIcon("images/heart.png");
+		JLabel lblHealth3 = new JLabel(heartImg3);
+		lblHealth3.setBounds(0, 10, 190, 30);
+		background.add(lblHealth3);
+
+		heartImg4 = new ImageIcon("images/heart.png");
+		JLabel lblHealth4 = new JLabel(heartImg4);
+		lblHealth4.setBounds(0, 10, 260, 30);
+		background.add(lblHealth4);
+
+		heartImg5 = new ImageIcon("images/heart.png");
+		JLabel lblHealth5 = new JLabel(heartImg5);
+		lblHealth5.setBounds(0, 10, 330, 30);
+		background.add(lblHealth5);
+
+		heartImg6 = new ImageIcon("images/heart.png");
+		lblHealth6 = new JLabel(heartImg6);
+		lblHealth6.setBounds(0, 10, 400, 30);
+		background.add(lblHealth6);
+
+		alphaButton = new JButton[6][7];
 		buttonPanel = new JPanel();
 		buttonPanel.setBounds(505, 160, 350, 200);
+		buttonPanel.setLayout(new GridLayout(5, 5));
 		buttonPanel.setOpaque(false);
 		background.add(buttonPanel);
 
-		for (int i = 0; i < 26; i++) {
-			Character letter = (char) (i + 'A');
-			JButton button = new JButton(letter.toString());
-			button.setForeground(Color.WHITE);
-			button.setBackground(Color.BLACK);
-			button.setFont(new Font("Arial", Font.BOLD, 12));
-			button.setPreferredSize(new Dimension(45, 45)); 
-			buttonPanel.add(button);
-		} // for
+		int i = 0;
+		for (int r = 1; r < alphaButton.length; ++r)
+			for (int c = 1; c < alphaButton[r].length; ++c) {
+				if (i < 26) {
+					Character letter = (char) (i++ + 'A');
+					alphaButton[r][c] = new JButton(letter.toString());
+					alphaButton[r][c].setForeground(Color.WHITE);
+					alphaButton[r][c].setBackground(Color.BLACK);
+					alphaButton[r][c].setFont(new Font("Arial", Font.BOLD, 12));
+					alphaButton[r][c].setPreferredSize(new Dimension(45, 45));
+					alphaButton[r][c].addActionListener(this);
+					buttonPanel.add(alphaButton[r][c]);
+				} // if (i < 26)
+			} // inner for
+
+		setupGame();
 
 	} // HangmanFrame()
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		outerloop: for (int r = 1; r < alphaButton.length; ++r)
+			for (int c = 1; c < alphaButton[r].length; ++c) {
+				if (e.getSource() == alphaButton[r][c]) {
+					if (game.guessLetter(alphaButton[r][c].getText().toLowerCase().charAt(0)))
+						displayWord();
+					else {
+						background.remove(lblHealth6);
+					}
+					alphaButton[r][c].setEnabled(false);
+					alphaButton[r][c].setBackground(Color.DARK_GRAY);
+					if (game.isComplete()) {
+						if (game.hasWon())
+							displayWon();
+						else 
+							displayLost();
+					} // if (game.isComplete();
+					break outerloop;
+				} // if button is selected
+			} // inner for
+		
+		if (e.getSource() == btnHint) {
+			// hint stuff
+		} // if hint button
+
 	} // actionPerformed(ActionEvent)
 	
+	public void displayWon() {
+		JOptionPane.showMessageDialog(this, "Congratulations! You survived the Ghoul!",
+				"Game Won", JOptionPane.PLAIN_MESSAGE);
+	} // displayWon()
+	
+	public void displayLost() {
+		JOptionPane.showMessageDialog(this, "Oh no! You were slain by the Ghoul",
+				"Game Won", JOptionPane.PLAIN_MESSAGE);
+	} // displayLost()
+
+	public void setupGame() {
+		try {
+			player = new Player("Sabrina");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} // catch (IOException)
+		try {
+			game = new HangmanGame(player);
+		} catch (NoWordsLeftException e) {
+			e.printStackTrace();
+		} // catch (NoWordsLeftException)
+		
+		displayWord();
+
+	} // setupGame()
+
+	public void displayWord() {
+		String label = "Word: ";
+		for (int i = 0; i < game.displayWordState().length(); i++) {
+			if (game.displayWordState().charAt(i) == '-')
+				label += " __ ";
+			else
+				label += " " + game.displayWordState().charAt(i) + " ";
+		} // for
+		lblWord.setText(label);
+	} // displayWord()
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+
+		// serialize stuff?
+
+	} // windowClosing(WindowEvent)
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+	}
 } // HangmanFrame class

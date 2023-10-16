@@ -58,7 +58,7 @@ public class HangmanGame {
 	} // displayString()
 
 	public boolean isComplete() {
-		if (numBadGuesses < 6 && !displayWordState().contains("-"))
+		if (numBadGuesses < 6 && displayWordState().contains("-"))
 			return false;
 		return true;
 	} // isComplete()

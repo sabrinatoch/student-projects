@@ -56,7 +56,6 @@ public class Player implements Serializable {
 	} // getNumberGamesWon()
 	
 	// if this returns N/A, that means the player went through all the words in the dictionary
-	// when called in the frame, prompt for restart?
 	public String getNextWord() {
 		return dict.generateRandomWord();
 	} // getWord()
