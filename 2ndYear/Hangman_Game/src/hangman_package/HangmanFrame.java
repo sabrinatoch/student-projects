@@ -63,14 +63,17 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 	private ImageIcon heartImg5;
 	private ImageIcon heartImg6;
 	private JLabel lblHealth6;
+	private JLabel lblHealth5;
+	private JLabel lblHealth4;
+	private JLabel lblHealth3;
+	private JLabel lblHealth2;
+	private JLabel lblHealth;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					HangmanFrame frame = new HangmanFrame();
-					// frame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new
-					// File("house.png")))));
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -158,27 +161,27 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 		imagePanel.add(label);
 
 		heartImg1 = new ImageIcon("images/heart.png");
-		JLabel lblHealth = new JLabel(heartImg1);
+		lblHealth = new JLabel(heartImg1);
 		lblHealth.setBounds(0, 10, 50, 30);
 		background.add(lblHealth);
 
 		heartImg2 = new ImageIcon("images/heart.png");
-		JLabel lblHealth2 = new JLabel(heartImg2);
+		lblHealth2 = new JLabel(heartImg2);
 		lblHealth2.setBounds(0, 10, 120, 30);
 		background.add(lblHealth2);
 
 		heartImg3 = new ImageIcon("images/heart.png");
-		JLabel lblHealth3 = new JLabel(heartImg3);
+		lblHealth3 = new JLabel(heartImg3);
 		lblHealth3.setBounds(0, 10, 190, 30);
 		background.add(lblHealth3);
 
 		heartImg4 = new ImageIcon("images/heart.png");
-		JLabel lblHealth4 = new JLabel(heartImg4);
+		lblHealth4 = new JLabel(heartImg4);
 		lblHealth4.setBounds(0, 10, 260, 30);
 		background.add(lblHealth4);
 
 		heartImg5 = new ImageIcon("images/heart.png");
-		JLabel lblHealth5 = new JLabel(heartImg5);
+		lblHealth5 = new JLabel(heartImg5);
 		lblHealth5.setBounds(0, 10, 330, 30);
 		background.add(lblHealth5);
 
@@ -215,42 +218,67 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+
 		outerloop: for (int r = 1; r < alphaButton.length; ++r)
 			for (int c = 1; c < alphaButton[r].length; ++c) {
 				if (e.getSource() == alphaButton[r][c]) {
 					if (game.guessLetter(alphaButton[r][c].getText().toLowerCase().charAt(0)))
 						displayWord();
 					else {
-						background.remove(lblHealth6);
-					}
+						if (game.getnumBadGuesses() == 1) {
+							System.out.println("Hello");
+							lblHealth6.setIcon(new ImageIcon("images/heart_black.png"));
+						}
+						else if (game.getnumBadGuesses() == 2)
+							lblHealth5.setIcon(new ImageIcon("images/heart_black.png"));
+						else if (game.getnumBadGuesses() == 3)
+							lblHealth4.setIcon(new ImageIcon("images/heart_black.png"));
+						else if (game.getnumBadGuesses() == 4)
+							lblHealth3.setIcon(new ImageIcon("images/heart_black.png"));
+						else if (game.getnumBadGuesses() == 5)
+							lblHealth2.setIcon(new ImageIcon("images/heart_black.png"));
+						else if (game.getnumBadGuesses() == 6)
+							lblHealth.setIcon(new ImageIcon("images/heart_black.png"));
+					} // else
 					alphaButton[r][c].setEnabled(false);
 					alphaButton[r][c].setBackground(Color.DARK_GRAY);
 					if (game.isComplete()) {
 						if (game.hasWon())
 							displayWon();
-						else 
+						else
 							displayLost();
 					} // if (game.isComplete();
 					break outerloop;
 				} // if button is selected
 			} // inner for
-		
+
 		if (e.getSource() == btnHint) {
 			// hint stuff
 		} // if hint button
 
 	} // actionPerformed(ActionEvent)
-	
-	public void displayWon() {
-		JOptionPane.showMessageDialog(this, "Congratulations! You survived the Ghoul!",
-				"Game Won", JOptionPane.PLAIN_MESSAGE);
-	} // displayWon()
-	
-	public void displayLost() {
-		JOptionPane.showMessageDialog(this, "Oh no! You were slain by the Ghoul",
-				"Game Won", JOptionPane.PLAIN_MESSAGE);
-	} // displayLost()
 
+	public void displayWon() {
+		JOptionPane.showMessageDialog(this, "Congratulations! You survived the Ghoul!", "Game Won",
+				JOptionPane.PLAIN_MESSAGE);
+		displayPlayAgain();
+	} // displayWon()
+
+	public void displayLost() {
+		JOptionPane.showMessageDialog(this, "Oh no! You were slain by the Ghoul", "Game Won",
+				JOptionPane.PLAIN_MESSAGE);
+	} // displayLost()
+	
+	public void displayPlayAgain() {
+		final JOptionPane optionPane = new JOptionPane(
+			    "Play Again?",
+			    JOptionPane.YES_NO_OPTION);
+	} // displayPlayAgain()
+
+	public void resetHearts() {
+		
+	} // resetHearts()
+	
 	public void setupGame() {
 		try {
 			player = new Player("Sabrina");
@@ -262,7 +290,7 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 		} catch (NoWordsLeftException e) {
 			e.printStackTrace();
 		} // catch (NoWordsLeftException)
-		
+
 		displayWord();
 
 	} // setupGame()

@@ -8,8 +8,8 @@ import java.io.Serializable;
 
 /**
  * @author Sabrina Tochkov
- *
  */
+
 public class Player implements Serializable {
 	
 	private String name;
