@@ -62,7 +62,10 @@ public class HangmanGame implements Serializable {
 	public boolean isComplete() {
 		if (numBadGuesses < 6 && displayWordState().contains("-"))
 			return false;
-		return true;
+		else {
+			player.removeWord();
+			return true;
+		} // else
 	} // isComplete()
 
 	public boolean hasWon() {
@@ -70,7 +73,7 @@ public class HangmanGame implements Serializable {
 			return false;
 		return true;
 	} // hasWon()
-	
+
 	public String displayHint() {
 		char letter = '?'; // random unselected letter????
 		guessedLetters.add(letter);

@@ -39,11 +39,18 @@ public class Dictionary implements Serializable {
 			return false;
 		return true;
 	} // isValidWord(String)
+	
+	public void removeWord() {
+		wordList.remove(0); // delete word
+	} // removeWord()
 
 	public String generateRandomWord() {
+		int min = 0;
+		int max = wordList.getLength() - 1;
+		int index = min + (int)(Math.random() * ((max - min) + 1));
+		
 		if (wordList.getLength() > 0) {
-			String word = wordList.getElementAt(0);
-			wordList.remove(0); // delete word
+			String word = wordList.getElementAt(index);
 			return word;
 		} // if the list is not empty
 		return "n/a";

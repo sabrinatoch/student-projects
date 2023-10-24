@@ -147,10 +147,10 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 		background.add(lblHangman);
 		
 		lblPlayer = new JLabel("Player: ");
+		lblPlayer.setForeground(new Color(30, 144, 255));
 		lblPlayer.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPlayer.setForeground(Color.WHITE);
-		lblPlayer.setFont(new Font("Rockwell", Font.PLAIN, 20));
-		lblPlayer.setBounds(600, 60, 267, 83);
+		lblPlayer.setFont(new Font("Rockwell", Font.BOLD, 20));
+		lblPlayer.setBounds(630, 40, 267, 83);
 		background.add(lblPlayer);
 
 		lblWord = new JLabel("");
@@ -177,35 +177,41 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 		label = new JLabel(img);
 		label.setBounds(40, 0, 250, 250);
 		imagePanel.add(label);
-
+		
+		JLabel lblHP = new JLabel("Lives:");
+		lblHP.setForeground(new Color(220, 20, 60));
+		lblHP.setBounds(20, 10, 130, 30);
+		lblHP.setFont(new Font("Rockwell", Font.BOLD, 20));
+		background.add(lblHP);
+		
 		heartImg1 = new ImageIcon("images/heart.png");
 		lblHealth = new JLabel(heartImg1);
-		lblHealth.setBounds(0, 10, 50, 30);
+		lblHealth.setBounds(0, 10, 200, 30);
 		background.add(lblHealth);
 
 		heartImg2 = new ImageIcon("images/heart.png");
 		lblHealth2 = new JLabel(heartImg2);
-		lblHealth2.setBounds(0, 10, 120, 30);
+		lblHealth2.setBounds(0, 10, 270, 30);
 		background.add(lblHealth2);
 
 		heartImg3 = new ImageIcon("images/heart.png");
 		lblHealth3 = new JLabel(heartImg3);
-		lblHealth3.setBounds(0, 10, 190, 30);
+		lblHealth3.setBounds(0, 10, 340, 30);
 		background.add(lblHealth3);
 
 		heartImg4 = new ImageIcon("images/heart.png");
 		lblHealth4 = new JLabel(heartImg4);
-		lblHealth4.setBounds(0, 10, 260, 30);
+		lblHealth4.setBounds(0, 10, 410, 30);
 		background.add(lblHealth4);
 
 		heartImg5 = new ImageIcon("images/heart.png");
 		lblHealth5 = new JLabel(heartImg5);
-		lblHealth5.setBounds(0, 10, 330, 30);
+		lblHealth5.setBounds(0, 10, 480, 30);
 		background.add(lblHealth5);
 
 		heartImg6 = new ImageIcon("images/heart.png");
 		lblHealth6 = new JLabel(heartImg6);
-		lblHealth6.setBounds(0, 10, 400, 30);
+		lblHealth6.setBounds(0, 10, 550, 30);
 		background.add(lblHealth6);
 
 		// set up alphabet buttons
