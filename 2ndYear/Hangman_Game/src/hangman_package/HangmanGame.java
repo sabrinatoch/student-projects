@@ -3,13 +3,15 @@
  */
 package hangman_package;
 
+import java.io.Serializable;
+
 import linked_data_structures.SinglyLinkedList;
 
 /**
  * @author Sabrina Tochkov
  *
  */
-public class HangmanGame {
+public class HangmanGame implements Serializable {
 
 	private Player player;
 	private String word;
