@@ -75,6 +75,7 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 	private JLabel lblHealth3;
 	private JLabel lblHealth2;
 	private JLabel lblHealth;
+	private JLabel lblPlayer;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -144,8 +145,15 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 		lblHangman.setFont(new Font("Forte", Font.BOLD, 39));
 		lblHangman.setBounds(635, 10, 267, 83);
 		background.add(lblHangman);
+		
+		lblPlayer = new JLabel("Player: ");
+		lblPlayer.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPlayer.setForeground(Color.WHITE);
+		lblPlayer.setFont(new Font("Rockwell", Font.PLAIN, 20));
+		lblPlayer.setBounds(600, 60, 267, 83);
+		background.add(lblPlayer);
 
-		lblWord = new JLabel("Word:  _ _ _ _ _ _ _ _ _");
+		lblWord = new JLabel("");
 		lblWord.setForeground(Color.WHITE);
 		lblWord.setFont(new Font("Rockwell", Font.BOLD, 25));
 		lblWord.setBounds(40, 60, 567, 83);
@@ -281,6 +289,7 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 	} // checkScoreboard()
 
 	public void resetGame() {
+		serializeBoard();
 		try {
 			game = new HangmanGame(player);
 		} catch (NoWordsLeftException e) {
@@ -317,6 +326,7 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 			} // catch (NoWordsLeftException)
 		} // else scoreboard is present
 
+		lblPlayer.setText("Player: " + game.getPlayer().getName());
 		displayWord();
 		System.out.println(game.getWord());
 	} // setupGame()
@@ -351,7 +361,7 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 		lblHealth5.setIcon(new ImageIcon("images/heart.png"));
 		lblHealth6.setIcon(new ImageIcon("images/heart.png"));
 	} // resetHearts()
-	
+
 	public void displayWon() {
 		JOptionPane.showMessageDialog(this, "Congratulations! You survived the Ghoul!", "Game Won",
 				JOptionPane.PLAIN_MESSAGE);
@@ -371,7 +381,7 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 //			    JOptionPane.YES_NO_OPTION);
 		resetGame();
 	} // displayPlayAgain()
-	
+
 	public void serializeBoard() {
 		try {
 			FileOutputStream file = new FileOutputStream("scoreboard.ser");
@@ -385,10 +395,10 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 			System.out.println("IOException caught: " + ex);
 		} // catch (IOException)
 	} // serializeBoard()
-	
+
 	@Override
 	public void windowClosing(WindowEvent e) {
-		serializeBoard();
+		//serializeBoard();
 	} // windowClosing(WindowEvent)
 
 	@Override
