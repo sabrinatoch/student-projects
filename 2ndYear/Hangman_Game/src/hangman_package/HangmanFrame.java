@@ -76,6 +76,8 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 	private JLabel lblHealth2;
 	private JLabel lblHealth;
 	private JLabel lblPlayer;
+	private JLabel lblHP;
+	private ImageIcon img;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -145,7 +147,7 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 		lblHangman.setFont(new Font("Forte", Font.BOLD, 39));
 		lblHangman.setBounds(635, 10, 267, 83);
 		background.add(lblHangman);
-		
+
 		lblPlayer = new JLabel("Player: ");
 		lblPlayer.setForeground(new Color(30, 144, 255));
 		lblPlayer.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -164,6 +166,7 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 		btnHint.setFont(new Font("Rockwell", Font.BOLD, 15));
 		btnHint.setBackground(new Color(0, 128, 192));
 		btnHint.setBounds(746, 410, 116, 41);
+		btnHint.addActionListener(this);
 		background.add(btnHint);
 
 		imagePanel = new JPanel();
@@ -172,18 +175,18 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 		imagePanel.setOpaque(false);
 		background.add(imagePanel);
 
-		ImageIcon img = new ImageIcon("images/cloaked.gif");
+		img = new ImageIcon("images/cloaked.gif");
 		imagePanel.setLayout(null);
 		label = new JLabel(img);
 		label.setBounds(40, 0, 250, 250);
 		imagePanel.add(label);
-		
-		JLabel lblHP = new JLabel("Lives:");
+
+		lblHP = new JLabel("Lives:");
 		lblHP.setForeground(new Color(220, 20, 60));
 		lblHP.setBounds(20, 10, 130, 30);
 		lblHP.setFont(new Font("Rockwell", Font.BOLD, 20));
 		background.add(lblHP);
-		
+
 		heartImg1 = new ImageIcon("images/heart.png");
 		lblHealth = new JLabel(heartImg1);
 		lblHealth.setBounds(0, 10, 200, 30);
@@ -249,20 +252,8 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 				if (e.getSource() == alphaButton[r][c]) {
 					if (game.guessLetter(alphaButton[r][c].getText().toLowerCase().charAt(0)))
 						displayWord();
-					else {
-						if (game.getnumBadGuesses() == 1) {
-							lblHealth6.setIcon(new ImageIcon("images/heart_black.png"));
-						} else if (game.getnumBadGuesses() == 2)
-							lblHealth5.setIcon(new ImageIcon("images/heart_black.png"));
-						else if (game.getnumBadGuesses() == 3)
-							lblHealth4.setIcon(new ImageIcon("images/heart_black.png"));
-						else if (game.getnumBadGuesses() == 4)
-							lblHealth3.setIcon(new ImageIcon("images/heart_black.png"));
-						else if (game.getnumBadGuesses() == 5)
-							lblHealth2.setIcon(new ImageIcon("images/heart_black.png"));
-						else if (game.getnumBadGuesses() == 6)
-							lblHealth.setIcon(new ImageIcon("images/heart_black.png"));
-					} // else
+					else
+						updateImage();
 					alphaButton[r][c].setEnabled(false);
 					alphaButton[r][c].setBackground(Color.DARK_GRAY);
 					if (game.isComplete()) {
@@ -275,7 +266,14 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 				} // if button is selected
 			} // inner for
 		if (e.getSource() == btnHint) {
-			// hint stuff
+			if (!game.displayHint()) {
+				JOptionPane.showMessageDialog(this, "You cannot win on a hint!", "No more hints!",
+						JOptionPane.PLAIN_MESSAGE);
+			} else {
+				displayWord();
+				updateImage();
+			} // else
+
 		} // if hint button
 	} // actionPerformed(ActionEvent)
 
@@ -348,6 +346,21 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 		lblWord.setText(label);
 	} // displayWord()
 
+	public void updateImage() {
+		if (game.getnumBadGuesses() == 1) {
+			lblHealth6.setIcon(new ImageIcon("images/heart_black.png"));
+		} else if (game.getnumBadGuesses() == 2)
+			lblHealth5.setIcon(new ImageIcon("images/heart_black.png"));
+		else if (game.getnumBadGuesses() == 3)
+			lblHealth4.setIcon(new ImageIcon("images/heart_black.png"));
+		else if (game.getnumBadGuesses() == 4)
+			lblHealth3.setIcon(new ImageIcon("images/heart_black.png"));
+		else if (game.getnumBadGuesses() == 5)
+			lblHealth2.setIcon(new ImageIcon("images/heart_black.png"));
+		else if (game.getnumBadGuesses() == 6)
+			lblHealth.setIcon(new ImageIcon("images/heart_black.png"));
+	} // updateImage()
+
 	public void resetButtons() {
 		int i = 0;
 		for (int r = 1; r < alphaButton.length; ++r)
@@ -404,7 +417,7 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		//serializeBoard();
+		// serializeBoard();
 	} // windowClosing(WindowEvent)
 
 	@Override

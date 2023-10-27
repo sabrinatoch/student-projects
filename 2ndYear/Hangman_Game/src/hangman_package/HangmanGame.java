@@ -4,6 +4,7 @@
 package hangman_package;
 
 import java.io.Serializable;
+import java.util.Random;
 
 import linked_data_structures.SinglyLinkedList;
 
@@ -74,10 +75,22 @@ public class HangmanGame implements Serializable {
 		return true;
 	} // hasWon()
 
-	public String displayHint() {
-		char letter = '?'; // random unselected letter????
-		guessedLetters.add(letter);
-		return displayWordState();
+	public boolean displayHint() {
+		if (numBadGuesses == 5)
+			return false;
+		char hintLetter = '?';
+		int index;
+		while (hintLetter == '?') {
+			Random random = new Random();
+		    index = random.nextInt(letters.getLength());
+		    hintLetter = letters.getElementAt(index);
+		    if (guessedLetters.find(hintLetter) == null)
+		    	break;
+		    else hintLetter = '?';
+		} // while
+		guessLetter(hintLetter);
+		++numBadGuesses;
+		return true;
 	} // displayHint()
 
 	public void setPlayer(Player pl) {
