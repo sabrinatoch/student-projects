@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 
@@ -51,30 +52,28 @@ public class LoginFrame extends JFrame implements ActionListener {
 	} // main()
 
 	public LoginFrame() {
+		JLabel background = new JLabel(new ImageIcon("images/background-image.png"));
+		background.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 15));
+		background.setBounds(0, 0, 941, 507);
+		setContentPane(background);
 		player = null;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 582, 347);
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 0, 64));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
 
 		radioNewPlayer = new JRadioButton("New Player:");
 		radioNewPlayer.setHorizontalAlignment(SwingConstants.RIGHT);
-		radioNewPlayer.setBackground(new Color(0, 0, 64));
+		radioNewPlayer.setOpaque(false);
 		radioNewPlayer.setForeground(new Color(255, 255, 255));
 		radioNewPlayer.setFont(new Font("Rockwell", Font.PLAIN, 15));
 		radioNewPlayer.setBounds(147, 171, 117, 44);
-		contentPane.add(radioNewPlayer);
+		background.add(radioNewPlayer);
 
 		radioSelectPlayer = new JRadioButton("Select Player:");
 		radioSelectPlayer.setForeground(new Color(255, 255, 255));
-		radioSelectPlayer.setBackground(new Color(0, 0, 64));
+		radioSelectPlayer.setOpaque(false);
 		radioSelectPlayer.setFont(new Font("Rockwell", Font.PLAIN, 15));
 		radioSelectPlayer.setBounds(141, 125, 123, 44);
-		contentPane.add(radioSelectPlayer);
+		background.add(radioSelectPlayer);
 		radioSelectPlayer.setSelected(true);
 
 		lblLogin = new JLabel("LOGIN");
@@ -82,24 +81,29 @@ public class LoginFrame extends JFrame implements ActionListener {
 		lblLogin.setForeground(new Color(255, 255, 255));
 		lblLogin.setFont(new Font("Rockwell", Font.PLAIN, 22));
 		lblLogin.setBounds(193, 66, 179, 53);
-		contentPane.add(lblLogin);
+		background.add(lblLogin);
 
 		fldNewPlayer = new JTextField();
+		fldNewPlayer.setBackground(new Color(0, 0, 64));
+		fldNewPlayer.setForeground(new Color(255, 255, 255));
 		fldNewPlayer.setBounds(264, 186, 168, 19);
-		contentPane.add(fldNewPlayer);
+		background.add(fldNewPlayer);
 		fldNewPlayer.setColumns(10);
 		fldNewPlayer.setEnabled(false);
 
 		cmbxPlayers = new JComboBox();
+		cmbxPlayers.setForeground(new Color(255, 255, 255));
+		cmbxPlayers.setBackground(new Color(0, 0, 64));
 		cmbxPlayers.setBounds(264, 140, 168, 19);
-		contentPane.add(cmbxPlayers);
+		background.add(cmbxPlayers);
 
 		lblHangman = new JLabel("Hangman (Ghoul Edition)");
+		lblHangman.setBackground(new Color(0, 0, 0));
 		lblHangman.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHangman.setForeground(new Color(128, 0, 255));
+		lblHangman.setForeground(new Color(192, 192, 192));
 		lblHangman.setFont(new Font("Forte", Font.PLAIN, 31));
 		lblHangman.setBounds(116, 28, 368, 44);
-		contentPane.add(lblHangman);
+		background.add(lblHangman);
 
 		group = new ButtonGroup();
 		group.add(radioSelectPlayer);
@@ -107,10 +111,10 @@ public class LoginFrame extends JFrame implements ActionListener {
 
 		btnPlay = new JButton("Play!");
 		btnPlay.setForeground(new Color(255, 255, 255));
-		btnPlay.setBackground(new Color(128, 0, 255));
+		btnPlay.setBackground(new Color(0, 0, 64));
 		btnPlay.setFont(new Font("Rockwell", Font.PLAIN, 17));
 		btnPlay.setBounds(232, 243, 99, 40);
-		contentPane.add(btnPlay);
+		background.add(btnPlay);
 
 		btnPlay.addActionListener(this);
 		radioSelectPlayer.addActionListener(this);

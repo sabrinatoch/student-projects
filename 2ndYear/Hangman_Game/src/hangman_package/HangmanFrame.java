@@ -8,7 +8,6 @@ import java.awt.event.*;
 
 public class HangmanFrame extends JFrame implements ActionListener {
 
-	private JPanel contentPane;
 	private JMenuItem exitMenuItem;
 	private JLabel background;
 	private JMenuBar menuBar;
@@ -45,7 +44,6 @@ public class HangmanFrame extends JFrame implements ActionListener {
 	private static Scoreboard scoreboard;
 	private static LoginFrame login;
 	private static HangmanFrame frame;
-	private static boolean isNewPlayer;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
