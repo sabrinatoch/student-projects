@@ -175,6 +175,10 @@ public class LoginFrame extends JFrame implements ActionListener {
 	public Player getPlayer() {
 		return player;
 	} // getPlayer()
+	
+	public int getSelectedIndex() {
+		return cmbxPlayers.getSelectedIndex();
+	}
 
 	public JTextField getNewField() {
 		return fldNewPlayer;

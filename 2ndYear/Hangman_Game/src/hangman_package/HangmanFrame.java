@@ -1,47 +1,12 @@
 package hangman_package;
 
-import java.awt.EventQueue;
-import java.awt.FlowLayout;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
+import java.awt.*;
+import java.io.*;
+import java.awt.event.*;
 
-import javax.swing.SwingConstants;
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.IOException;
-import java.awt.event.ActionEvent;
-import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.SystemColor;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.ObjectInputStream;
-import java.io.FileInputStream;
-
-public class HangmanFrame extends JFrame implements ActionListener, WindowListener {
+public class HangmanFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JMenuItem exitMenuItem;
@@ -49,7 +14,7 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 	private JMenuBar menuBar;
 	private JMenu gameMenu;
 	private JMenuItem newGameMenuItem;
-	private JMenuItem saveMenuItem;
+	private JMenuItem newPlayerMenuItem;
 	private JMenu viewMenu;
 	private JMenuItem scoreMenuItem;
 	private JMenuItem rulesMenuItem;
@@ -59,9 +24,6 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 	private JPanel imagePanel;
 	private JPanel buttonPanel;
 	private JLabel label;
-	private HangmanGame game;
-	private static Player player;
-	private static Scoreboard scoreboard;
 	private JButton alphaButton[][];
 	private ImageIcon heartImg1;
 	private ImageIcon heartImg2;
@@ -78,6 +40,9 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 	private JLabel lblPlayer;
 	private JLabel lblHP;
 	private ImageIcon img;
+	private HangmanGame game;
+	private static Player player;
+	private static Scoreboard scoreboard;
 	private static LoginFrame login;
 	private static HangmanFrame frame;
 	private static boolean isNewPlayer;
@@ -94,7 +59,8 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 						public void actionPerformed(ActionEvent e) {
 							scoreboard = login.getScoreboard();
 							if (login.getRadioSelect().isSelected()) {
-								player = scoreboard.getPlayerAt(0); ///////////////////// fix this later
+								int index = login.getSelectedIndex();
+								player = scoreboard.getPlayerAt(index); 
 							} // returning player
 							else if (login.getRadioNew().isSelected()) {
 								try {
@@ -104,11 +70,10 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 									e1.printStackTrace();
 								} // catch
 							} // new player
-							System.out.println(player.getName());
 							login.setVisible(false); // Close the login frame
 							frame = new HangmanFrame();
 							frame.setVisible(true);
-						}
+						} // actionPerformed(ActionEvent)
 					});
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -120,13 +85,6 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 	public HangmanFrame() {
 
 		// set up frame //
-
-//        if (JOptionPane.showConfirmDialog(login, 
-//        "Are you sure you want to close this window?", "Close Window?", 
-//        JOptionPane.YES_NO_OPTION,
-//        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-//        System.exit(0);
-//    }
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(50, 50, 955, 566);
@@ -150,8 +108,8 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 		newGameMenuItem = new JMenuItem("New Game");
 		gameMenu.add(newGameMenuItem);
 
-		saveMenuItem = new JMenuItem("Save");
-		gameMenu.add(saveMenuItem);
+		newPlayerMenuItem = new JMenuItem("New Player");
+		gameMenu.add(newPlayerMenuItem);
 
 		exitMenuItem = new JMenuItem("Exit");
 		gameMenu.add(exitMenuItem);
@@ -273,6 +231,7 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 				} // if (i < 26)
 			} // inner for
 
+		serializeBoard();
 		setupGame();
 
 	} // HangmanFrame()
@@ -305,15 +264,36 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 				displayWord();
 				updateImage();
 			} // else
-
-		} // if hint button
+		} // hint
+		else if (e.getSource() == newPlayerMenuItem) {
+			
+		} // new player
+		else if (e.getSource() == scoreMenuItem) {
+			
+		} // scoreboard
+		else if (e.getSource() == rulesMenuItem) {
+			
+		} // rules
 	} // actionPerformed(ActionEvent)
 
 	public void setupGame() {
 		try {
 			game = new HangmanGame(player);
 		} catch (NoWordsLeftException e) {
-			e.printStackTrace(); ////////////////// add pop up
+			int reply = JOptionPane.showConfirmDialog(null,
+					"You went through every word. Would you like to start over?", "No more words!",
+					JOptionPane.YES_NO_OPTION);
+			if (reply == JOptionPane.YES_OPTION) {
+				try {
+					player.restartDictionary();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				} // catch (IOException)
+				resetGame();
+			} else {
+				JOptionPane.showMessageDialog(null, "See you next time!");
+				System.exit(0);
+			} // else
 		} // catch (NoWordsLeftException)
 		lblPlayer.setText("Player: " + game.getPlayer().getName());
 		displayWord();
@@ -347,24 +327,19 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 	} // updateImage()
 
 	public void displayWon() {
+		scoreboard.addGamePlayed(player, true);
 		JOptionPane.showMessageDialog(this, "Congratulations! You survived the Ghoul!", "Game Won",
 				JOptionPane.PLAIN_MESSAGE);
-		displayPlayAgain();
+		resetGame();
 	} // displayWon()
 
 	public void displayLost() {
+		scoreboard.addGamePlayed(player, false);
 		JOptionPane.showMessageDialog(this,
 				"Oh no! You were slain by the Ghoul! The word was " + game.getWord().toUpperCase() + ".", "Game Over",
 				JOptionPane.PLAIN_MESSAGE);
-		displayPlayAgain();
-	} // displayLost()
-
-	public void displayPlayAgain() {
-//		final JOptionPane optionPane = new JOptionPane(
-//			    "Play Again?",
-//			    JOptionPane.YES_NO_OPTION);
 		resetGame();
-	} // displayPlayAgain()
+	} // displayLost()
 
 	public void resetGame() {
 		try {
@@ -411,34 +386,4 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 				} // if
 			} // inner for
 	} // resetButtons()
-
-	@Override
-	public void windowClosing(WindowEvent e) {
-		// serializeBoard();
-	} // windowClosing(WindowEvent)
-
-	@Override
-	public void windowOpened(WindowEvent e) {
-
-	} // windowOpened(WindowEvent)
-
-	@Override
-	public void windowClosed(WindowEvent e) {
-	}
-
-	@Override
-	public void windowIconified(WindowEvent e) {
-	}
-
-	@Override
-	public void windowDeiconified(WindowEvent e) {
-	}
-
-	@Override
-	public void windowActivated(WindowEvent e) {
-	}
-
-	@Override
-	public void windowDeactivated(WindowEvent e) {
-	}
 } // HangmanFrame class
