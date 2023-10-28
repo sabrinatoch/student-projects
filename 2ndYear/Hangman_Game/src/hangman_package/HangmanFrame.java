@@ -60,8 +60,8 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 	private JPanel buttonPanel;
 	private JLabel label;
 	private HangmanGame game;
-	private Player player;
-	private Scoreboard scoreboard;
+	private static Player player;
+	private static Scoreboard scoreboard;
 	private JButton alphaButton[][];
 	private ImageIcon heartImg1;
 	private ImageIcon heartImg2;
@@ -78,13 +78,38 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 	private JLabel lblPlayer;
 	private JLabel lblHP;
 	private ImageIcon img;
+	private static LoginFrame login;
+	private static HangmanFrame frame;
+	private static boolean isNewPlayer;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					HangmanFrame frame = new HangmanFrame();
-					frame.setVisible(true);
+					login = new LoginFrame();
+					login.setLocationRelativeTo(null);
+					login.setVisible(true);
+					login.getBtnPlay().addActionListener(new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							scoreboard = login.getScoreboard();
+							if (login.getRadioSelect().isSelected()) {
+								player = scoreboard.getPlayerAt(0); ///////////////////// fix this later
+							} // returning player
+							else if (login.getRadioNew().isSelected()) {
+								try {
+									player = new Player(login.getNewField().getText());
+									scoreboard.addPlayer(player);
+								} catch (IOException e1) {
+									e1.printStackTrace();
+								} // catch
+							} // new player
+							System.out.println(player.getName());
+							login.setVisible(false); // Close the login frame
+							frame = new HangmanFrame();
+							frame.setVisible(true);
+						}
+					});
 				} catch (Exception e) {
 					e.printStackTrace();
 				} // catch
@@ -95,6 +120,13 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 	public HangmanFrame() {
 
 		// set up frame //
+
+//        if (JOptionPane.showConfirmDialog(login, 
+//        "Are you sure you want to close this window?", "Close Window?", 
+//        JOptionPane.YES_NO_OPTION,
+//        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+//        System.exit(0);
+//    }
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(50, 50, 955, 566);
@@ -257,6 +289,7 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 					alphaButton[r][c].setEnabled(false);
 					alphaButton[r][c].setBackground(Color.DARK_GRAY);
 					if (game.isComplete()) {
+						serializeBoard();
 						if (game.hasWon())
 							displayWon();
 						else
@@ -267,8 +300,7 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 			} // inner for
 		if (e.getSource() == btnHint) {
 			if (!game.displayHint()) {
-				JOptionPane.showMessageDialog(this, "You cannot win on a hint!", "No more hints!",
-						JOptionPane.PLAIN_MESSAGE);
+				JOptionPane.showMessageDialog(this, "No more hints!", "No more hints!", JOptionPane.PLAIN_MESSAGE);
 			} else {
 				displayWord();
 				updateImage();
@@ -277,59 +309,12 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 		} // if hint button
 	} // actionPerformed(ActionEvent)
 
-	public void checkScoreboard() {
-		try {
-			FileInputStream file = new FileInputStream("scoreboard.ser");
-			ObjectInputStream in = new ObjectInputStream(file);
-			scoreboard = (Scoreboard) in.readObject();
-			in.close();
-			file.close();
-		} catch (IOException e) {
-			JOptionPane.showMessageDialog(this, "Welcome to Hangman (Ghoul Edition)!", "Hangman",
-					JOptionPane.PLAIN_MESSAGE);
-		} catch (ClassNotFoundException e) {
-			System.out.println("ClassNotFoundException caught " + e);
-		} // catch (ClassNotFoundException
-	} // checkScoreboard()
-
-	public void resetGame() {
-		serializeBoard();
+	public void setupGame() {
 		try {
 			game = new HangmanGame(player);
 		} catch (NoWordsLeftException e) {
-			e.printStackTrace();
+			e.printStackTrace(); ////////////////// add pop up
 		} // catch (NoWordsLeftException)
-		resetHearts();
-		resetButtons();
-		displayWord();
-		System.out.println(game.getWord());
-	} // resetHearts()
-
-	public void setupGame() {
-		checkScoreboard();
-		if (scoreboard == null) {
-			try {
-				player = new Player("Sabrina");
-			} catch (IOException e) {
-				e.printStackTrace();
-			} // catch (IOException)
-			try {
-				game = new HangmanGame(player);
-			} catch (NoWordsLeftException e) {
-				e.printStackTrace();
-			} // catch (NoWordsLeftException)
-			scoreboard = new Scoreboard();
-			scoreboard.addPlayer(player);
-		} // if no scoreboard yet
-		else {
-			try {
-				player = scoreboard.getPlayerAt(0);
-				game = new HangmanGame(player);
-			} catch (NoWordsLeftException e) {
-				e.printStackTrace();
-			} // catch (NoWordsLeftException)
-		} // else scoreboard is present
-
 		lblPlayer.setText("Player: " + game.getPlayer().getName());
 		displayWord();
 		System.out.println(game.getWord());
@@ -361,26 +346,6 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 			lblHealth.setIcon(new ImageIcon("images/heart_black.png"));
 	} // updateImage()
 
-	public void resetButtons() {
-		int i = 0;
-		for (int r = 1; r < alphaButton.length; ++r)
-			for (int c = 1; c < alphaButton[r].length; ++c) {
-				if (i++ < 26) {
-					alphaButton[r][c].setEnabled(true);
-					alphaButton[r][c].setBackground(Color.black);
-				} // if
-			} // inner for
-	} // resetButtons()
-
-	public void resetHearts() {
-		lblHealth.setIcon(new ImageIcon("images/heart.png"));
-		lblHealth2.setIcon(new ImageIcon("images/heart.png"));
-		lblHealth3.setIcon(new ImageIcon("images/heart.png"));
-		lblHealth4.setIcon(new ImageIcon("images/heart.png"));
-		lblHealth5.setIcon(new ImageIcon("images/heart.png"));
-		lblHealth6.setIcon(new ImageIcon("images/heart.png"));
-	} // resetHearts()
-
 	public void displayWon() {
 		JOptionPane.showMessageDialog(this, "Congratulations! You survived the Ghoul!", "Game Won",
 				JOptionPane.PLAIN_MESSAGE);
@@ -401,6 +366,18 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 		resetGame();
 	} // displayPlayAgain()
 
+	public void resetGame() {
+		try {
+			game = new HangmanGame(player);
+		} catch (NoWordsLeftException e) {
+			e.printStackTrace();
+		} // catch (NoWordsLeftException)
+		resetHearts();
+		resetButtons();
+		displayWord();
+		System.out.println(game.getWord());
+	} // resetGame()
+
 	public void serializeBoard() {
 		try {
 			FileOutputStream file = new FileOutputStream("scoreboard.ser");
@@ -414,6 +391,26 @@ public class HangmanFrame extends JFrame implements ActionListener, WindowListen
 			System.out.println("IOException caught: " + ex);
 		} // catch (IOException)
 	} // serializeBoard()
+
+	public void resetHearts() {
+		lblHealth.setIcon(new ImageIcon("images/heart.png"));
+		lblHealth2.setIcon(new ImageIcon("images/heart.png"));
+		lblHealth3.setIcon(new ImageIcon("images/heart.png"));
+		lblHealth4.setIcon(new ImageIcon("images/heart.png"));
+		lblHealth5.setIcon(new ImageIcon("images/heart.png"));
+		lblHealth6.setIcon(new ImageIcon("images/heart.png"));
+	} // resetHearts()
+
+	public void resetButtons() {
+		int i = 0;
+		for (int r = 1; r < alphaButton.length; ++r)
+			for (int c = 1; c < alphaButton[r].length; ++c) {
+				if (i++ < 26) {
+					alphaButton[r][c].setEnabled(true);
+					alphaButton[r][c].setBackground(Color.black);
+				} // if
+			} // inner for
+	} // resetButtons()
 
 	@Override
 	public void windowClosing(WindowEvent e) {

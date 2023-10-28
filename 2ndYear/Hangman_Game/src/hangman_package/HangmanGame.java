@@ -17,6 +17,7 @@ public class HangmanGame implements Serializable {
 	private Player player;
 	private String word;
 	private int numBadGuesses;
+	private int numLettersLeft;
 	private SinglyLinkedList<Character> letters;
 	private SinglyLinkedList<Character> guessedLetters;
 
@@ -25,26 +26,26 @@ public class HangmanGame implements Serializable {
 	} // HangmanGame()
 
 	public HangmanGame(Player pl) throws NoWordsLeftException {
-
 		// player & word
 		player = pl;
 		word = player.getNextWord();
 		if (word.equals("n/a"))
 			throw new NoWordsLeftException();
-
 		// lists
 		letters = new SinglyLinkedList<Character>();
 		for (int i = 0; i < word.length(); i++)
 			letters.add(word.charAt(i));
 		guessedLetters = new SinglyLinkedList<Character>();
 		numBadGuesses = 0;
-
+		numLettersLeft = letters.getLength();
 	} // HangmanGame()
 
 	public boolean guessLetter(char letter) {
 		guessedLetters.add(letter);
-		if (letters.find(letter) != null)
+		if (letters.find(letter) != null) {
+			--numLettersLeft;
 			return true;
+		}
 		++numBadGuesses;
 		return false;
 	} // guessLetter(char)
@@ -76,7 +77,7 @@ public class HangmanGame implements Serializable {
 	} // hasWon()
 
 	public boolean displayHint() {
-		if (numBadGuesses == 5)
+		if (numBadGuesses == 5 || numLettersLeft == 1)
 			return false;
 		char hintLetter = '?';
 		int index;
