@@ -44,15 +44,15 @@ public class Dictionary implements Serializable {
 	public String generateRandomWord() {
 		int min = 0;
 		int max = wordList.getLength() - 1;
-		index = min + (int)(Math.random() * ((max - min) + 1));
-		
+		index = min + (int) (Math.random() * ((max - min) + 1));
+
 		if (wordList.getLength() > 0) {
 			String word = wordList.getElementAt(index);
 			return word;
 		} // if the list is not empty
 		return "n/a";
 	} // generateRandomWord()
-	
+
 	public void removeWord() {
 		wordList.remove(index);
 	} // removeWord()

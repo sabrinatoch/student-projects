@@ -33,40 +33,40 @@ public class ScoreboardFrame extends JFrame {
 		background.setBounds(0, 0, 941, 507);
 
 		setContentPane(background);
-		
+
 		background.setLayout(null);
-		
+
 		JLabel lblTitle = new JLabel("Scoreboard");
 		lblTitle.setForeground(new Color(255, 255, 255));
 		lblTitle.setFont(new Font("Rockwell", Font.PLAIN, 23));
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitle.setBounds(130, 10, 195, 30);
 		background.add(lblTitle);
-		
+
 		areaDisplay = new JTextArea();
 		areaDisplay.setForeground(new Color(255, 255, 255));
 		areaDisplay.setOpaque(false);
 		areaDisplay.setBounds(29, 50, 428, 268);
 		areaDisplay.setFont(new Font("Courier New", Font.BOLD, 15));
 		areaDisplay.setEditable(false);
-		background.add(areaDisplay);	
-		
+		background.add(areaDisplay);
+
 		DefaultCaret caret = (DefaultCaret) areaDisplay.getCaret();
 		caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
-		
+
 		areaDisplay.setText(String.format("%-18s%-18s%-20s\n", "Player Name", "Games Played", "Games Won"));
 		areaDisplay.append(String.format("%-18s%-18s%-20s\n", "-----------", "------------", "---------"));
-		
+
 		score.sortPlayers();
-		
+
 		for (int i = 0; i < score.getNumPlayers(); ++i) {
 			displayLine(score.getPlayerAt(i));
 		} // for
 	} // ScoreboardFrame(Scoreboard)
-	
+
 	public void displayLine(Player pl) {
-		areaDisplay.append(String.format("%-18s%-18d%-20d\n", pl.getName(), pl.getNumberGamesPlayed(), pl.getNumberGamesWon()));
+		areaDisplay.append(
+				String.format("%-18s%-18d%-20d\n", pl.getName(), pl.getNumberGamesPlayed(), pl.getNumberGamesWon()));
 	} // displayLine(Player)
-	
-	
+
 } // ScoreboardFrame class

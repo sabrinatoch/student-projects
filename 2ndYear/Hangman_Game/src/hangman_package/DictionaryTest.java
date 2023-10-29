@@ -26,5 +26,5 @@ class DictionaryTest {
 		int numWords = dict.getNumberOfWords();
 		assertTrue(dict.generateRandomWord() != null, "test for generating a random word");
 	} // generateRandomWordTest()
-  
+
 } // DictionaryTest class

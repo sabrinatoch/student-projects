@@ -267,8 +267,6 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		} // catch (NoWordsLeftException)
 		lblPlayer.setText("Player: " + game.getPlayer().getName());
 		displayWord();
-		System.out.println(game.getWord());
-		System.out.println(game.getPlayer().getNumWordsLeft());
 	} // setupGame()
 
 	public void displayWord() {
@@ -323,8 +321,6 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		resetHearts();
 		resetButtons();
 		displayWord();
-		System.out.println(game.getWord());
-		System.out.println(game.getPlayer().getNumWordsLeft());
 	} // resetGame()
 
 	public void serializeBoard() {

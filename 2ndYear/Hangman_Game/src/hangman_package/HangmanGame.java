@@ -83,11 +83,12 @@ public class HangmanGame implements Serializable {
 		int index;
 		while (hintLetter == '?') {
 			Random random = new Random();
-		    index = random.nextInt(letters.getLength());
-		    hintLetter = letters.getElementAt(index);
-		    if (guessedLetters.find(hintLetter) == null)
-		    	break;
-		    else hintLetter = '?';
+			index = random.nextInt(letters.getLength());
+			hintLetter = letters.getElementAt(index);
+			if (guessedLetters.find(hintLetter) == null)
+				break;
+			else
+				hintLetter = '?';
 		} // while
 		guessLetter(hintLetter);
 		++numBadGuesses;

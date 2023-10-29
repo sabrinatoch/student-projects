@@ -28,8 +28,7 @@ public class RulesPanel extends JPanel {
 		gbc_lblTitle.gridy = 0;
 		add(lblTitle, gbc_lblTitle);
 
-		JLabel lbl1 = new JLabel(
-				"   1. Guess each letter using the alphabetic keypad.");
+		JLabel lbl1 = new JLabel("   1. Guess each letter using the alphabetic keypad.");
 		lbl1.setFont(new Font("Rockwell", Font.PLAIN, 13));
 		GridBagConstraints gbc_1 = new GridBagConstraints();
 		gbc_1.anchor = GridBagConstraints.WEST;
@@ -38,8 +37,7 @@ public class RulesPanel extends JPanel {
 		gbc_1.gridy = 1;
 		add(lbl1, gbc_1);
 
-		JLabel lbl2 = new JLabel(
-				"   2. Each time you guess incorrectly, you lose a life.");
+		JLabel lbl2 = new JLabel("   2. Each time you guess incorrectly, you lose a life.");
 		lbl2.setFont(new Font("Rockwell", Font.PLAIN, 13));
 		GridBagConstraints gbc_2 = new GridBagConstraints();
 		gbc_2.anchor = GridBagConstraints.WEST;
@@ -47,9 +45,8 @@ public class RulesPanel extends JPanel {
 		gbc_2.gridx = 0;
 		gbc_2.gridy = 2;
 		add(lbl2, gbc_2);
-		
-		JLabel lbl25 = new JLabel(
-				"   3. If you lose 6 lives, the Ghoul wins and you die!");
+
+		JLabel lbl25 = new JLabel("   3. If you lose 6 lives, the Ghoul wins and you die!");
 		lbl25.setFont(new Font("Rockwell", Font.PLAIN, 13));
 		GridBagConstraints gbc_25 = new GridBagConstraints();
 		gbc_25.anchor = GridBagConstraints.WEST;
@@ -58,8 +55,7 @@ public class RulesPanel extends JPanel {
 		gbc_25.gridy = 3;
 		add(lbl25, gbc_25);
 
-		JLabel lbl3 = new JLabel(
-				"   4. If you guess the word before that happens, you survive!");
+		JLabel lbl3 = new JLabel("   4. If you guess the word before that happens, you survive!");
 		lbl3.setFont(new Font("Rockwell", Font.PLAIN, 13));
 		GridBagConstraints gbc_3 = new GridBagConstraints();
 		gbc_3.anchor = GridBagConstraints.WEST;
@@ -68,8 +64,7 @@ public class RulesPanel extends JPanel {
 		gbc_3.gridy = 4;
 		add(lbl3, gbc_3);
 
-		JLabel lbl4 = new JLabel(
-				"   5. To play a new game or create a new player, select the \"Game\" Menu.");
+		JLabel lbl4 = new JLabel("   5. To play a new game or create a new player, select the \"Game\" Menu.");
 		lbl4.setFont(new Font("Rockwell", Font.PLAIN, 13));
 		GridBagConstraints gbc_4 = new GridBagConstraints();
 		gbc_4.anchor = GridBagConstraints.WEST;
@@ -87,9 +82,8 @@ public class RulesPanel extends JPanel {
 		gbc_5.gridx = 0;
 		gbc_5.gridy = 6;
 		add(lbl5, gbc_5);
-		
-		JLabel lbl6 = new JLabel(
-				"   7. To display the scoreboard, select the \"View\" Menu.");
+
+		JLabel lbl6 = new JLabel("   7. To display the scoreboard, select the \"View\" Menu.");
 		lbl6.setFont(new Font("Rockwell", Font.PLAIN, 13));
 		GridBagConstraints gbc_6 = new GridBagConstraints();
 		gbc_6.anchor = GridBagConstraints.WEST;
@@ -97,9 +91,8 @@ public class RulesPanel extends JPanel {
 		gbc_6.gridx = 0;
 		gbc_6.gridy = 7;
 		add(lbl6, gbc_6);
-		
-		JLabel lbl7 = new JLabel(
-				"   8. Most importantly... Have fun :)");
+
+		JLabel lbl7 = new JLabel("   8. Most importantly... Have fun :)");
 		lbl7.setFont(new Font("Rockwell", Font.PLAIN, 13));
 		GridBagConstraints gbc_7 = new GridBagConstraints();
 		gbc_7.anchor = GridBagConstraints.WEST;
