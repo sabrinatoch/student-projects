@@ -64,5 +64,9 @@ public class Player implements Serializable {
 	public void restartDictionary() throws IOException {
 		dict.storeWordList();
 	} // restardDictionary()
+	
+	public int getNumWordsLeft() {
+		return dict.getNumberOfWords();
+	} // getNumWordsLeft()
 
 } // Player class

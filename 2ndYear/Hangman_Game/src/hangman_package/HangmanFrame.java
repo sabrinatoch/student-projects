@@ -250,7 +250,6 @@ public class HangmanFrame extends JFrame implements ActionListener {
 					alphaButton[r][c].setEnabled(false);
 					alphaButton[r][c].setBackground(Color.DARK_GRAY);
 					if (game.isComplete()) {
-						serializeBoard();
 						if (game.hasWon())
 							displayWon();
 						else
@@ -271,7 +270,9 @@ public class HangmanFrame extends JFrame implements ActionListener {
 			
 		} // new player
 		else if (e.getSource() == scoreMenuItem) {
-			
+			ScoreboardFrame scoreFrame = new ScoreboardFrame(scoreboard);
+			scoreFrame.setLocationRelativeTo(null);
+			scoreFrame.setVisible(true);
 		} // scoreboard
 		else if (e.getSource() == rulesMenuItem) {
 			JOptionPane.showMessageDialog(this, new RulesPanel(), "Rules", JOptionPane.PLAIN_MESSAGE);
@@ -330,6 +331,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 
 	public void displayWon() {
 		scoreboard.addGamePlayed(player, true);
+		serializeBoard();
 		JOptionPane.showMessageDialog(this, "Congratulations! You survived the Ghoul!", "Game Won",
 				JOptionPane.PLAIN_MESSAGE);
 		resetGame();
@@ -337,6 +339,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 
 	public void displayLost() {
 		scoreboard.addGamePlayed(player, false);
+		serializeBoard();
 		JOptionPane.showMessageDialog(this,
 				"Oh no! You were slain by the Ghoul! The word was " + game.getWord().toUpperCase() + ".", "Game Over",
 				JOptionPane.PLAIN_MESSAGE);
