@@ -104,9 +104,11 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		menuBar.add(gameMenu);
 
 		newGameMenuItem = new JMenuItem("New Game");
+		newGameMenuItem.addActionListener(this);
 		gameMenu.add(newGameMenuItem);
 
 		newPlayerMenuItem = new JMenuItem("New Player");
+		newPlayerMenuItem.addActionListener(this);
 		gameMenu.add(newPlayerMenuItem);
 
 		exitMenuItem = new JMenuItem("Exit");
@@ -121,9 +123,11 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		menuBar.add(viewMenu);
 
 		scoreMenuItem = new JMenuItem("Scoreboard");
+		scoreMenuItem.addActionListener(this);
 		viewMenu.add(scoreMenuItem);
 
 		rulesMenuItem = new JMenuItem("Rules");
+		rulesMenuItem.addActionListener(this);
 		viewMenu.add(rulesMenuItem);
 
 		background.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -270,7 +274,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 			
 		} // scoreboard
 		else if (e.getSource() == rulesMenuItem) {
-			
+			JOptionPane.showMessageDialog(this, new RulesPanel(), "Rules", JOptionPane.PLAIN_MESSAGE);
 		} // rules
 	} // actionPerformed(ActionEvent)
 
