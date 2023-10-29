@@ -137,7 +137,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		background.add(lblHangman);
 
 		lblPlayer = new JLabel("Player: ");
-		lblPlayer.setForeground(new Color(30, 144, 255));
+		lblPlayer.setForeground(new Color(192, 192, 192));
 		lblPlayer.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPlayer.setFont(new Font("Rockwell", Font.BOLD, 20));
 		lblPlayer.setBounds(630, 40, 267, 83);

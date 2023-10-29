@@ -45,7 +45,7 @@ public class HangmanGame implements Serializable {
 		if (letters.find(letter) != null) {
 			--numLettersLeft;
 			return true;
-		}
+		} // if
 		++numBadGuesses;
 		return false;
 	} // guessLetter(char)
@@ -64,10 +64,7 @@ public class HangmanGame implements Serializable {
 	public boolean isComplete() {
 		if (numBadGuesses < 6 && displayWordState().contains("-"))
 			return false;
-		else {
-			player.removeWord();
-			return true;
-		} // else
+		else return true;
 	} // isComplete()
 
 	public boolean hasWon() {

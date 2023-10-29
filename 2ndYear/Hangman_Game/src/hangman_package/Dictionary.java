@@ -12,8 +12,8 @@ import linked_data_structures.SinglyLinkedList;
 
 /**
  * @author Sabrina Tochkov
- *
  */
+
 public class Dictionary implements Serializable {
 
 	private SinglyLinkedList<String> wordList;
@@ -39,10 +39,6 @@ public class Dictionary implements Serializable {
 			return false;
 		return true;
 	} // isValidWord(String)
-	
-	public void removeWord() {
-		wordList.remove(0); // delete word
-	} // removeWord()
 
 	public String generateRandomWord() {
 		int min = 0;
@@ -51,9 +47,13 @@ public class Dictionary implements Serializable {
 		
 		if (wordList.getLength() > 0) {
 			String word = wordList.getElementAt(index);
+			wordList.remove(index);
 			return word;
 		} // if the list is not empty
 		return "n/a";
 	} // generateRandomWord()
 
+	public int getNumberOfWords() {
+		return wordList.getLength();
+	} // getNumberOfWords()
 } // Dictionary class

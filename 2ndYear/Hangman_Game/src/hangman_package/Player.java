@@ -65,8 +65,4 @@ public class Player implements Serializable {
 		dict.storeWordList();
 	} // restardDictionary()
 
-	public void removeWord() {
-		dict.removeWord();
-	} // removeWord();
-
 } // Player class

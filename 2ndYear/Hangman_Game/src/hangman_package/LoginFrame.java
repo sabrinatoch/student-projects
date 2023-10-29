@@ -60,6 +60,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 582, 347);
 
+		setLocationRelativeTo(null);
 		radioNewPlayer = new JRadioButton("New Player:");
 		radioNewPlayer.setHorizontalAlignment(SwingConstants.RIGHT);
 		radioNewPlayer.setOpaque(false);
