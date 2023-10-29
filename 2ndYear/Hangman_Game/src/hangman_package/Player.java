@@ -68,5 +68,9 @@ public class Player implements Serializable {
 	public int getNumWordsLeft() {
 		return dict.getNumberOfWords();
 	} // getNumWordsLeft()
+	
+	public void removeWord() {
+		dict.removeWord();
+	} // removeWord()
 
 } // Player class

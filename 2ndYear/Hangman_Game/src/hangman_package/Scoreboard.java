@@ -60,4 +60,8 @@ public class Scoreboard implements Serializable {
 			throw new IllegalArgumentException();
 		return players.getElementAt(index);
 	} // getPlayerAt(int)
+	
+	public void sortPlayers() {
+		
+	} // sortPlayers()
 } // Scoreboard class

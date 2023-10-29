@@ -49,30 +49,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					login = new LoginFrame();
-					login.setLocationRelativeTo(null);
-					login.setVisible(true);
-					login.getBtnPlay().addActionListener(new ActionListener() {
-						@Override
-						public void actionPerformed(ActionEvent e) {
-							scoreboard = login.getScoreboard();
-							if (login.getRadioSelect().isSelected()) {
-								int index = login.getSelectedIndex();
-								player = scoreboard.getPlayerAt(index); 
-							} // returning player
-							else if (login.getRadioNew().isSelected()) {
-								try {
-									player = new Player(login.getNewField().getText());
-									scoreboard.addPlayer(player);
-								} catch (IOException e1) {
-									e1.printStackTrace();
-								} // catch
-							} // new player
-							login.setVisible(false); // Close the login frame
-							frame = new HangmanFrame();
-							frame.setVisible(true);
-						} // actionPerformed(ActionEvent)
-					});
+					displayLoginFrame();
 				} catch (Exception e) {
 					e.printStackTrace();
 				} // catch
@@ -267,8 +244,11 @@ public class HangmanFrame extends JFrame implements ActionListener {
 			} // else
 		} // hint
 		else if (e.getSource() == newPlayerMenuItem) {
-			
+			displayLoginFrame();
 		} // new player
+		else if (e.getSource() == newGameMenuItem) {
+			resetGame();
+		} // new game
 		else if (e.getSource() == scoreMenuItem) {
 			ScoreboardFrame scoreFrame = new ScoreboardFrame(scoreboard);
 			scoreFrame.setLocationRelativeTo(null);
@@ -301,6 +281,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		lblPlayer.setText("Player: " + game.getPlayer().getName());
 		displayWord();
 		System.out.println(game.getWord());
+		System.out.println(game.getPlayer().getNumWordsLeft());
 	} // setupGame()
 
 	public void displayWord() {
@@ -356,6 +337,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		resetButtons();
 		displayWord();
 		System.out.println(game.getWord());
+		System.out.println(game.getPlayer().getNumWordsLeft());
 	} // resetGame()
 
 	public void serializeBoard() {
@@ -391,4 +373,33 @@ public class HangmanFrame extends JFrame implements ActionListener {
 				} // if
 			} // inner for
 	} // resetButtons()
+	
+	public static void displayLoginFrame() {
+		login = new LoginFrame();
+		login.setLocationRelativeTo(null);
+		login.setVisible(true);
+		login.getBtnPlay().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				scoreboard = login.getScoreboard();
+				if (login.getRadioSelect().isSelected()) {
+					int index = login.getSelectedIndex();
+					player = scoreboard.getPlayerAt(index); 
+				} // returning player
+				else if (login.getRadioNew().isSelected()) {
+					try {
+						player = new Player(login.getNewField().getText());
+						scoreboard.addPlayer(player);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					} // catch
+				} // new player
+				login.setVisible(false); // Close the login frame
+				if (frame != null)
+					frame.dispose();
+				frame = new HangmanFrame();
+				frame.setVisible(true);
+			} // actionPerformed(ActionEvent)
+		});
+	} // displayLoginFrame()
 } // HangmanFrame class

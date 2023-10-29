@@ -64,7 +64,10 @@ public class HangmanGame implements Serializable {
 	public boolean isComplete() {
 		if (numBadGuesses < 6 && displayWordState().contains("-"))
 			return false;
-		else return true;
+		else {
+			player.removeWord();
+			return true;
+		}
 	} // isComplete()
 
 	public boolean hasWon() {

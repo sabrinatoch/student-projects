@@ -1,10 +1,10 @@
 package hangman_package;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import javax.swing.text.DefaultCaret;
-import java.io.*;
-import java.awt.event.*;
+
+import linked_data_structures.DoublyLinkedList;
+
 import java.awt.*;
 
 public class ScoreboardFrame extends JFrame {
@@ -21,9 +21,9 @@ public class ScoreboardFrame extends JFrame {
 //				} catch (Exception e) {
 //					e.printStackTrace();
 //				}
-			}
+			} // run()
 		});
-	}
+	} // main()
 
 	public ScoreboardFrame(Scoreboard score) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -57,6 +57,8 @@ public class ScoreboardFrame extends JFrame {
 		areaDisplay.setText(String.format("%-18s%-18s%-20s\n", "Player Name", "Games Played", "Games Won"));
 		areaDisplay.append(String.format("%-18s%-18s%-20s\n", "-----------", "------------", "---------"));
 		
+		score.sortPlayers();
+		
 		for (int i = 0; i < score.getNumPlayers(); ++i) {
 			displayLine(score.getPlayerAt(i));
 		} // for
@@ -66,9 +68,5 @@ public class ScoreboardFrame extends JFrame {
 		areaDisplay.append(String.format("%-18s%-18d%-20d\n", pl.getName(), pl.getNumberGamesPlayed(), pl.getNumberGamesWon()));
 	} // displayLine(Player)
 	
-	
-	public void sortPlayerList(Scoreboard score) {
-		
-	} // sortPlayerList(Scoreboard)
 	
 } // ScoreboardFrame class
