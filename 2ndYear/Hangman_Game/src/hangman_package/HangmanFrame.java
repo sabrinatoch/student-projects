@@ -263,20 +263,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		try {
 			game = new HangmanGame(player);
 		} catch (NoWordsLeftException e) {
-			int reply = JOptionPane.showConfirmDialog(null,
-					"You went through every word. Would you like to start over?", "No more words!",
-					JOptionPane.YES_NO_OPTION);
-			if (reply == JOptionPane.YES_OPTION) {
-				try {
-					player.restartDictionary();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				} // catch (IOException)
-				resetGame();
-			} else {
-				JOptionPane.showMessageDialog(null, "See you next time!");
-				System.exit(0);
-			} // else
+			noWordsLeftHandler();
 		} // catch (NoWordsLeftException)
 		lblPlayer.setText("Player: " + game.getPlayer().getName());
 		displayWord();
@@ -331,7 +318,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		try {
 			game = new HangmanGame(player);
 		} catch (NoWordsLeftException e) {
-			e.printStackTrace();
+			noWordsLeftHandler();
 		} // catch (NoWordsLeftException)
 		resetHearts();
 		resetButtons();
@@ -350,7 +337,9 @@ public class HangmanFrame extends JFrame implements ActionListener {
 			file.flush();
 			file.close();
 		} catch (IOException ex) {
-			System.out.println("IOException caught: " + ex);
+			JOptionPane.showMessageDialog(this, "There was an error saving your progress.", "Serialization error",
+					JOptionPane.PLAIN_MESSAGE);
+			System.exit(0);
 		} // catch (IOException)
 	} // serializeBoard()
 
@@ -373,7 +362,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 				} // if
 			} // inner for
 	} // resetButtons()
-	
+
 	public static void displayLoginFrame() {
 		login = new LoginFrame();
 		login.setLocationRelativeTo(null);
@@ -384,14 +373,16 @@ public class HangmanFrame extends JFrame implements ActionListener {
 				scoreboard = login.getScoreboard();
 				if (login.getRadioSelect().isSelected()) {
 					int index = login.getSelectedIndex();
-					player = scoreboard.getPlayerAt(index); 
+					player = scoreboard.getPlayerAt(index);
 				} // returning player
 				else if (login.getRadioNew().isSelected()) {
 					try {
 						player = new Player(login.getNewField().getText());
 						scoreboard.addPlayer(player);
 					} catch (IOException e1) {
-						e1.printStackTrace();
+						JOptionPane.showMessageDialog(login, "There was an error reading from the word list file.",
+								"File error", JOptionPane.PLAIN_MESSAGE);
+						System.exit(0);
 					} // catch
 				} // new player
 				login.setVisible(false); // Close the login frame
@@ -402,4 +393,22 @@ public class HangmanFrame extends JFrame implements ActionListener {
 			} // actionPerformed(ActionEvent)
 		});
 	} // displayLoginFrame()
+
+	public void noWordsLeftHandler() {
+		int reply = JOptionPane.showConfirmDialog(null, "You went through every word. Would you like to start over?",
+				"No more words!", JOptionPane.YES_NO_OPTION);
+		if (reply == JOptionPane.YES_OPTION) {
+			try {
+				player.restartDictionary();
+			} catch (IOException e1) {
+				JOptionPane.showMessageDialog(this, "There was an error reading from the word list file.", "File error",
+						JOptionPane.PLAIN_MESSAGE);
+				System.exit(0);
+			} // catch (IOException)
+			resetGame();
+		} else {
+			JOptionPane.showMessageDialog(null, "See you next time!");
+			System.exit(0);
+		} // else
+	} // noWordsLeftHandler()
 } // HangmanFrame class
