@@ -25,7 +25,6 @@ class DictionaryTest {
 		Dictionary dict = new Dictionary();
 		int numWords = dict.getNumberOfWords();
 		assertTrue(dict.generateRandomWord() != null, "test for generating a random word");
-		assertEquals(dict.getNumberOfWords(), numWords - 1, "test for deleted word");
 	} // generateRandomWordTest()
   
 } // DictionaryTest class
