@@ -372,20 +372,25 @@ public class HangmanFrame extends JFrame implements ActionListener {
 					player = scoreboard.getPlayerAt(index);
 				} // returning player
 				else if (login.getRadioNew().isSelected()) {
-					try {
-						player = new Player(login.getNewField().getText());
-						scoreboard.addPlayer(player);
-					} catch (IOException e1) {
-						JOptionPane.showMessageDialog(login, "There was an error reading from the word list file.",
-								"File error", JOptionPane.PLAIN_MESSAGE);
-						System.exit(0);
-					} // catch
+					if (login.getNewField().getText().isEmpty())
+						JOptionPane.showMessageDialog(login, "Please enter a name.", "Missing name",
+								JOptionPane.PLAIN_MESSAGE);
+					else {
+						try {
+							player = new Player(login.getNewField().getText());
+							scoreboard.addPlayer(player);
+						} catch (IOException e1) {
+							JOptionPane.showMessageDialog(login, "There was an error reading from the word list file.",
+									"File error", JOptionPane.PLAIN_MESSAGE);
+							System.exit(0);
+						} // catch
+						login.setVisible(false); // Close the login frame
+						if (frame != null)
+							frame.dispose();
+						frame = new HangmanFrame();
+						frame.setVisible(true);
+					} // else
 				} // new player
-				login.setVisible(false); // Close the login frame
-				if (frame != null)
-					frame.dispose();
-				frame = new HangmanFrame();
-				frame.setVisible(true);
 			} // actionPerformed(ActionEvent)
 		});
 	} // displayLoginFrame()

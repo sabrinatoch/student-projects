@@ -14,7 +14,7 @@ class ScoreboardTest {
 		assertEquals(score.getNumPlayers(), 0, "numPlayers must be 0 but it's " + score.getNumPlayers());
 		assertEquals(score.getPlayers().getLength(), 0,
 				"length of linked list must be 0 but it's " + score.getPlayers().getLength());
-	} // constructortest()
+	} // constructorTest()
 
 	@Test
 	void addPlayerTest() throws IOException {
