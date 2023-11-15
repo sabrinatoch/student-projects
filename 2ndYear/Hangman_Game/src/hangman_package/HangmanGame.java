@@ -33,12 +33,20 @@ public class HangmanGame implements Serializable {
 			throw new NoWordsLeftException();
 		// lists
 		letters = new SinglyLinkedList<Character>();
-		for (int i = 0; i < word.length(); i++)
-			letters.add(word.charAt(i));
 		guessedLetters = new SinglyLinkedList<Character>();
+		parseWord(word);
 		numBadGuesses = 0;
 		numLettersLeft = letters.getLength();
 	} // HangmanGame()
+	
+	public void parseWord(String w) {
+		for (int i = 0; i < w.length(); i++) {
+			String ch = String.valueOf(w.charAt(i));
+			if (ch.matches("^[.,!-']{1}$"))
+				guessedLetters.add(w.charAt(i));
+			letters.add(w.charAt(i));
+		} // for
+	} // parseWord(String)
 
 	public boolean guessLetter(char letter) {
 		guessedLetters.add(letter);

@@ -127,7 +127,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		lblWord = new JLabel("");
 		lblWord.setForeground(Color.WHITE);
 		lblWord.setFont(new Font("Rockwell", Font.BOLD, 25));
-		lblWord.setBounds(40, 60, 567, 83);
+		lblWord.setBounds(40, 60, 700, 83);
 		background.add(lblWord);
 
 		btnHint = new JButton("Hint!");
@@ -267,6 +267,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		} // catch (NoWordsLeftException)
 		lblPlayer.setText("Player: " + game.getPlayer().getName());
 		displayWord();
+		System.out.println(game.getWord());
 	} // setupGame()
 
 	public void displayWord() {
@@ -321,6 +322,7 @@ public class HangmanFrame extends JFrame implements ActionListener {
 		resetHearts();
 		resetButtons();
 		displayWord();
+		System.out.println(game.getWord());
 	} // resetGame()
 
 	public void serializeBoard() {
@@ -384,13 +386,13 @@ public class HangmanFrame extends JFrame implements ActionListener {
 									"File error", JOptionPane.PLAIN_MESSAGE);
 							System.exit(0);
 						} // catch
-						login.setVisible(false); // Close the login frame
-						if (frame != null)
-							frame.dispose();
-						frame = new HangmanFrame();
-						frame.setVisible(true);
 					} // else
 				} // new player
+				login.setVisible(false); // Close the login frame
+				if (frame != null)
+					frame.dispose();
+				frame = new HangmanFrame();
+				frame.setVisible(true);
 			} // actionPerformed(ActionEvent)
 		});
 	} // displayLoginFrame()

@@ -36,7 +36,7 @@ public class Dictionary implements Serializable {
 	public boolean isValidWord(String word) {
 		if (word.length() < 5 || word.length() > 20)
 			return false;
-		if (!word.matches("^[a-zA-Z]+$"))
+		if (!word.matches("^[a-zA-Z.,!-'\s]+$"))
 			return false;
 		return true;
 	} // isValidWord(String)
