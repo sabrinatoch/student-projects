@@ -37,6 +37,7 @@
         android:id="@+id/scrollView"
         android:layout_width="301dp"
         android:layout_height="273dp"
+        android:layout_marginTop="9dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,11 +59,11 @@
 
     <ImageView
         android:id="@+id/imgNazgul"
-        android:layout_width="255dp"
-        android:layout_height="284dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="1dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="175dp"
+        android:layout_height="239dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnRing"
         app:layout_constraintTop_toBottomOf="@+id/lblWord"
         app:srcCompat="@drawable/nazgul" />
 
@@ -73,7 +74,7 @@
         android:layout_marginTop="40dp"
         android:text="Player"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#C1C7E6"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,24 +94,45 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/btnRing"
-        android:layout_width="147dp"
-        android:layout_height="93dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="99dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="72dp"
         android:src="@drawable/ring"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblWord" />
 
     <TextView
         android:id="@+id/lblHint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="99dp"
-        android:layout_marginEnd="70dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="100dp"
         android:text="Hint"
         android:textColor="#FFFFFF"
         android:textSize="23dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblWord" />
+
+    <ImageView
+        android:id="@+id/hobbitImg"
+        android:layout_width="61dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="88dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRing"
+        app:srcCompat="@drawable/frodo" />
+
+    <TextView
+        android:id="@+id/txtBlink"
+        android:layout_width="67dp"
+        android:layout_height="124dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="85dp"
+        android:background="#00E32D2D"
+        android:text=" "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRing" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,7 +16,7 @@ public class HangmanGame implements Serializable {
 
 	private Player player;
 	private String word;
-	private int numGuesses;
+	private int numGuessesLeft;
 
 	private int numHintsUsed;
 	private SinglyLinkedList<Character> letters;
@@ -38,7 +38,7 @@ public class HangmanGame implements Serializable {
 		letters = new SinglyLinkedList<Character>();
 		guessedLetters = new SinglyLinkedList<Character>();
 		parseWord(word);
-		numGuesses = 6;
+		numGuessesLeft = 6;
 	} // HangmanGame()
 	
 	public void parseWord(String w) {
@@ -63,7 +63,7 @@ public class HangmanGame implements Serializable {
 				return true;
 			} // if found
 		} // loop through letters
-		--numGuesses;
+		--numGuessesLeft;
 		return false;
 	} // guessLetter(char)
 
@@ -79,7 +79,7 @@ public class HangmanGame implements Serializable {
 	} // displayString()
 
 	public boolean isComplete() {
-		if (numGuesses == 0 || letters.getLength() == 0) {
+		if (numGuessesLeft == 0 || letters.getLength() == 0) {
 			player.removeWord();
 			return true;
 		} // if done
@@ -87,13 +87,13 @@ public class HangmanGame implements Serializable {
 	} // isComplete()
 
 	public boolean hasWon() {
-		if (numGuesses == 0)
+		if (numGuessesLeft == 0)
 			return false;
 		return true;
 	} // hasWon()
 
 	public boolean displayHint() {
-		if (numGuesses == 1 || letters.getLength() == 1 || numHintsUsed == 5)
+		if (numGuessesLeft == 1 || letters.getLength() == 1 || numHintsUsed == 5)
 			return false;
 		hintChar = '?';
 		int index;
@@ -107,7 +107,7 @@ public class HangmanGame implements Serializable {
 				hintChar = '?';
 		} // while
 		guessLetter(hintChar);
-		--numGuesses;
+		--numGuessesLeft;
 		return true;
 	} // displayHint()
 
@@ -132,11 +132,11 @@ public class HangmanGame implements Serializable {
 	} // getWord()
 
 	public void setNumGuesses(int num) {
-		numGuesses = num;
+		numGuessesLeft = num;
 	} // setNumGuesses(int)
 
-	public int getNumGuesses() {
-		return numGuesses;
+	public int getNumGuessesLeft() {
+		return numGuessesLeft;
 	} // getNumGuesses()
 
 	public SinglyLinkedList<Character> getGuessedLetters() {

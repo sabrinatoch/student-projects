@@ -84,5 +84,4 @@ public class Player implements Serializable {
 		} // Player obj
 		return false;
 	} // equals
-
 } // Player class

@@ -7,14 +7,24 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="358dp"
+        android:layout_height="246dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bigring" />
+
     <TextView
         android:id="@+id/lblEdition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Lord of the Rings Edition"
-        android:textColor="#7183E3"
-        android:textSize="25sp"
+        android:textColor="#9FABEA"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,36 +36,35 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="58dp"
         android:text="Hangman"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp"
+        android:textColor="#FAFBFF"
+        android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/lblLogin2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="66dp"
         android:text="Login"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblEdition" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btnPlay"
         android:layout_width="133dp"
         android:layout_height="53dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#7183E3"
-        android:text="Play!"
+        android:text="Play"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
@@ -63,8 +72,8 @@
         android:id="@+id/radioGroup"
         android:layout_width="346dp"
         android:layout_height="245dp"
-        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblLogin2">
 
@@ -104,5 +113,6 @@
             app:backgroundTint="#FFFFFF" />
 
     </RadioGroup>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

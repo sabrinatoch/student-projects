@@ -5,7 +5,7 @@ package hangman_package;
 
 import java.io.Serializable;
 
-import linked_data_structures.DoublyLinkedList;
+import linked_data_structures.*;
 
 /**
  * @author Sabrina Tochkov

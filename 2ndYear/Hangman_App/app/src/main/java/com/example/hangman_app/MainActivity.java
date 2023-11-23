@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(), "Please enter a name first.", Toast.LENGTH_SHORT).show();
             } // if empty
             else if (getName().length() > 12) {
-                Toast.makeText(getApplicationContext(), "Please enter a name under 12 characters.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Please enter a name of 12 characters or less.", Toast.LENGTH_SHORT).show();
             } // else too long
             else {
                 Player player = new Player(getName(), this);

@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 public class DoublyLinkedList<E> implements Serializable
 {
-	private int length; // the number of elements in the linked list
+	protected int length; // the number of elements in the linked list
 	protected DLNode<E> head; // access point to the linked list
 	protected DLNode<E> tail;
 
@@ -144,7 +144,7 @@ public class DoublyLinkedList<E> implements Serializable
 	 * outside the range 0 to this.length - 1
 	 */
 
-	private void addAfter(DLNode<E> p, DLNode<E> newnode)
+	protected void addAfter(DLNode<E> p, DLNode<E> newnode)
 	{
 		newnode.setPredecessor(p);
 		newnode.setSuccessor(p.getSuccessor());
@@ -170,7 +170,7 @@ public class DoublyLinkedList<E> implements Serializable
 		return null; // failure
 	}
 
-	private DLNode<E> find(int p)
+	protected DLNode<E> find(int p)
 	{
 		if ((p < 0) || (p >= this.length))
 		{
