@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/lblEdition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Lord of the Rings Edition"
+        android:textColor="#7183E3"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblLogin" />
+
+    <TextView
+        android:id="@+id/lblLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
+        android:text="Hangman"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblLogin2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
+        android:text="Login"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblEdition" />
+
+    <Button
+        android:id="@+id/btnPlay"
+        android:layout_width="133dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#7183E3"
+        android:text="Play!"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="346dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblLogin2">
+
+        <RadioButton
+            android:id="@+id/radioSelectPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:buttonTint="#FFFFFF"
+            android:text="Select Player"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            app:buttonTint="#FFFFFF" />
+
+        <Spinner
+            android:id="@+id/playerDropdown"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#DFDFEF" />
+
+        <RadioButton
+            android:id="@+id/radioNewPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:text="New Player"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            app:buttonTint="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:backgroundTint="#FFFFFF" />
+
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".ScoreboardActivity">
+
+    <TextView
+        android:id="@+id/headerWon"
+        android:layout_width="124dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        android:text="Games Won"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/headerPlayed"
+        app:layout_constraintTop_toBottomOf="@+id/lblScoreboard" />
+
+    <TextView
+        android:id="@+id/headerPlayed"
+        android:layout_width="131dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        android:text="Games Played"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toStartOf="@+id/headerWon"
+        app:layout_constraintStart_toEndOf="@+id/headerName"
+        app:layout_constraintTop_toBottomOf="@+id/lblScoreboard" />
+
+    <TextView
+        android:id="@+id/headerName"
+        android:layout_width="112dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:text="Player Name"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblScoreboard" />
+
+    <ImageView
+        android:id="@+id/btnBackScoreboard"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn" />
+
+    <TextView
+        android:id="@+id/lblScoreboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Scoreboard"
+        android:textColor="#7183E3"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/areaDisplay"
+        android:layout_width="333dp"
+        android:layout_height="703dp"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerWon" />
+
+    <TextView
+        android:id="@+id/underline"
+        android:layout_width="387dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="25dp"
+        android:text="---------------------------------------------------------------------------"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/areaDisplay"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

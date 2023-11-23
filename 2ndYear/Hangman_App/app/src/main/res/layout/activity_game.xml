@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".GameActivity">
+
+    <Button
+        android:id="@+id/btnScoreboard"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#7183E3"
+        android:text="Scoreboard"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnRules"
+        app:layout_constraintHorizontal_bias="0.641"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnRules"
+        android:layout_width="144dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#7183E3"
+        android:text="Rules"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="301dp"
+        android:layout_height="273dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgNazgul" />
+
+    <TextView
+        android:id="@+id/lblWord"
+        android:layout_width="369dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="13dp"
+        android:text="Word:"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heartLayout" />
+
+    <ImageView
+        android:id="@+id/imgNazgul"
+        android:layout_width="255dp"
+        android:layout_height="284dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblWord"
+        app:srcCompat="@drawable/nazgul" />
+
+    <TextView
+        android:id="@+id/lblPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Player"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnScoreboard" />
+
+    <LinearLayout
+        android:id="@+id/heartLayout"
+        android:layout_width="330dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="17dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblPlayer" />
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/btnRing"
+        android:layout_width="147dp"
+        android:layout_height="93dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="100dp"
+        android:src="@drawable/ring"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/lblHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="70dp"
+        android:text="Hint"
+        android:textColor="#FFFFFF"
+        android:textSize="23dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblWord" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
