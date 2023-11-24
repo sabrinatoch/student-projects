@@ -11,6 +11,7 @@ import android.animation.ValueAnimator;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.*;
+import android.graphics.drawable.Drawable;
 import android.os.*;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private HangmanGame game;
     private GridLayout gridLayout;
 
+    private int characterCount;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btnScoreboard).setOnClickListener(this);
         findViewById(R.id.btnRules).setOnClickListener(this);
         findViewById(R.id.btnRing).setOnClickListener(this);
+        findViewById(R.id.btnChange).setOnClickListener(this);
         Typeface type = Typeface.createFromAsset(getAssets(), "fonts/RingbearerMedium-51mgZ.ttf");
         TextView label = findViewById(R.id.lblPlayer);
         label.setTypeface(type);
@@ -45,6 +49,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         grabExtras();
         serializeBoard();
         setupGame();
+        characterCount = 0;
     } // onCreate()
 
     public void grabExtras() {
@@ -220,6 +225,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             } // else
             saveGame();
         } // btnRing
+        else if (btnClick == R.id.btnChange) {
+            changeCharacter();
+        } // txtBlink
         else {
             String charClicked = ((Button) view).getText().toString();
             ((Button) view).setEnabled(false);
@@ -342,5 +350,39 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             img.setImageResource(R.drawable.heart);
         } // for
     } // resetHearts()
+
+    public void changeCharacter() {
+        String imgName = getNextCharacter();
+        if (!imgName.equals("No images found")) {
+            ImageView imgChar = (ImageView) findViewById(R.id.hobbitImg);
+            try (InputStream stream = getAssets().open("characters/" + imgName)) {
+                Drawable d = Drawable.createFromStream(stream, null);
+                imgChar.setImageDrawable(d);
+            } catch (IOException e) {
+                Toast.makeText(getApplicationContext(), "Couldn't access the list of characters.", Toast.LENGTH_SHORT).show();
+            } // catch
+        } // if
+    } // changeCharacter()
+
+    public String getNextCharacter() {
+        String filename = "none";
+        String [] files = null;
+        while (filename.equals("none")) {
+            try {
+                files = getAssets().list("characters");
+                if (files.length == 0)
+                    return "No images found";
+                if (characterCount == 11)
+                    characterCount = 0;
+                filename = files[characterCount];
+                if (!filename.contains(".png"))
+                    filename = "none";
+            } catch (IOException e) {
+                Toast.makeText(getApplicationContext(), "Couldn't access the folder of characters.", Toast.LENGTH_SHORT).show();
+            }
+        } // while
+        ++characterCount;
+        return filename;
+    } // getNextCharacter()
 
 } // GameActivity class

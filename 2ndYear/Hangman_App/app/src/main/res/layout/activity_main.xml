@@ -61,7 +61,7 @@
         android:layout_width="133dp"
         android:layout_height="53dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#7183E3"
+        android:backgroundTint="#3D4573"
         android:text="Play"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"

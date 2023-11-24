@@ -32,7 +32,7 @@ public class RulesActivity extends AppCompatActivity implements View.OnClickList
             while (input.hasNext()) {
                 String line = input.nextLine();
                 TextView textRule = new TextView(this);
-                textRule.setText(line + "\n\n");
+                textRule.setText(line + "\n");
                 textRule.setTextSize(18);
                 textRule.setTextColor(Color.WHITE);
                 layout.addView(textRule);
