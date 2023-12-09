@@ -3,7 +3,7 @@
 
 sabrina.tochkov@gmail.com <br>
 Heritage College <br>
-1st Year Computer Science Student <br>
+2nd Year Computer Science Student <br>
 
 ### What is the PEA?
 The Program Exit Assessment (PEA) is a way of evaluating a student's progression in the course. <br>
