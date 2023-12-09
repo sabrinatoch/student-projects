@@ -12,20 +12,16 @@ and display them in a professional setting.
 
 ### Courses
 
-#### Fall 2022:
-* Programming I
-* Web Programming I
+#### Fall and Winter 2022:
+* Programming I & II
+* Web Programming I & II
 * Hardware & Operating Systems
-* Math for Computer Science
-
-#### Winter 2023:
-* Programming II
-* Web Programming II
 * Networks
 * Business in the Workplace
+* Math for Computer Science
 
-#### Fall 2023:
+#### Fall and Winter 2023:
 * Programming III
-* Web Programming III
-* Database Management I
+* Web Programming III, IV & V
+* Database Management I & II
 * Systems Analysis
