@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Player</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./styles/form.css">
+  </head>
+  <body>
+    <header>&#127918; New Player &#127918;</header>
+    <main>
+      <form id="form" class="form">
+        <label for="firstName">First Name:</label>
+        <input
+          id="firstName"
+          name="firstName"
+          class="form-control"
+          placeholder="John"
+          type="text"
+        /><br>
+        <p id="errFirst" class="error"></p>
+        <label for="lastName">Last Name:</label>
+        <input
+          id="lastName"
+          name="lastName"
+          class="form-control"
+          placeholder="Smith"
+          type="text"
+        /><br>
+        <p id="errLast" class="error"></p>
+        <label for="user">Username:</label>
+        <p id="blank">*If you leave this blank, a username will be generated for you (see format below).</p>
+        <input
+          id="user"
+          name="user"
+          class="form-control"
+          placeholder="jsmith"
+          type="text"
+        /><br>
+        <p id="errUser" class="error"></p>
+        <label for="email">Email Address:</label>
+        <input
+          id="email"
+          name="email"
+          class="form-control"
+          placeholder="john.smith@outlook.ca"
+          type="text"
+        /><br>
+        <p id="errEmail" class="error"></p>
+        <label for="wins">Wins:</label>
+        <input
+          id="wins"
+          name="wins"
+          class="form-control"
+          placeholder="100"
+          type="number"
+        /><br>
+        <p id="errWins" class="error"></p>
+        <label for="email">Losses:</label>
+        <input
+          id="losses"
+          name="losses"
+          class="form-control"
+          placeholder="100"
+          type="number"
+        /><br>
+        <p id="errLosses" class="error"></p>
+        <label>Games Played:</label>
+        <br>
+        <p id="boxes">
+        </p>
+        <p id="btns">
+          <input type="submit" value="Submit" class="btn btn-primary" id="submit" />
+          <input
+            type="reset"
+            value="Clear"
+            class="btn btn-secondary"
+            id="clear"
+          />
+        </p>
+      </div>
+      </form>
+      <div id="success">
+      </div>
+      <footer>
+      <button type="button" class="btn btn-info">Back to Players</button>
+      </footer>
+      </main>
+    <script src="./scripts/addForm.js"></script>
+  </body>
+</html>

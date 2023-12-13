@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<title>Test Add</title>
+</head>
+<body>
+	<input type="button" value="Send" name="theBtn" />
+
+<script>
+	let newData =     {
+        "id": 1,
+        "first_name": "Allan",
+        "last_name": "McDonald",
+        "username": "mpurslow2",
+        "email": "mpurslow2@barnesandnoble.com",
+        "enrolled": "1111/11/11",
+        "avatar": "https://robohash.org/inavel.jpg?size=60x60&set=set1",
+        "wins": 21,
+        "losses": 55,
+        "games_played": [{
+            "game": "uno",
+            "date": "2020/02/28"
+        }, {
+            "game": "dominoes",
+            "date": "2020/08/02"
+        }, {
+            "game": "coup",
+            "date": "2020/09/12"
+        }]
+    }
+
+
+	async function postData(url, data) {
+		const resp = await fetch(url, {
+			method: 'post',
+			body: JSON.stringify(data)
+		});
+		return resp.text();
+	}
+
+	let formName = document.querySelector("[type=button]");
+	formName.addEventListener('click', () => {
+		postData("./php/updateCount.php", newData)
+			.then(data => console.log(`I have returned: ${data}`));
+	})
+</script>
+
+</body>
+</html>
