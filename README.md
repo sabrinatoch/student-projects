@@ -11,8 +11,7 @@ This Git portfolio will be used to demonstrate some of my achievements related t
 and display them in a professional setting.
 
 ### Courses
-
-#### Fall and Winter 2022:
+#### 1st Year:
 * Programming I & II
 * Web Programming I & II
 * Hardware & Operating Systems
@@ -20,7 +19,7 @@ and display them in a professional setting.
 * Business in the Workplace
 * Math for Computer Science
 
-#### Fall and Winter 2023:
+#### 2nd Year:
 * Programming III
 * Web Programming III, IV & V
 * Database Management I & II
