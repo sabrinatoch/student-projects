@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2120DB67-C2A4-D21A-F8C2-EF6AA984F1DB" name="HVK_Discount">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>28281A66-A49F-4098-ED7B-8D3832A77646</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<abbreviation>dis</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="discount_id" id="AB518DC1-0FD3-6D20-E6C6-0570BD1776E0">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>CEBD9EC0-B607-C2EB-6F55-109C19A3B8BC</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="FAE12144-EF48-6B23-E94C-69A84C7F0862">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>D35DABDA-9B3D-DEDF-5DD5-96A90E21A821</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="percent" id="D511C417-195C-3D95-D078-D897A0D475C5">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>99F2D87B-D3E1-2A11-A876-E5D73756DB0F</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+<endValue>1</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="discount_type" id="C2C63C7F-4145-11C5-7691-69FC65DEE697">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>7828DB11-E584-03B3-D9EF-B7B50BD0BCE0</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1FD92667-1A64-54ED-CBF2-AE43002B1394" name="Discount_PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>B6293B41-D471-2570-08A1-001F475354A9</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AB518DC1-0FD3-6D20-E6C6-0570BD1776E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

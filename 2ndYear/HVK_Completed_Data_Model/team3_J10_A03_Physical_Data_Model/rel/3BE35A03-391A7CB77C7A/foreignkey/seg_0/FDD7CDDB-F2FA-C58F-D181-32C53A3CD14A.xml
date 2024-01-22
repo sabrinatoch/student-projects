@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="FDD7CDDB-F2FA-C58F-D181-32C53A3CD14A" containerWithKeyObject="C2B6FDA0-5C6F-0069-244B-28FE9E772D9D" localFKIndex="C3CB6B8E-3BE2-76D5-16AF-F2FA56FD83CF" name="rd_dis_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>1875DA68-FE18-3B5A-2FC4-8D3116996670</generatorID>
+<ownerDesignName>stochkov_J10_A03_Physical_Data_Model</ownerDesignName>
+<referredTableLongName>HVK_Discount</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2120DB67-C2A4-D21A-F8C2-EF6AA984F1DB</referredTableID>
+<keyObject>1FD92667-1A64-54ED-CBF2-AE43002B1394</keyObject>
+<referredKeyID>1FD92667-1A64-54ED-CBF2-AE43002B1394</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>discount_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

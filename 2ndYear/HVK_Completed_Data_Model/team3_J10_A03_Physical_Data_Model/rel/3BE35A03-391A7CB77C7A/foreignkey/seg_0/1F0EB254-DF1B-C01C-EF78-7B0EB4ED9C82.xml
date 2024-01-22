@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="1F0EB254-DF1B-C01C-EF78-7B0EB4ED9C82" containerWithKeyObject="376502AA-B4C8-32CB-4BEC-232DF1DA210E" localFKIndex="76E4B49D-1C4C-0BEE-0303-6ADD4B86C4F2" name="srv_rat_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>DA9D4965-8ADA-691B-FB4D-C9DE43DD3AD6</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<referredTableLongName>HVK_Rate</referredTableLongName>
+<deleteRule>RESTRICT</deleteRule>
+<referredTableID>0BCF661C-7FF9-524C-46A9-6FAB0DE57D31</referredTableID>
+<keyObject>89DE7CA1-0FB5-E628-5265-7B47FA9C6142</keyObject>
+<referredKeyID>89DE7CA1-0FB5-E628-5265-7B47FA9C6142</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>rate_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

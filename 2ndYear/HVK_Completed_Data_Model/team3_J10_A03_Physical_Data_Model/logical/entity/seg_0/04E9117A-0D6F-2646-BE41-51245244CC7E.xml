@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="04E9117A-0D6F-2646-BE41-51245244CC7E" name="Vaccination Certificate">
+<createdBy>2056856</createdBy>
+<createdTime>2023-09-29 18:47:48 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>vc</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="pet_id" id="22B99AA8-617D-BA93-1975-DE8E41080B6E">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:13:37 UTC</createdTime>
+<generatorID>9153D956-33DF-BDCA-5685-A5AD276D3689</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<referedAttribute>84BB42E1-8123-834F-CE35-DE8463E5C0B1</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="expiration_year" id="8AF6FA77-AC9B-2A07-30BB-7A49DBA3F799">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:16:48 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>18F3FBA2-3F2D-37B4-5ABC-A98E7B91C580</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1980</beginValue>
+<endValue>2025</endValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="expiration_month" id="11E9655B-9FDB-5C7D-487C-F10DF85FDF26">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-19 16:08:29 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7D8AC222-64A3-3C50-F994-C1A7645F24BA</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>12</endValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="expiration_day" id="AA4235D0-F07B-CAED-DDC3-2B52C7A0F69F">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-19 16:08:37 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>8C96DACB-1CE9-F3CB-FE75-AEB9A58DD1B8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>31</endValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="vaccination_name" id="445BA941-F800-E064-CE88-F3EA690B9AFA">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 14:32:18 UTC</createdTime>
+<generatorID>DD6B8782-CA5D-895A-42EF-BCF16D03FE1A</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<referedAttribute>9B6EBE42-FCE4-0F73-B612-700C751337D9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D38E302C-9AD0-350A-D19B-0FB6CFFC291C" name="Vaccination Certificate PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:13:00 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>22B99AA8-617D-BA93-1975-DE8E41080B6E</attributeRef>
+<attributeRef>445BA941-F800-E064-CE88-F3EA690B9AFA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

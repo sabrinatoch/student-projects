@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4F88A881-E870-FD7C-7054-CEA97DF601B2" name="Entity_31">
+<createdBy>2056856</createdBy>
+<createdTime>2023-09-29 19:56:04 UTC</createdTime>
+<ownerDesignName>stochkov_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+</Entity>

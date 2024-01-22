@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CFCFD21E-70CC-0610-A5A6-F55BC6116B05" name="Service">
+<createdBy>2056856</createdBy>
+<createdTime>2023-09-29 14:59:48 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>srv</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="service_id" id="BD4CFADA-5F9B-269D-D367-E91729C55A6A">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:21:09 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="1E301046-0EC4-9117-3E00-4E7A40441092">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:21:17 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="rate_id" id="9B5D5074-A89D-8C35-E5DD-216FC391D04F">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:22:09 UTC</createdTime>
+<generatorID>DA9D4965-8ADA-691B-FB4D-C9DE43DD3AD6</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<referedAttribute>42A6569C-44CE-A0E3-6133-B62530EF54DB</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="EC35C385-3AD4-D088-AE76-98B5A10F774E" name="Service PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:21:14 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BD4CFADA-5F9B-269D-D367-E91729C55A6A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

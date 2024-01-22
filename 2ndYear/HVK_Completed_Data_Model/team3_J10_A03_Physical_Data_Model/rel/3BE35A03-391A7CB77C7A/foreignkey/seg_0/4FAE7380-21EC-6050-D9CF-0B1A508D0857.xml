@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4FAE7380-21EC-6050-D9CF-0B1A508D0857" containerWithKeyObject="DF9C016C-47A2-E0FF-3AA8-F52C2C0AFEAD" localFKIndex="C70EE92A-4A18-22BC-B1D4-0B8040E58F2E" name="cat_sui_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>7EE33BE6-97F6-ECD3-3BF1-AA53DC47F444</generatorID>
+<ownerDesignName>stochkov_J10_A03_Physical_Data_Model</ownerDesignName>
+<referredTableLongName>HVK_Suite</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>030B600A-0105-292D-A46B-D85A2DEEBD3E</referredTableID>
+<keyObject>5D1A6D71-242F-9BCC-8689-4910B477FD5D</keyObject>
+<referredKeyID>5D1A6D71-242F-9BCC-8689-4910B477FD5D</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>suite_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

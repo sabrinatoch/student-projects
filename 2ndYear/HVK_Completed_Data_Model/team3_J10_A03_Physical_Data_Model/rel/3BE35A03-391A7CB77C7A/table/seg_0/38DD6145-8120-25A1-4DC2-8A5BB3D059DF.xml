@@ -1,0 +1,39 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="38DD6145-8120-25A1-4DC2-8A5BB3D059DF" name="HVK_Medication">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>D804A811-834F-19D2-5BDF-174EE367FAC9</generatorID>
+<ownerDesignName>stochkov_J10_A03_Physical_Data_Model</ownerDesignName>
+<abbreviation>med</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="medication_name" id="015C908B-8F78-3A5B-26CA-D6DC3C70B709">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>09A69CD3-B233-EB11-24DA-CE5EC4BF5AFC</generatorID>
+<ownerDesignName>stochkov_J10_A03_Physical_Data_Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E89F290F-FF2A-631F-E2A8-B7A881C6CFCD" name="Medication_PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>F7923106-5D77-7D98-A97E-2F7E31E9EFC0</generatorID>
+<ownerDesignName>stochkov_J10_A03_Physical_Data_Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="015C908B-8F78-3A5B-26CA-D6DC3C70B709"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

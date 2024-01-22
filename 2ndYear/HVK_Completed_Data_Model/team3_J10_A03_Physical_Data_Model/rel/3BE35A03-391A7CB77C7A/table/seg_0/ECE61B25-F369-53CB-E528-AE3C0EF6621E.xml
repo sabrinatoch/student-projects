@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="ECE61B25-F369-53CB-E528-AE3C0EF6621E" name="HVK_Dog">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>63C86DA4-460D-A1F0-E8B8-51B7B87F8C4A</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<abbreviation>dog</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="dog-size" id="09BE4D16-83E9-8DCB-2BA8-77CAD3BA1847">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>7CBD5CE4-8840-92FB-C274-70BA8936E489</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<domain>F31ACE0F-DB17-38A0-4F52-F25D3563CE9A</domain>
+<listOfValues>
+<valueDef value="L" description="Large"/>
+<valueDef value="M" description="Medium"/>
+<valueDef value="S" description="Small"/>
+</listOfValues>
+<defaultValue>M</defaultValue>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pet-pet_id" id="88BB0CDA-82B0-61C5-C9CE-D1405E9AAFB5">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>84BB42E1-8123-834F-CE35-DE8463E5C0B1</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dog-barker" id="BC248D52-9669-3ABF-45DE-24489A8A09F6">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>6691638F-0141-3340-BFF9-33AD5BBF8BA1</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FC8941F1-F505-2877-62CA-91FEEA87514A</domain>
+<defaultValue>false</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dog-climber" id="1C222FC4-BB58-1390-AB80-A84CCC5DF9E2">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>C4455FD4-C8B4-C2F9-59A9-51016FDBD5B4</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FC8941F1-F505-2877-62CA-91FEEA87514A</domain>
+<defaultValue>false</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="run_run_id" id="D4FBB5F9-3631-2EAF-A49B-F6662D6DB632">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>1647BB1E-C4AF-5034-26BA-EEFDDF2A1495</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="808CEC37-CA44-347B-CD4E-552E7337BCD8" referredColumn="DBE9F601-1ADB-AB59-F1E1-B60B24F8D2C4"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9B57CEF4-6B98-37CA-C2AB-8B4756EB587F" name="Dog_PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>F3106ADD-6370-BFFF-3EF3-CD08F3B2E0D0</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="88BB0CDA-82B0-61C5-C9CE-D1405E9AAFB5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0C718BFA-FB31-27C0-5982-9B2669709B2B" name="dog_run_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>4F779B8B-D58C-A3E7-99BE-46FD9EEF067F</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D4FBB5F9-3631-2EAF-A49B-F6662D6DB632"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

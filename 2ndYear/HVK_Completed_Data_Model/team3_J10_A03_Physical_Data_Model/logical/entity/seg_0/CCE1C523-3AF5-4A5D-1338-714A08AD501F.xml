@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CCE1C523-3AF5-4A5D-1338-714A08AD501F" name="Reservation Discount">
+<createdBy>2056856</createdBy>
+<createdTime>2023-09-29 19:17:16 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>rd</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="reservation_id" id="1315E51A-4405-6560-D438-DF0C88C4C1E1">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:23:09 UTC</createdTime>
+<generatorID>7418C111-740C-36D0-6968-B28F436356C8</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<referedAttribute>8513006C-1712-7DCE-DBD3-69A6A75A5403</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="discount_id" id="12E3CE84-828D-306F-620D-69D8B0F996DD">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:23:40 UTC</createdTime>
+<generatorID>1875DA68-FE18-3B5A-2FC4-8D3116996670</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<referedAttribute>CEBD9EC0-B607-C2EB-6F55-109C19A3B8BC</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A555AFDD-448F-DBA4-8EEE-D1870DD07384" name="Reservation_Discount PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:22:57 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1315E51A-4405-6560-D438-DF0C88C4C1E1</attributeRef>
+<attributeRef>12E3CE84-828D-306F-620D-69D8B0F996DD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

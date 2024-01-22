@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AB5447DC-3971-6188-DD11-DDF83C6C90AB" name="HVK_Pet-Food">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>5D538F6B-72EE-58A2-5F66-A49B85DE46A6</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<ordsAlias>hvk_pet_food</ordsAlias>
+<abbreviation>pf</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="foo_food_id" id="7659A832-AE97-C751-C8DB-45A64A6E3F0D">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>7FB2F41A-DFFC-D31F-68E8-E8F50130A4E8</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2341FEFD-134B-DD00-3B37-305EEB8589A7" referredColumn="D74E3CFC-C60F-70FC-C1DE-2D5D01B79725"/>
+</associations>
+</Column>
+<Column name="pet_pet-pet_id" id="A9E09D79-B8C8-02A9-6ACB-2E005D637103">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>FC6A66A0-CCF4-39FC-B6C6-24EC5F3EB562</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="89DA96EA-FF3F-B2B5-E1EA-488C07DA7008" referredColumn="45BC0919-4B41-BEAC-50AC-B184DFD02945"/>
+</associations>
+</Column>
+<Column name="frequency" id="D85F96CD-376C-84AB-F722-3F39DFC2AC65">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>97CD4945-9280-8F63-E3E9-A7D911CBA72D</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<listOfValues>
+<valueDef value="1" description="Once Per Day"/>
+<valueDef value="2" description="Twice Per Day"/>
+</listOfValues>
+<defaultValue>1</defaultValue>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="quantity" id="C858CE9B-24E7-E11F-FA50-952EE0CD58B5">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>EAB6A4E3-1C72-62CD-0F89-E733703B77BB</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4B06099E-1FE2-542E-B8E7-106B7629EDBE" name="Pet-Food_PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>8D7374EB-F0D7-91F7-9F7F-9E96E74B3C0E</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A9E09D79-B8C8-02A9-6ACB-2E005D637103"/>
+<colUsage columnID="7659A832-AE97-C751-C8DB-45A64A6E3F0D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8DD233F2-D262-F95D-8DC3-C0202CAC8761" name="pf_pet_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>1599638D-E0CA-0BE0-34A4-BBE097C28244</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A9E09D79-B8C8-02A9-6ACB-2E005D637103"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="09879BF2-66FD-0050-E9B4-B3916E3B398F" name="pf_foo_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>2B23DB02-9C36-78E5-655E-9D08B4BCE6C9</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7659A832-AE97-C751-C8DB-45A64A6E3F0D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

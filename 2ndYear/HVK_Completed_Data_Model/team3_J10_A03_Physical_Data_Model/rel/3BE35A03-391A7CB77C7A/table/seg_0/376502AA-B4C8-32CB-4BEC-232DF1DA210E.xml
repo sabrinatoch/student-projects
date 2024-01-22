@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="376502AA-B4C8-32CB-4BEC-232DF1DA210E" name="HVK_Service">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>CFCFD21E-70CC-0610-A5A6-F55BC6116B05</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<abbreviation>srv</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="service_id" id="DA7F38E6-A5EF-8AF5-2C96-C0EDE53C7317">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>BD4CFADA-5F9B-269D-D367-E91729C55A6A</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="35C04E4B-BF6B-CE03-3E56-FBD541A7E665">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>1E301046-0EC4-9117-3E00-4E7A40441092</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="rat_rate_id" id="3A83C3D9-5D80-4978-1FC5-300DE9DD8662">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>9B5D5074-A89D-8C35-E5DD-216FC391D04F</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1F0EB254-DF1B-C01C-EF78-7B0EB4ED9C82" referredColumn="3CE8DBA6-313C-9C81-1B5A-0DEE29B89D28"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FF7EEAC2-7365-3B38-D058-507293CF30A1" name="Service_PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>EC35C385-3AD4-D088-AE76-98B5A10F774E</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DA7F38E6-A5EF-8AF5-2C96-C0EDE53C7317"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="32F34ECE-44D2-A747-B373-78FB14DB2879" name="srv__IDX">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>DA9D4965-8ADA-691B-FB4D-C9DE43DD3AD6</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="3A83C3D9-5D80-4978-1FC5-300DE9DD8662"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="76E4B49D-1C4C-0BEE-0303-6ADD4B86C4F2" name="srv_rat_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>DA9D4965-8ADA-691B-FB4D-C9DE43DD3AD6</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3A83C3D9-5D80-4978-1FC5-300DE9DD8662"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

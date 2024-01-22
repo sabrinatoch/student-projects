@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_18" directorySegmentName="seg_0" id="DD6B8782-CA5D-895A-42EF-BCF16D03FE1A">
+<createdBy>2056856</createdBy>
+<createdTime>2023-09-29 18:48:27 UTC</createdTime>
+<ownerDesignName>stochkov_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<sourcePk>8F607BDF-7ED3-8957-9CC2-F7671797B313</sourcePk>
+<identifying>true</identifying>
+<nameOnSource>provides</nameOnSource>
+<nameOnTarget> is for a</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>7A7200EE-E6C1-BD2C-FBC2-8328258D9E7E</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>04E9117A-0D6F-2646-BE41-51245244CC7E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

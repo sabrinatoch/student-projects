@@ -1,0 +1,206 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5F303D3F-1247-F60E-20CF-8AD73BEF1B9A" name="Reservation">
+<createdBy>2056856</createdBy>
+<createdTime>2023-09-22 17:02:55 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>res</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="reservation_id" id="8513006C-1712-7DCE-DBD3-69A6A75A5403">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:22:49 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="start_year" id="C29E35A6-BCB4-76F2-60FC-D02A60DA61A8">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:22:58 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>18F3FBA2-3F2D-37B4-5ABC-A98E7B91C580</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1980</beginValue>
+<endValue>2025</endValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="start_month" id="42043DFF-5BA6-09E4-EA9C-F45067756FC2">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-19 16:09:41 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7D8AC222-64A3-3C50-F994-C1A7645F24BA</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>12</endValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="start_day" id="BEC7CCD1-8009-CDC2-9659-BD77BFD92F2D">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-19 16:09:49 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>8C96DACB-1CE9-F3CB-FE75-AEB9A58DD1B8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>31</endValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="end_year" id="95A68A1C-2BD3-6AE9-38A4-E22A55717181">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:23:04 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>18F3FBA2-3F2D-37B4-5ABC-A98E7B91C580</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1980</beginValue>
+<endValue>2025</endValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="end_month" id="D034CD42-5C50-E270-9EE5-27FF2ABCE3F9">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-19 16:10:01 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7D8AC222-64A3-3C50-F994-C1A7645F24BA</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>12</endValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="end_day" id="23DE4548-3475-3B91-F632-E4FAA73F5A6E">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-19 16:10:09 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>8C96DACB-1CE9-F3CB-FE75-AEB9A58DD1B8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>31</endValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="status" id="AD6B0844-AA39-D7FE-2B6E-7E7353748684">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 19:21:13 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<listOfValues>
+<valueDef value="1" description="Pending"/>
+<valueDef value="2" description="Confirmed"/>
+<valueDef value="3" description="Active"/>
+<valueDef value="4" description="Canceled"/>
+<valueDef value="5" description="Complete"/>
+</listOfValues>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="suite_id" id="3E0BF1E5-B20F-3F6C-91BB-7FE0A8C78E6D">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-19 16:00:49 UTC</createdTime>
+<generatorID>7EE33BE6-97F6-ECD3-3BF1-AA53DC47F444</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>5DC5E897-EAF4-7BA5-C4B8-17E5095E6E2B</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="run_id" id="4A9F0953-DCA3-138E-732C-9908BA0B62CB">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-19 16:01:11 UTC</createdTime>
+<generatorID>4F779B8B-D58C-A3E7-99BE-46FD9EEF067F</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<referedAttribute>F8E73856-FE75-775B-7405-C0666E780BF7</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A3F4396A-835B-223A-53B3-1DA444D19AF6" name="Reservation PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:22:57 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>8513006C-1712-7DCE-DBD3-69A6A75A5403</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKArc class="oracle.dbtools.crest.model.design.relational.FKArc" directorySegmentName="seg_0" id="74534347-59E6-6BEC-0053-247AD00DBEE6" name="FKArc_1">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<ownerDesignName>stochkov_J10_A03_Physical_Data_Model</ownerDesignName>
+<mandatory>true</mandatory>
+<table>9BDD6880-4CAE-59B2-8960-08F6DB9E49F3</table>
+<fkeys>
+<fkeyID>4E974D2F-1933-F2FE-393A-2F8690D67473</fkeyID>
+<fkeyID>7C588BB9-2013-0B2B-23C1-12C35F570524</fkeyID>
+</fkeys>
+</FKArc>

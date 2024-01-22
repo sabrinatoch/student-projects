@@ -1,0 +1,153 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6456A82F-62CD-879A-6407-676DF6E1D974" name="Pet Service">
+<createdBy>2056856</createdBy>
+<createdTime>2023-09-29 19:08:56 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>ps</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="pet_service_number" id="2BE37DDB-4392-325C-FA7F-A40F4C61A79E">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:33:28 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pet_id" id="BB702B97-C524-B0A7-63CE-7E315235D88E">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:13:37 UTC</createdTime>
+<generatorID>D334FB46-4021-E127-8806-E62F6D340AC5</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<referedAttribute>84BB42E1-8123-834F-CE35-DE8463E5C0B1</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="reservation_id" id="738A0373-6567-95F8-CDF1-8F991B652DC8">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:23:09 UTC</createdTime>
+<generatorID>157E7418-83D5-8E4B-BDE0-E25DC9B212EE</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<referedAttribute>8513006C-1712-7DCE-DBD3-69A6A75A5403</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="service_id" id="7C2C708E-0150-CB77-892B-99B52FE2C36F">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 18:12:13 UTC</createdTime>
+<generatorID>CEC7A8E3-D80F-97A3-2B06-FEA7185656C6</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<referedAttribute>BD4CFADA-5F9B-269D-D367-E91729C55A6A</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="run_id" id="2DCE20BB-A4F2-52B1-C3DD-86F86C905226">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:19:09 UTC</createdTime>
+<generatorID>4F779B8B-D58C-A3E7-99BE-46FD9EEF067F</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<referedAttribute>F8E73856-FE75-775B-7405-C0666E780BF7</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="suite_id" id="CD051820-C6C7-0481-A725-9AAD706AC0DA">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:19:38 UTC</createdTime>
+<generatorID>7EE33BE6-97F6-ECD3-3BF1-AA53DC47F444</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<referedAttribute>5DC5E897-EAF4-7BA5-C4B8-17E5095E6E2B</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="food_id" id="31A53F12-9500-199B-5829-00B85A841B36">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:20:49 UTC</createdTime>
+<generatorID>2B23DB02-9C36-78E5-655E-9D08B4BCE6C9</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<referedAttribute>A403B819-C643-CD09-8D99-53F73B16F759</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pet_sharing_with" id="7E38AFBE-2436-A649-5CDF-064A949CD0AA">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 16:38:47 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4A34BCA7-DD19-7077-0756-1C290EFE6CF8" name="Reservation_Pet PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:13:00 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BB702B97-C524-B0A7-63CE-7E315235D88E</attributeRef>
+<attributeRef>738A0373-6567-95F8-CDF1-8F991B652DC8</attributeRef>
+<attributeRef>7C2C708E-0150-CB77-892B-99B52FE2C36F</attributeRef>
+<attributeRef>2BE37DDB-4392-325C-FA7F-A40F4C61A79E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

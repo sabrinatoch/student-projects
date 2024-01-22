@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="stochkov_J10_A03_Physical_Data_Model" id="B023C9E8-FE7F-7804-EE54-CC4ACCD60C09" version="3.5">
+<createdBy>2056856</createdBy>
+<createdTime>2023-09-22 16:56:07 UTC</createdTime>
+<ownerDesignName>team3_J10_A01_Conceptual_Data_Model</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>B023C9E8-FE7F-7804-EE54-CC4ACCD60C09</designId>
+</OSDM_Design>

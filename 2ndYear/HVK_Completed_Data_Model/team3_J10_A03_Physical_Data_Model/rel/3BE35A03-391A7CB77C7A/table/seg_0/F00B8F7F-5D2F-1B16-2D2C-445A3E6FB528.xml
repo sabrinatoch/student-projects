@@ -1,0 +1,39 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F00B8F7F-5D2F-1B16-2D2C-445A3E6FB528" name="HVK_Vaccination">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>7A7200EE-E6C1-BD2C-FBC2-8328258D9E7E</generatorID>
+<ownerDesignName>stochkov_J10_A03_Physical_Data_Model</ownerDesignName>
+<abbreviation>vac</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="vaccination_name" id="318B5895-E701-399E-C813-947D3E49E2DF">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>9B6EBE42-FCE4-0F73-B612-700C751337D9</generatorID>
+<ownerDesignName>stochkov_J10_A03_Physical_Data_Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="39517DB1-B115-CA28-9D27-B377EDA029BD" name="Vaccination_PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>8F607BDF-7ED3-8957-9CC2-F7671797B313</generatorID>
+<ownerDesignName>stochkov_J10_A03_Physical_Data_Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="318B5895-E701-399E-C813-947D3E49E2DF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

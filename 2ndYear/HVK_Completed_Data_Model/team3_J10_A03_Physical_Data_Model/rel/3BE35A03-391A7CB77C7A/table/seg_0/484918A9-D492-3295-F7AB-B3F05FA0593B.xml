@@ -1,0 +1,209 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="484918A9-D492-3295-F7AB-B3F05FA0593B" name="HVK_Pet-Medication">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>1E1FBCD4-27BB-FA61-66CB-F1DE16F403D4</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<ordsAlias>hvk_pet_medication</ordsAlias>
+<abbreviation>pm</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="pet_pet-pet_id" id="4BA28F44-E91B-03A5-5A54-7A33F43F7195">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>AEAAE5AC-3811-7F60-613B-5B3658407DA2</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D015FE14-AD4A-22F0-BA01-610D0812A234" referredColumn="45BC0919-4B41-BEAC-50AC-B184DFD02945"/>
+</associations>
+</Column>
+<Column name="start_year" id="B0864467-7938-4EFC-A829-AA5E11E15D41">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>503CCA29-098A-650F-AA58-FE1B1832A7D4</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>18F3FBA2-3F2D-37B4-5ABC-A98E7B91C580</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1980</beginValue>
+<endValue>2025</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="start_month" id="76608ED5-439C-97F8-615A-761EE8A59EB4">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>DD5F7C08-7B1E-BD60-C741-72819F56E0FB</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7D8AC222-64A3-3C50-F994-C1A7645F24BA</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>12</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="start_day" id="6A8363C0-3305-38AB-782E-C6F7D29B68D0">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>8D8F8D53-3ED7-7DB7-4172-59FBAE829049</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>8C96DACB-1CE9-F3CB-FE75-AEB9A58DD1B8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>31</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="end_year" id="3C6FF9F1-E3BA-21A9-F2AD-19C44F6B3655">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>8483CBAE-E3FD-3EC0-6E78-37B263E1A4F6</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>18F3FBA2-3F2D-37B4-5ABC-A98E7B91C580</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1980</beginValue>
+<endValue>2025</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="end_month" id="B7B23462-3159-13BD-DA93-174E83024ACD">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>92DAD426-EB55-E437-DA00-5ED05680E78A</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7D8AC222-64A3-3C50-F994-C1A7645F24BA</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>12</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="end_day" id="908B889B-3E78-B471-6C21-CA39502C6E94">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>D1777450-E6DE-5568-63F7-102E17D330F2</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>8C96DACB-1CE9-F3CB-FE75-AEB9A58DD1B8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>31</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="instructions" id="54A30B3B-06D3-4B88-F5B6-73A2252A0F3D">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>FD869F17-2EAC-EBB5-ADD1-DA11705A61CD</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="frequency" id="41290AFB-8AFB-2753-0421-C8EB7DFA2862">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>5AC3D93D-06F1-4CF8-6289-7D2A20D0AA4F</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="med_medication_name" id="9775F789-9D29-C627-8A99-0743CF9D522B">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>3B86023C-05F2-39AC-0FD3-92FE200FB0EF</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E2F22B7B-03D2-9A42-5378-01F25F460BE0" referredColumn="015C908B-8F78-3A5B-26CA-D6DC3C70B709"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="31AE2BA9-59F6-6286-CF50-B7694B27427F" name="Pet-Medication_PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>7BC05B42-F5AC-EF76-184B-732AFA9B9442</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4BA28F44-E91B-03A5-5A54-7A33F43F7195"/>
+<colUsage columnID="9775F789-9D29-C627-8A99-0743CF9D522B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="90301254-D046-43B2-D88E-EA7A16AB5ABA" name="pm_pet_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>A2868935-20F6-6EFA-9536-EA7E43DF1BD6</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4BA28F44-E91B-03A5-5A54-7A33F43F7195"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0CC322DB-FEE6-B261-EEB0-04B531D39002" name="pm_med_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>24C0D9BF-DA65-A12B-D117-718CF56CB4F8</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9775F789-9D29-C627-8A99-0743CF9D522B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

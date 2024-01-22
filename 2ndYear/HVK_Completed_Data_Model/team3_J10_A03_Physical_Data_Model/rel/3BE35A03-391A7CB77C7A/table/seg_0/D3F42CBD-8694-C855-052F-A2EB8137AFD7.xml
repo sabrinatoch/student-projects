@@ -1,0 +1,171 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D3F42CBD-8694-C855-052F-A2EB8137AFD7" name="HVK_Pet-Service">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>6456A82F-62CD-879A-6407-676DF6E1D974</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<ordsAlias>hvk_pet_service</ordsAlias>
+<abbreviation>ps</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="pet_service_number" id="0AD629BC-4794-D445-0A3C-F9507D2B85F1">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>2BE37DDB-4392-325C-FA7F-A40F4C61A79E</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pet_pet-pet_id" id="4FE7948F-F29B-BF49-4662-CAF4BD41BB87">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>BB702B97-C524-B0A7-63CE-7E315235D88E</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9EF93230-66C2-0DC0-06B0-5D0D39839209" referredColumn="45BC0919-4B41-BEAC-50AC-B184DFD02945"/>
+</associations>
+</Column>
+<Column name="res_reservation_id" id="98374C8C-86FC-A620-13BD-781A9F42FA7D">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>738A0373-6567-95F8-CDF1-8F991B652DC8</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="595CBCAF-9419-CA33-DDB9-5327BB875990" referredColumn="DF3F064C-52B3-2E14-D87A-D0EE9A87D65A"/>
+</associations>
+</Column>
+<Column name="srv_service_id" id="360DFDEE-064B-2DFA-CC1A-8AAB6539EF71">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>7C2C708E-0150-CB77-892B-99B52FE2C36F</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="34ACC448-83D4-5356-BF9C-F15D5A2B9E10" referredColumn="DA7F38E6-A5EF-8AF5-2C96-C0EDE53C7317"/>
+</associations>
+</Column>
+<Column name="run_id" id="86D50D7B-57F1-A60A-F9CE-FE3680200E91">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>2DCE20BB-A4F2-52B1-C3DD-86F86C905226</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="suite_id" id="346C4F65-9010-2F1F-45CF-C357C5CF7526">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>CD051820-C6C7-0481-A725-9AAD706AC0DA</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="food_id" id="FD779948-3B0C-3DD5-F6B0-FD6AC08B02CD">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>31A53F12-9500-199B-5829-00B85A841B36</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pet_sharing_with" id="59E14764-C025-9C24-3027-7C8FA10C8FDC">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 16:41:22 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E6B3067D-5AF1-222B-C18B-FBAAAD60A343" name="Pet-Service_PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>4A34BCA7-DD19-7077-0756-1C290EFE6CF8</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4FE7948F-F29B-BF49-4662-CAF4BD41BB87"/>
+<colUsage columnID="98374C8C-86FC-A620-13BD-781A9F42FA7D"/>
+<colUsage columnID="360DFDEE-064B-2DFA-CC1A-8AAB6539EF71"/>
+<colUsage columnID="0AD629BC-4794-D445-0A3C-F9507D2B85F1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="51E1EB44-90D3-7258-FF2F-632F980E8CA6" name="ps_srv_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>CEC7A8E3-D80F-97A3-2B06-FEA7185656C6</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="360DFDEE-064B-2DFA-CC1A-8AAB6539EF71"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E1DF9E82-7014-80A7-7A43-EE32F39BF6A4" name="ps_res_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>157E7418-83D5-8E4B-BDE0-E25DC9B212EE</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="98374C8C-86FC-A620-13BD-781A9F42FA7D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C603FD73-D016-4B2B-8B75-745C815B1BFE" name="ps_pet_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>D334FB46-4021-E127-8806-E62F6D340AC5</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4FE7948F-F29B-BF49-4662-CAF4BD41BB87"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

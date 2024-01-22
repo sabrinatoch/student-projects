@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="34ACC448-83D4-5356-BF9C-F15D5A2B9E10" containerWithKeyObject="D3F42CBD-8694-C855-052F-A2EB8137AFD7" localFKIndex="51E1EB44-90D3-7258-FF2F-632F980E8CA6" name="ps_srv_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>CEC7A8E3-D80F-97A3-2B06-FEA7185656C6</generatorID>
+<ownerDesignName>stochkov_J10_A03_Physical_Data_Model</ownerDesignName>
+<referredTableLongName>HVK_Service</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>376502AA-B4C8-32CB-4BEC-232DF1DA210E</referredTableID>
+<keyObject>FF7EEAC2-7365-3B38-D058-507293CF30A1</keyObject>
+<referredKeyID>FF7EEAC2-7365-3B38-D058-507293CF30A1</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>service_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

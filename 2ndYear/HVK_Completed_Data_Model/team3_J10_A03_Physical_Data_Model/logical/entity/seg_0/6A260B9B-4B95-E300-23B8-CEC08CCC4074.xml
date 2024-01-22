@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6A260B9B-4B95-E300-23B8-CEC08CCC4074" name="Run">
+<createdBy>2056856</createdBy>
+<createdTime>2023-09-22 17:04:07 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>run</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="run_id" id="F8E73856-FE75-775B-7405-C0666E780BF7">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:18:55 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="size" id="99059E55-C217-A8F9-E750-811794EA95B5">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:18:58 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<domain>F31ACE0F-DB17-38A0-4F52-F25D3563CE9A</domain>
+<listOfValues>
+<valueDef value="L" description="Large"/>
+<valueDef value="M" description="Medium"/>
+<valueDef value="S" description="Small"/>
+</listOfValues>
+<defaultValue>M</defaultValue>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="covered" id="80F8909C-5576-E4B4-6C15-5A6451970DAA">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:19:03 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FC8941F1-F505-2877-62CA-91FEEA87514A</domain>
+<defaultValue>false</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="status" id="F5DD6F2F-1093-1963-1AB5-43EF9E1FFA07">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:19:07 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>3A650BA0-1522-0E54-EB80-A12DD6981461</domain>
+<listOfValues>
+<valueDef value="1" description="Available"/>
+<valueDef value="2" description="In Use"/>
+<valueDef value="3" description="Needs Cleaning"/>
+<valueDef value="4" description="Broken"/>
+</listOfValues>
+<defaultValue>1</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="location" id="1521622C-555C-27D0-C0F3-FD9B5DBFDB5B">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-19 16:14:01 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<listOfValues>
+<valueDef value="B" description="Back"/>
+<valueDef value="F" description="Front"/>
+</listOfValues>
+<defaultValue>F</defaultValue>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F5B2D0DA-F28A-2B2E-C85C-C41F8670ED16" name="Run PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-06 17:18:58 UTC</createdTime>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<engineerTo>
+<item key="3BE35A03-13AE-8F66-9843-391A7CB77C7A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F8E73856-FE75-775B-7405-C0666E780BF7</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

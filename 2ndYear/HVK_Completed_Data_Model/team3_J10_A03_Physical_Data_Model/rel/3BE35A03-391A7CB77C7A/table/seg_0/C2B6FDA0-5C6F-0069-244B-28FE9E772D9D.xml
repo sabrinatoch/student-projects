@@ -1,0 +1,83 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C2B6FDA0-5C6F-0069-244B-28FE9E772D9D" name="HVK_Reservation-Discount">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>CCE1C523-3AF5-4A5D-1338-714A08AD501F</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<ordsAlias>hvk_reservation_discount</ordsAlias>
+<abbreviation>rd</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="res_reservation_id" id="5B2B1BB5-F76A-9717-86B9-CD986A689A2F">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>1315E51A-4405-6560-D438-DF0C88C4C1E1</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F0FE6886-7E6F-823F-B600-1D88EFA5B169" referredColumn="DF3F064C-52B3-2E14-D87A-D0EE9A87D65A"/>
+</associations>
+</Column>
+<Column name="dis_discount_id" id="E04A08FE-D1D4-0689-5BC0-BF9527CD0224">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>12E3CE84-828D-306F-620D-69D8B0F996DD</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>12BE10BB-2D82-495B-D3FD-6AC5ECF21C5D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FDD7CDDB-F2FA-C58F-D181-32C53A3CD14A" referredColumn="AB518DC1-0FD3-6D20-E6C6-0570BD1776E0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="95BA1DD1-19EE-938D-5BB0-DB4363969CFC" name="Reservation-Discount_PK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>A555AFDD-448F-DBA4-8EEE-D1870DD07384</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5B2B1BB5-F76A-9717-86B9-CD986A689A2F"/>
+<colUsage columnID="E04A08FE-D1D4-0689-5BC0-BF9527CD0224"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7E7C446A-176D-3D51-693E-B273FD55DE68" name="rd_res_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>7418C111-740C-36D0-6968-B28F436356C8</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5B2B1BB5-F76A-9717-86B9-CD986A689A2F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C3CB6B8E-3BE2-76D5-16AF-F2FA56FD83CF" name="rd_dis_FK">
+<createdBy>2056856</createdBy>
+<createdTime>2023-10-20 15:49:44 UTC</createdTime>
+<generatorID>1875DA68-FE18-3B5A-2FC4-8D3116996670</generatorID>
+<ownerDesignName>team3_J10_A03_Physical_Data_Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E04A08FE-D1D4-0689-5BC0-BF9527CD0224"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
