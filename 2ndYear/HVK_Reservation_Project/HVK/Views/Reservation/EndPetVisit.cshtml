@@ -1,0 +1,53 @@
+﻿@await Html.PartialAsync("_Navigation")
+
+<main>
+    <h1>Invoice</h1>
+    <p>Reservation Period: @ViewBag.ReservationStart.ToString("yyyy/MM/dd") - @ViewBag.ReservationEnd.ToString("yyyy/MM/dd")</p>
+    <p>Number of Days: @ViewBag.Days</p>
+    <table class="table table-bordered pet-table">
+        <thead class="bg-dark text-white">
+            <tr>
+                <th>Description</th>
+                <th>Daily Rate</th>
+                <th>Number of Days</th>
+                <th>Item Total</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white">
+            @foreach (var item in ViewBag.Services) {
+                <tr>
+                    <td>@item.Description</td>
+                    <td>@item.DailyRate.ToString("C")</td>
+                    <td>@item.Days</td>
+                    <td>@item.ItemTotal.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3" class="bg-dark text-white">Subtotal</th>
+                <td class="bg-white">@ViewBag.Subtotal.ToString("C")</td>
+            </tr>
+            <tr>
+                <th colspan="3" class="bg-dark text-white">Discount – 3 or more pets (7%)</th>
+                <td class="bg-white">-@ViewBag.MultiplePets.ToString("C")</td>
+            </tr>
+            <tr>
+                <th colspan="3" class="bg-dark text-white">Subtotal</th>
+                <td class="bg-white">@ViewBag.Subtotal.ToString("C")</td>
+            </tr>
+            <tr>
+                <th colspan="3" class="bg-dark text-white">Tax</th>
+                <td class="bg-white">@ViewBag.Tax.ToString("C")</td>
+            </tr>
+            <tr>
+                <th colspan="3" class="bg-dark text-white">Total Due</th>
+                <td class ="bg-dark text-white">@ViewBag.Total.ToString("C")</td>
+            </tr>
+        </tfoot>
+    </table>
+    <form asp-action="CompleteReservation" asp-controller="Reservation" asp-route-reservationId="@ViewBag.ReservationId" method="post">
+        <input type="submit" value="End Pet Visit" class="btn btn-dark text-white btn-primary">
+        <a asp-action="EmployeeHome" asp-controller="Hvkuser" class="btn btn-secondary">Cancel</a>
+    </form>
+</main>

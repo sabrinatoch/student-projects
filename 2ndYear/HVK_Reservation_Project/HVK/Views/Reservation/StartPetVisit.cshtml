@@ -1,0 +1,297 @@
+﻿@inject HVK.Models.FormattingService DFormat
+@model HVK.Models.Reservation
+@{
+    var cus = Model.PetReservations.First().Pet.Hvkuser;
+    var vaccs = ViewBag.vacs as List<Vaccination>;
+    var serv = ViewBag.ser as List<Service>;
+    var serc = ViewBag.serc as List<Service>;
+    var rates = ViewBag.rates as List<DailyRate>;
+    var Dis = ViewBag.Dis as List<Discount>;
+    var resDis = ViewBag.resDis as List<ReservationDiscount>;
+    var lruns = ViewBag.lruns as List<Run>;
+    var mruns = ViewBag.mruns as List<Run>;
+}
+@await Html.PartialAsync("_Navigation")
+@if (!string.IsNullOrEmpty(ViewData["ErrorMessage"] as string)) {
+    <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+}
+@if (ViewBag.CurrentPart != 3)
+{
+    <h1>@cus.FirstName's Reservation</h1>
+<h3>@DFormat.DateDisplay(Model.StartDate) - @DFormat.DateDisplay(Model.EndDate)</h3>
+}
+@if (ViewBag.CurrentPart == 1) {
+    <h4>Customer info</h4>
+    <div style="margin: 0 auto; text-align: center;">
+        <h5>@cus.FirstName @cus.LastName</h5>
+        @if (@cus.Email != null) {
+            <p>@cus.Email</p>
+        }
+        @if (@cus.Phone != null) {
+            <p>@cus.Phone</p>
+        }
+        @if (@cus.CellPhone != null) {
+            <p>@cus.CellPhone</p>
+        }
+        <a asp-action="CustomerDetails" asp-controller="Hvkuser" asp-route-id="@cus.HvkuserId" class="a-view-profile">Edit</a>
+    </div>
+    <h4>Pet info</h4>
+    @foreach (var pr in Model.PetReservations) {
+        var pet = @pr.Pet;
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 30%; border: 2px solid black; margin-top:10px; margin: 0 auto;">
+            <div class="pet">
+                <h5>@pet.Name</h5>
+                <p>@DFormat.SizeDisplay(pet.DogSize) Dog (@pet.Gender)</p>
+                <a asp-action="Edit" asp-controller="Pet" asp-route-id="@pet.PetId" class="a-view-profile">Edit</a>
+                <p>Barker: @(pet.Barker ? "Yes" : "No")</p>
+                <p>Climber: @(pet.Climber ? "Yes" : "No")</p>
+                <p>Sterilized: @(pet.Sterilized ? "Yes" : "No")</p>
+                <select name="runSelect">
+                    <option value="">Select a run</option>
+                    @if(pet.DogSize.ToLower() == "l") {
+                        @foreach (var run in lruns) {
+                            <option value="@run.RunId">@run.RunId</option> 
+                        }
+                    } else {
+                        @foreach (var run in mruns) {
+                            <option value="@run.RunId">@run.RunId</option>
+                        }
+                    }
+                </select>
+                
+            </div>
+            <div class="vac">
+                <h5>Confirm Vaccinations</h5>
+
+                <form asp-controller="Reservation" asp-action="PetVaccination" method="post" onsubmit="return validateForm('@Model.EndDate', '@pet.PetId')">
+                    <input type="hidden" name="petId" value="@pet.PetId" />
+                    <input type="hidden" name="resId" value="@Model.ReservationId" />
+
+                    @foreach (var v in vaccs) {
+                        var foundVaccine = false;
+                        @foreach (var vv in pet.PetVaccinations) {
+                            if (v.VaccinationId == vv.VaccinationId) {
+                                <label asp-for="@vv.VaccinationChecked">@v.Name</label>
+                                <input asp-for="@vv.VaccinationChecked" type="checkbox" id="VaccinationChecked_@pet.PetId" name="VaccinationChecked" />
+                                <input asp-for="@vv.VaccinationId" type="hidden" id="VaccinationId" name="VaccinationId" />
+                                <input asp-for="@vv.ExpiryDate" type="date" id="ExpiryDate_@pet.PetId" name="ExpiryDate" />
+
+
+                                <br />
+                                foundVaccine = true;
+                                break;
+                            }
+                        }
+                        if (!foundVaccine) {
+                            <label for="VaccinationChecked" class="text-danger">@v.Name</label>
+                            <input id="VaccinationChecked_@pet.PetId" name="VaccinationChecked" type="checkbox" value="true" />
+                            <input type="hidden" name="VaccinationId" value="@v.VaccinationId" />
+                            <input id="ExpiryDate_@pet.PetId" name="ExpiryDate" type="date" class="text-danger" />
+
+                            <br />
+                        }
+                    }
+
+                    <div id="errorMessage_@pet.PetId" class="text-danger">@ViewData["ErrorMessage_@pet.PetId"]</div>
+
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+
+
+        </div>
+
+    }
+    <a asp-action="StartPetVisit" asp-route-id="@Model.ReservationId" asp-route-curp="2" class="btn btn-primary">Next</a>
+}
+@if (ViewBag.CurrentPart == 2) {
+    <h4>Reservation Info</h4>
+    <form asp-controller="Reservation" asp-action="ReservationAndDiscount" method="post">
+        <input type="hidden" name="resId" value="@Model.ReservationId" />
+        @foreach (var pr in Model.PetReservations) {
+            var pet = @pr.Pet;
+            <div style="border:2px solid black; margin: 0 auto; text-align: center; width:50%">
+                <h5>@pet.Name</h5>
+                <p>@DFormat.SizeDisplay(pet.DogSize) Dog (@pet.Gender)</p>
+                <h6>Services</h6>
+                @foreach (var s in serv) {
+                    var foundservice = false;
+                    @foreach (var prs in pr.PetReservationServices) {
+                        if (s.ServiceId == prs.ServiceId) {
+                            <label for=" serv">@s.ServiceDescription</label>
+                            <input type="checkbox" name="serv" id="serv" value="@s.ServiceId,@pr.PetReservationId" checked /><br />
+                            <input type="hidden" id="PetReserIds" name="PetReserIds" value="@pr.PetReservationId" />
+                            <br />
+                            foundservice = true;
+                            break;
+                        }
+                    }
+                    if (!foundservice) {
+                        <label for=" serv">@s.ServiceDescription</label>
+                        <input type="checkbox" name="serv" id="serv" value="@s.ServiceId,@pr.PetReservationId" /><br />
+                        <input type="hidden" id="PetReserIds" name="PetReserIds" value="@pr.PetReservationId" /><br />
+                    }
+                }
+                <h6>Medication</h6>
+                @foreach (var m in pr.Medications) {
+                    <p>@m.Name</p>
+                }
+                <p>add medication</p>
+                @{
+                    var ownFood = false;
+                    if (pr.PetReservationDiscounts.Any(i => i.DiscountId == 3)) {
+                        ownFood = true;
+                    }
+                }
+                <label>Bring your own food?</label>
+                <input type="checkbox" @(ownFood ? "checked" : "") disabled/>
+
+            </div>
+        }
+        <a asp-action="StartPetVisit" asp-route-id="@Model.ReservationId" asp-route-curp="1" class="btn btn-secondary">Previous</a>
+        <button type="submit" class="btn btn-primary">Next</button>
+    </form>
+}
+@if (ViewBag.CurrentPart == 3) {
+    <h1 style ="text-align: center;">Happy Valley Kennels Inc.</h1>
+    <h4 style ="text-align: center;">Bording Contract</h4>
+    <hr />
+    <p>Date: @DateTime.Today.ToString("yyyy-MM-dd")</p>
+    <div class="contract">
+        <div class="incontract">
+            <p><b>Customer:</b>
+                <br />Name: <u>@cus.FirstName @cus.LastName</u><br />
+                Address: <u>@cus.Street <br />@cus.City @cus.Province @cus.PostalCode </u></p>
+        </div>
+        <div class="incontract">
+            <p>
+                <br />
+                <b>Emergency Contact:</b><br />
+                Name: <u>@cus.EmergencyContactFirstName @cus.EmergencyContactLastName</u><br />
+                Phone: <u>@cus.EmergencyContactPhone</u></p>
+        </div>
+    </div>
+    <div class="contract">
+        <div class="incontract">
+            <p>
+                <b>Reservation:</b><br />
+                Start Date: <u>@DFormat.DateDisplay(Model.StartDate)</u> 
+            </p>
+        </div>
+        <div class="incontract"><p><br />End Date: <u>@DFormat.DateDisplay(Model.EndDate)</u></p></div>
+        <div class="incontract"><p><br />Number of days: <u>@((Model.EndDate - Model.StartDate).Days.ToString()) </u></p></div>
+    </div>
+    <table class="table table-bordered">
+        <tr class="bg-dark text-white">
+            <th>Pet</th>
+            <th>Services</th>
+            <th>Daily Rate</th>
+        </tr>
+        @{
+            var index = 1;
+        }
+        @foreach (var pr in Model.PetReservations) {
+            var pet = @pr.Pet;
+
+            <tr class="bg-white">
+                <td valign="top">
+                    <p>@index  Name: <u>@pet.Name</u></p>
+                    <p>Size: @pet.DogSize.ToUpper()</p>
+                    <p>
+                        Special Needs/Notes <br />
+                        <u>@pet.SpecialNotes</u>
+                    </p>
+                </td>
+                <td valign="top">
+                    <p>Boarding</p>
+                    @foreach (var s in serc) {
+                        var prs = pr.PetReservationServices.FirstOrDefault(prs => prs.ServiceId == s.ServiceId);
+                        <p>
+                            <input type="checkbox" @(prs != null ? "checked" : "") disabled />
+                            @s.ServiceDescription
+                        </p>
+                    }
+                    <p>Pet Discounts:</p>
+                    @foreach (var d in pr.PetReservationDiscounts) {
+                        <p><u>@d.Discount.Desciption (@(@d.Discount.Percentage * 100)%)</u></p>
+                        
+                    }
+                </td>
+                <td valign="top">
+                    <p>@(rates.FirstOrDefault(s => s.ServiceId == 1 && s.DogSize == pet.DogSize)?.Rate.ToString() ?? " ")</p>
+                    @foreach (var s in serc) {
+                        var prs = pr.PetReservationServices.FirstOrDefault(prs => prs.ServiceId == s.ServiceId);
+                        if (prs != null) {
+                            if (s.ServiceId == 2) {
+                                <p>@(rates.FirstOrDefault(se => se.ServiceId == 2 && se.DogSize == pet.DogSize)?.Rate.ToString() ?? " ")</p>
+                            } else {
+                                <p>@(rates.FirstOrDefault(se => se.ServiceId == s.ServiceId)?.Rate.ToString() ?? " ")</p>
+                            }
+                        } else {
+                            <p> 0.00 </p> 
+                        }
+                    }
+                </td>
+
+            </tr>
+            index++;
+        }
+       
+        <tr class="bg-white">
+            <td colspan="2">
+                <p>Customer Discounts:</p>
+                    @foreach (var d in resDis) {
+                    foreach(var rd in Dis) {
+                        if (d.DiscountId == rd.DiscountId) {
+                            <p><u>@d.Discount.Desciption (@(d.Discount.Percentage * 100)%)</u></p>
+                        }
+                    }
+                    }
+                </td>
+                <td> </td>
+        </tr>
+        
+    </table>
+    <p>
+        I understand and agree to the terms and conditions of this contract (see reverse side) and agree that Happy Valley Kennels is not liable for loss or illness of my pet.</p>
+    <p style="text-align: right; margin-right: 20px;">______________________________________________________<br />Signature of Customer &emsp;&emsp;&emsp;&emsp;Date</p>
+    <a asp-action="StartPetVisit" asp-route-id="@Model.ReservationId" asp-route-curp="2" class="btn btn-secondary">Previous</a>
+    <a asp-action="Start" asp-controller="Reservation" asp-route-id="@Model.ReservationId" class="btn btn-primary">Print</a>
+}
+<a asp-action="EmployeeHome" asp-controller="Hvkuser" class="btn btn-secondary">Cancel</a>
+<script>
+    function validateForm(endDate, petId) {
+        var expiryDates = document.querySelectorAll('input[type="date"][id^="ExpiryDate_' + petId + '"]');
+        var checkboxes = document.querySelectorAll('input[type="checkbox"][id^="VaccinationChecked_' + petId + '"]');
+        var errorMessageId = 'errorMessage_' + petId;
+        var errorMessageElement = document.getElementById(errorMessageId);
+        var isValid = true;
+
+        // Reset error message
+        errorMessageElement.innerText = '';
+
+        // Check expiry dates
+        expiryDates.forEach(function (input) {
+            if (!input.value) {
+                isValid = false;
+                return;
+            }
+            var expiryDate = new Date(input.value);
+            if (expiryDate <= new Date(endDate)) {
+                isValid = false;
+            }
+        });
+
+        // Check checkboxes
+        checkboxes.forEach(function (checkbox) {
+            if (!checkbox.checked) {
+                isValid = false;
+            }
+        });
+
+        if (!isValid) {
+            errorMessageElement.innerText = 'Please provide a valid expiry date later than the ending date and ensure all vaccinations are checked.';
+        }
+        return isValid;
+    }
+</script>

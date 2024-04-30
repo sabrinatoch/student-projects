@@ -1,0 +1,34 @@
+﻿@inject HVK.Models.FormattingService DFormat
+@model IEnumerable<HVK.Models.Hvkuser>
+@await Html.PartialAsync("_Navigation")
+
+<main>
+    <h1 class="display-5 text-center">All Customers</h1>
+    <form action="@Url.Action("AllCustomers", "Hvkuser")" method="get" class="side-by-side">
+        <input type="text" name="search" placeholder="Search by last name, email or phone" class="form-control search">
+        <button class="btn" id="search" type="submit"><img src="~/images/find.png" alt="Magnifying glass" /></button>
+    </form>
+    <p class="text-center">Can't find a customer? @Html.ActionLink("New Customer", "CreateCustomer", "Hvkuser")</p>
+    <table class="table table-bordered">
+        <tr class="bg-dark text-white">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Cell Phone</th>
+            <th>View Profile</th>
+            <th>New Pet</th>
+            <th>New Reservation</th>
+        </tr>
+        @foreach (var c in Model) {
+            <tr class="bg-white">
+                <td>@c.FirstName @c.LastName</td>
+                <td>@(c.Email == null ? "N/A" : c.Email)</td>
+                <td>@DFormat.PhoneDisplay(c.Phone)</td>
+                <td>@DFormat.PhoneDisplay(c.CellPhone)</td>
+                <td><a asp-action="CustomerDetails" asp-controller="Hvkuser" asp-route-id="@c.HvkuserId" class="a-view-profile">View Profile</a></td>
+                <td><a asp-action="Create" asp-controller="Pet" class="a-new-pet" asp-route-id="@c.HvkuserId">New Pet</a></td>
+                <td><a asp-action="Create" asp-controller="Reservation" class="a-new-reservation" asp-route-id="@c.HvkuserId">New Reservation</a></td>
+            </tr>
+        }
+    </table>
+</main>

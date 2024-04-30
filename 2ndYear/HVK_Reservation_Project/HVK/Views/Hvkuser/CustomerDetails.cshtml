@@ -1,0 +1,84 @@
+﻿@inject HVK.Models.FormattingService DFormat
+@model HVK.Models.Hvkuser
+@await Html.PartialAsync("_Navigation")
+@{
+    var reservations = Model.Pets.SelectMany(p => p.PetReservations)
+                                .GroupBy(pr => pr.ReservationId)
+                                .OrderBy(pr => pr.First().Reservation.StartDate)
+                                .ThenBy(pr => pr.First().Reservation.EndDate);
+}
+<main>
+    <h1 class="display-5 text-center">Customer Details</h1>
+    <div class="card p-3 details">
+        <div class="side-by-side">
+            <h1 class="display-6 text-center">@(Model.FirstName != null && Model.LastName != null ? Model.FirstName + " " + Model.LastName : "N/A")</h1>
+            <a asp-action="Edit" asp-route-id="@Model?.HvkuserId" class="text-center">Edit</a>
+        </div>
+        <div class="detail-inside">
+            <div class="details-grid">
+                <div class="details-item">
+                    <p><b>Email:</b> @(Model.Email != null ? Model.Email : "N/A")</p>
+                    <p><b>Phone Number:</b> @DFormat.PhoneDisplay(Model.Phone)</p>
+                    <p><b>Cell Phone Number:</b> @DFormat.PhoneDisplay(Model.CellPhone)</p>
+                    <p><b>Emergency Contact Name:</b> @(Model.EmergencyContactFirstName != null && Model.EmergencyContactLastName != null ? Model.EmergencyContactFirstName + " " + Model.EmergencyContactLastName : "N/A")</p>
+                    <p><b>Emergency Contact Phone Number:</b> @DFormat.PhoneDisplay(Model.EmergencyContactPhone)</p>
+                </div>
+                <div class="details-item">
+                    <p><b>Street:</b> @(Model.Street != null ? Model.Street : "N/A")</p>
+                    <p><b>City:</b> @(Model.City != null ? Model.City : "N/A")</p>
+                    <p><b>Province:</b> @(Model.Province != null ? Model.Province : "N/A")</p>
+                    <p><b>Postal Code:</b> @DFormat.PostalDisplay(Model.PostalCode)</p>
+                </div>
+            </div>
+            <h5 class="display-7"><b>Pets</b></h5>
+            <a asp-action="Create" asp-controller="Pet" class="a-new-pet" asp-route-id="@Model.HvkuserId">New Pet</a>
+            <table class="table table-bordered pet-table">
+                <tr class="bg-dark text-white">
+                    <th>Name</th>
+                    <th>Details</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                @foreach (var pet in Model.Pets) {
+                    <tr class="bg-white">
+                        <td>@pet.Name</td>
+                        <td>@Html.ActionLink("Details", "PetDetails", "Pet", new { id = pet.PetId }, null)</td>
+                        <td>@Html.ActionLink("Edit", "Edit", "Pet", new { id = pet.PetId }, null)</td>
+                        <td>@Html.ActionLink("Remove", "Delete", "Pet", new { id = pet.PetId }, null)</td>
+                    </tr>
+                }
+            </table>
+            <h5 class="display-7"><b>Reservations</b></h5>
+            <a asp-action="Create" asp-controller="Reservation" class="a-new-reservation" asp-route-id="@Model.HvkuserId">New Reservation</a>
+            @if (reservations.Count() == 0)
+            {
+                <p>No reservations found.</p>
+            }
+            else
+            {
+                <table class="table table-bordered">
+                    <tr class="bg-dark text-white">
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Pets</th>
+                        <th>Edit</th>
+                        <th>Cancel</th>
+                    </tr>
+                    @foreach (var pr in reservations)
+                    {
+                        var res = pr.First().Reservation;
+                        var pets = pr.Select(pr => pr.Pet.Name);
+                        <tr class="bg-white">
+                            <td>@res.StartDate.ToString("yyyy/MM/dd")</td>
+                            <td>@res.EndDate.ToString("yyyy/MM/dd")</td>
+                            <td>@string.Join(", ", pets)</td>
+                            <td><a asp-action="Edit" asp-controller="Reservation" asp-route-id="@res.ReservationId">Edit</a></td>
+                            <td><a asp-action="Delete" asp-controller="Reservation" asp-route-id="@res.ReservationId">Cancel</a></td>
+                        </tr>
+                    }
+                </table>
+                <br />
+            }
+        </div>
+    </div>
+</main>

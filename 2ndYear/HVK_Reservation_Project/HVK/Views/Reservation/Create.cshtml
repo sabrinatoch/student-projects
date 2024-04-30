@@ -1,0 +1,109 @@
+﻿@model HVK.Models.ReservationViewModel
+@await Html.PartialAsync("_Navigation")
+
+<h1 class="text-center display-5">Create Reservation</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <input type="hidden" asp-for="Hvkuser.FirstName" />
+            <input type="hidden" asp-for="Hvkuser.LastName" />
+            <input type="hidden" asp-for="Hvkuser.Email" />
+            <input type="hidden" asp-for="Hvkuser.UserType" />
+            <input type="hidden" asp-for="Hvkuser.EmergencyContactFirstName" />
+            <input type="hidden" asp-for="Hvkuser.EmergencyContactLastName" />
+            <input type="hidden" asp-for="Hvkuser.EmergencyContactPhone" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <p><b>Select your dates:</b></p>
+            <div class="dates">
+
+                <div class="form-group">
+                    <label asp-for="Reservation.StartDate" class="control-label"></label>
+                    <input type="date" asp-for="Reservation.StartDate" class="form-control" />
+                    <span asp-validation-for="Reservation.StartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Reservation.EndDate" class="control-label"></label>
+                    <input type="date" asp-for="Reservation.EndDate" class="form-control" />
+                    <span asp-validation-for="Reservation.EndDate" class="text-danger"></span>
+                </div>
+            </div><br />
+            <div>
+                <p><b>Select your pets:</b></p>
+                @Html.ValidationMessage("AvailableRuns")
+                @foreach (var pet in Model.Hvkuser.Pets) {
+                    <input type="checkbox" class="pet-checkbox" value="@pet.PetId" name="selectedpets" />
+                    <label>@pet.Name</label>
+
+                    <br />
+                }
+                @Html.ValidationMessage("SelectPets")
+            </div><br />
+
+            @foreach (var pet in Model.Hvkuser.Pets) {
+                <div class="res-content" id="services-vaccinations-@pet.PetId" style="display:none;">
+                    <fieldset>
+                        <legend class="scheduler-border">@pet.Name</legend>
+                        <hr />
+                        <p>Services:</p>
+                        @foreach (var service in ViewBag.ServiceId) {
+                            <input type="checkbox" value="@service.Value" id="@($"service_{service.Value}")" name="@($"Services_{pet.PetId}")" />
+                            <label for="@($"service_{service.Value}")">@service.Text</label>
+                            <br />
+                        }
+                        <br />
+                        @if (TempData["MedicationAdded"] != null) {
+                            <p>Medication added: @TempData["MedicationAdded"]</p>
+                        }
+                        <button type="button" id="addMedicationBtn" class="other-btns" onclick="location.href='@Url.Action("AddMedication", "Reservation")'">Add Medication</button>
+
+                        <br />
+                        <br />
+                        <label for="bringfood">Bringing your own food?</label>
+                        <input type="checkbox" id="bringfood" name="@($"OwnFood_{pet.PetId}")" />
+                        <br />
+                    </fieldset>
+                    <fieldset>
+                        <legend>Vaccines</legend>
+                        @{
+                            var index = 0;
+                            for (int i = 0; i < Model.Hvkuser.Pets.Count(); ++i) {
+                                var viewModel = Model.PetVaccinationViewModels[i];
+                                if (viewModel.Pet == pet) {
+                                    index = i;
+                                }
+                            }
+                        }
+                        <input type="hidden" asp-for="PetVaccinationViewModels[index].Pet.PetId"/>
+                        <input type="hidden" asp-for="PetVaccinationViewModels[index].Pet.Name" />
+                        <input type="hidden" asp-for="PetVaccinationViewModels[index].Pet.Gender" />
+                        <input type="hidden" asp-for="PetVaccinationViewModels[index].Pet.Breed"/>
+                        <input type="hidden" asp-for="PetVaccinationViewModels[index].Pet.Birthyear"/>
+                        <input type="hidden" asp-for="PetVaccinationViewModels[index].Pet.HvkuserId" />
+                        <input type="hidden" asp-for="PetVaccinationViewModels[index].Pet.DogSize" />
+                        <input type="hidden" asp-for="PetVaccinationViewModels[index].Pet.Climber" />
+                        <input type="hidden" asp-for="PetVaccinationViewModels[index].Pet.Barker" />
+                        <input type="hidden" asp-for="PetVaccinationViewModels[index].Pet.SpecialNotes" />
+                        <input type="hidden" asp-for="PetVaccinationViewModels[index].Pet.Sterilized" />
+                        <hr />
+                        <div class="form-content">
+                            <div class="vaccine-content">
+                                @for (int i = 0; i < ViewBag.VaccinationNames.Length; i++) {
+                                    var vaccinationId = i + 1;
+                                    @ViewBag.VaccinationNames[i]
+
+                                    <input class="form-control" type="date" asp-for="PetVaccinationViewModels[index].VaccinationExpiryDates[vaccinationId]" value="@(Model.PetVaccinationViewModels[index].VaccinationExpiryDates[vaccinationId]?.ToString("yyyy-MM-dd"))" />
+                                }
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <br />
+            }
+            <div class="form-group">
+                <input type="hidden" value="@Model.Hvkuser.HvkuserId" name="Hvkuser.HvkuserId" />
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

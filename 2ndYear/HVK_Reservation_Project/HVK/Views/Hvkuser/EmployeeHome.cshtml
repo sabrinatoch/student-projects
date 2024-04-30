@@ -1,0 +1,121 @@
+﻿@model HVK.Models.EmployeeHomeViewModel
+@await Html.PartialAsync("_Navigation")
+
+@{
+    var reservations = Model.Pets
+                        .SelectMany(p => p.PetReservations)
+                        .GroupBy(pr => pr.ReservationId)
+                        .OrderBy(pr => pr.First().Pet.Hvkuser.LastName);
+
+    // the following dates are for testing purpose - change to DateTime.Today
+    var startingReservations = reservations.Where(r => r.First().
+                                Reservation.StartDate == new DateTime(2025, 10, 15));
+    var endingReservations = reservations.Where(r => r.First().
+                                Reservation.EndDate == new DateTime(2025, 10, 18));
+    var activeRerservations = reservations.Where(r => r.First().
+                                Reservation.StartDate < new DateTime(2026, 7, 17)
+                                && r.First().Reservation.EndDate > new DateTime(2026, 7, 17));
+}
+<main>
+    <div class="text-center">
+        <h1 class="display-5">Welcome Back, @Model.Employee.FirstName!</h1>
+    </div><br />
+    <h2 class="display-7">Checking In</h2>
+    @if (startingReservations.Count() == 0)
+    {
+        <p>No reservations starting today.</p>
+    }
+    else
+    {
+        <table class="table table-bordered">
+            <tr class="bg-dark text-white">
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Pets</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var startRes in startingReservations)
+            {
+                var res = startRes.First().Reservation;
+                var pets = startRes.Select(pr => pr.Pet.Name);
+                var customer = startRes.First().Pet.Hvkuser;
+                <tr class="bg-white">
+                    <td>@customer.LastName</td>
+                    <td>@customer.FirstName</td>
+                    <td>@res.StartDate.ToString("yyyy/MM/dd")</td>
+                    <td>@res.EndDate.ToString("yyyy/MM/dd")</td>
+                    <td>@string.Join(", ", pets)</td>
+                    <td><a asp-action="StartPetVisit" asp-controller="Reservation" asp-route-id="@res.ReservationId">Start</a></td>
+                </tr>
+            }
+        </table>
+    }
+    <h2 class="display-7">Checking Out</h2>
+    @if (endingReservations.Count() == 0)
+    {
+        <p>No reservations ending today.</p>
+    }
+    else
+    {
+        <table class="table table-bordered">
+            <tr class="bg-dark text-white">
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Pets</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var endRes in endingReservations)
+            {
+                var res = endRes.First().Reservation;
+                var pets = endRes.Select(pr => pr.Pet.Name);
+                var customer = endRes.First().Pet.Hvkuser;
+                <tr class="bg-white">
+                    <td>@customer.LastName</td>
+                    <td>@customer.FirstName</td>
+                    <td>@res.StartDate.ToString("yyyy/MM/dd")</td>
+                    <td>@res.EndDate.ToString("yyyy/MM/dd")</td>
+                    <td>@string.Join(", ", pets)</td>
+                    <td><a asp-action="EndPetVisit" asp-controller="Reservation" asp-route-id="@res.ReservationId">End</a></td>
+                </tr>
+            }
+        </table>
+    }
+    <h2 class="display-7">Active Reservations</h2>
+    @if (activeRerservations.Count() == 0)
+    {
+        <p>No active reservations.</p>
+    }
+    else
+    {
+        <table class="table table-bordered">
+            <tr class="bg-dark text-white">
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Pets</th>
+                <th>Edit</th>
+                <th>Cancel</th>
+            </tr>
+            @foreach (var activeRes in activeRerservations)
+            {
+                var res = activeRes.First().Reservation;
+                var pets = activeRes.Select(pr => pr.Pet.Name);
+                var customer = activeRes.First().Pet.Hvkuser;
+                <tr class="bg-white">
+                    <td>@customer.LastName</td>
+                    <td>@customer.FirstName</td>
+                    <td>@res.StartDate.ToString("yyyy/MM/dd")</td>
+                    <td>@res.EndDate.ToString("yyyy/MM/dd")</td>
+                    <td>@string.Join(", ", pets)</td>
+                    <td><a asp-action="Edit" asp-controller="Reservation" asp-route-id="@res.ReservationId">Edit</a></td>
+                    <td><a asp-action="Delete" asp-controller="Reservation" asp-route-id="@res.ReservationId">Cancel</a></td>
+                </tr>
+            }
+        </table>
+    }
+</main>

@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Http
+@{
+    var usertype = Context.Session.GetString("usertype").ToLower();
+    var userid = Context.Session.GetInt32("userid");
+}
+<div class="sub-nav">
+    @if (usertype == "employee") {
+        @Html.ActionLink("Home", "EmployeeHome", "Hvkuser")
+        @Html.ActionLink("Search Results", "AllCustomers", "Hvkuser")
+        @Html.ActionLink("New Customer", "CreateCustomer", "Hvkuser")
+    } else {
+        @Html.ActionLink("Home", "CustomerHome", "Hvkuser")
+        <a asp-action="Create" asp-controller="Pet" class="a-new-pet" asp-route-id="@userid">New Pet</a>
+        <a asp-action="Create" asp-controller="Reservation" class="a-new-reservation" asp-route-id="@userid">New Reservation</a>
+    }
+
+</div>

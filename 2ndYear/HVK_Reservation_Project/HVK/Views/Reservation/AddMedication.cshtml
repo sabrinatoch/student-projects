@@ -1,0 +1,16 @@
+﻿@model HVK.Models.Medication
+@await Html.PartialAsync("_Navigation")
+
+<h1 class="text-center display-5">Add Medication</h1>
+<hr />
+<form asp-action="AddMedication" method="post">
+    <label for="Name">Medication Name:</label><br />
+    <input type="text" asp-for="Name" name="Name" class="form-control" /><br />
+    <label for="Dosage">Dosage:</label><br />
+    <input asp-for="Dosage" name="Dosage" class="form-control" /><br />
+    <label for="SpecialInstruct">Instructions:</label><br />
+    <input asp-for="SpecialInstruct" name="SpecialInstruct" class="form-control" /><br />
+    <label for="EndDate">End Date:</label><br />
+    <input type="date" asp-for="EndDate" name="EndDate" class="form-control" /><br />
+    <input type="submit" value="Add" class="btn btn-primary"/>
+</form>

@@ -1,0 +1,340 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: rgb(206, 211, 227);
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+.inside-body {
+    background-color: #D7DFFE;
+    width: 100%;
+}
+
+.header {
+    background-color: #102542 !important;
+    margin-bottom: 10px;
+}
+
+.error {
+    color: #68121C;
+    background-color: #D75A68;
+}
+
+form {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#logout {
+    position: absolute;
+    top: 26px;
+    right: 10px;
+    background-color: #c5edee;
+    border-radius: 10px;
+    padding: 5px 19px;
+    font-weight: bold;
+}
+
+#logout:hover {
+  background-color: #fcffff;
+}
+
+.search {
+  display: inline;
+}
+
+.login-form {
+  width: 50%;
+  border: 2px solid #848788;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: #e2eafa;
+  box-shadow: rgb(0,0,0,0.4) 10px 10px;
+  /* margin: 20px; */
+}
+
+.dark-button {
+  background-color: #29323d;
+  width: 100%;
+  padding: 6px;
+  border-radius: 2px;
+  color: white;
+  font-weight: bold;
+  font-size: smaller;
+}
+
+    .dark-button:hover {
+        background-color: #535455;
+        border: 2px solid rgb(192, 192, 192);
+    }
+
+.marg {
+  margin-left: 0;
+}
+
+.a-create-account {
+  color: blueviolet;
+  font-weight: bold;
+}
+
+.a-view-profile {
+    color: #8673BF;
+    font-weight: bold;
+}
+
+.a-new-pet {
+    color: #9c29b7;
+    font-weight: bold;
+}
+
+.a-new-customer {
+    color: blueviolet;
+    font-weight: bold;
+}
+
+.a-new-reservation {
+    color: #631878;
+    font-weight: bold;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    flex: 1;
+}
+
+#search {
+    margin-left: 10px;
+    background-color: #baacc7;
+    color: white;
+    display: inline;
+}
+
+#search img {
+  width: 25px;
+  height: 25px;
+  padding: 0;
+}
+
+#search:hover {
+  background-color: rgb(208, 200, 215);
+}
+
+a:hover {
+    color: #bb81bc;
+}
+
+#my-account-btn, .other-btns {
+    background-color: #8187bc;
+    color: rgb(255, 251, 251);
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+    #my-account-btn:hover, .other-btns:hover {
+        color: #04426f;
+        background-color: #ffffff;
+    }
+
+.side-by-side {
+  display: flex;
+  justify-content: center;
+}
+.side-by-side a {
+  margin-left: 10px;
+  margin-top: 8px;
+}
+/*.btn {
+    margin-left: 10px;*/ /* Adjust spacing between input and button */
+    /*background-color: rebeccapurple;
+    color: white;
+}*/
+nav img{
+    height:50px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.details {
+    border-radius: 20px;
+    background-color: #e2eafa;
+    box-shadow: rgb(0,0,0,0.3) 10px 10px 10px;
+    margin: 20px;
+    border: 2px solid #848788;
+}
+
+.details h1 {
+  font-weight: 400;
+}
+
+.detail-inside {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.detail-inside p {
+  margin: 5px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* gap: 20px; */
+}
+
+.details-item {
+    padding: 5px;
+}
+
+.delete-content {
+    padding: 50px;
+    text-align: center
+}
+
+.pet-table {
+    max-width: 400px;
+}
+
+
+table td {
+  padding: 5px !important;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: #102542 !important;
+    max-width: none;
+    text-align: center;
+    padding: 5px;
+}
+
+nav {
+  margin-bottom: 0;
+}
+
+.sub-nav {
+    position: absolute;
+    top: 21px;
+    right: 110px;
+    text-align: center;
+    margin-top: 0;
+    padding: 10px;
+}
+    .sub-nav a {
+        margin: 10px;
+        text-decoration: none;
+        padding: 6px;
+        border-radius: 10px;
+        background-color: #102542;
+        color: white;
+        border: solid #102542;
+    }
+
+svg {
+  color: white;
+}
+
+.sub-nav a:hover {
+    background-color: white;
+    border: solid white;
+    color: #102542;
+}
+
+table {
+  border-radius: 8px;
+}
+
+table a {
+  color: #9c29b7;
+}
+
+main {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type="checkbox"] + label {
+    background-color: white;
+    padding: 2px 3px;
+    margin: 2px 3px;
+    border-radius: 5px;
+}
+
+.res-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80vw;
+    max-width: 800px;
+}
+
+.dates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+}
+.petinfo {
+    display: flex ;
+    justify-content: space-between ;
+    align-items: flex-start ;
+    width: 30% !important;
+    border: 2px solid black ;
+}
+
+.pet {
+    flex: 1 ;
+    width: 50% ;
+}
+
+.vac {
+    flex-shrink: 0 ;
+    width: 50% ;
+    background: white ;
+}
+
+.contract {
+    display: flex;
+}
+
+.incontract {
+    display: inline-block;
+    margin-right: 20px; /* Adjust this value as needed for spacing */
+}
+h4{
+    text-align:center;
+}
+h3 {
+    text-align: center;
+}
+h1{
+    text-align:center;
+}
+.field-validation-error {
+    color: red;
+}

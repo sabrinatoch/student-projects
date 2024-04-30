@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HVK</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/HVK.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+
+        <nav class="header navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
+            <img src="~/images/Logo.png" alt="image of logo" />
+            <a class="navbar-brand text-white" asp-area="" asp-controller="Account" asp-action="Login">HVK</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login" id="logout">Log Out</a>
+        </nav>
+    </header>
+    @RenderBody()
+
+    <footer>
+        &copy; 2024 - HVK
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+    $(document).ready(function () {
+        $('.pet-checkbox').change(function () {
+            var petId = $(this).val();
+            if ($(this).is(':checked')) {
+                $('#services-vaccinations-' + petId).show();
+            } else {
+                $('#services-vaccinations-' + petId).hide();
+            }
+        });
+    });
+</script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
