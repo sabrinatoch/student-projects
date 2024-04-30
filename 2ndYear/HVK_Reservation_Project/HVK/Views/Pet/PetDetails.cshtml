@@ -1,0 +1,55 @@
+﻿@inject HVK.Models.FormattingService DFormat
+@model HVK.Models.Pet
+<div class="sub-nav">
+    @Html.ActionLink("Home", (ViewBag.Type == "employee" ? "EmployeeHome" : "CustomerHome"), "Hvkuser")
+    @Html.ActionLink("View Profile", "CustomerDetails", "Hvkuser", new { id = Model.HvkuserId }, null)
+</div>
+<main>
+    <h1 class="display-5 text-center">Pet Details</h1>
+    <div class="card p-3 details">
+        <h1 class="display-6 text-center">@(Model.Name != null ? Model.Name : "N/A")</h1>
+        <div class="text-center">
+            @Html.ActionLink("Edit", "Edit", "Pet", new { id = Model.PetId }, null)
+        </div>
+        <div class="details-grid">
+            <div class="details-item">
+        <p><b>Gender:</b> @(Model.Gender == "M" ? "Male" : "Female")</p>
+        <p><b>Breed:</b> @(Model.Breed != null ? Model.Breed : "N/A")</p>
+        <p><b>Birth Year:</b> @(Model.Birthyear != null ? Model.Birthyear : "N/A")</p>
+        <p><b>Dog Size:</b> @(Model.DogSize == "S" ? "Small" : Model.DogSize == "M" ? "Medium" : Model.DogSize == "L" ? "Large" : "N/A")</p>
+            </div>
+            <div class="details-item">
+        <p><b>Behaviour(s):</b></p>
+        <ul>
+            @{
+                if (Model.Climber) {
+                    <li>Climber</li>
+                }
+                if (Model.Barker) {
+                    <li>Barker</li>
+                }
+                if (!Model.Climber && !Model.Barker) {
+                    <li>None</li>
+                }
+            }
+        </ul>
+        <p><b>Special Notes:</b> @(Model.SpecialNotes != null ? Model.SpecialNotes : "Empty")</p>
+        <p><b>Sterilized:</b> @(Model.Sterilized ? "Yes" : "No")</p>
+            </div>
+        </div>
+        <h3>Vaccinations:</h3>
+        <table class="table table-bordered pet-table">
+            <tr class="bg-dark text-white">
+                <th>Vaccination Name</th>
+                <th>Expiry Date</th>
+            </tr>
+            @foreach (var vaccination in Model.PetVaccinations) {
+                <tr class="bg-white">
+                    <td>@vaccination.Vaccination.Name</td>
+                    <td>@vaccination.ExpiryDate.ToShortDateString()</td>
+                </tr>
+            }
+        </table>
+                
+    </div>
+</main>

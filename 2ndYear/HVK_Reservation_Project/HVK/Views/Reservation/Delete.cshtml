@@ -1,0 +1,38 @@
+﻿@model HVK.Models.Reservation
+@await Html.PartialAsync("_Navigation")
+@{
+    ViewData["Title"] = "Delete";
+    var usertype = Context.Session.GetString("usertype").ToLower();
+}
+
+<h1 class="text-center display-5">Delete</h1>
+<hr />
+<h3 class="text-center display-7">Are you sure you want to cancel your reservation?</h3>
+<div class="card p-3 details">
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ReservationId" />
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @if (usertype == "employee") {
+                <a asp-action="AllCustomers" asp-controller="Hvkuser" class="btn btn-secondary">Cancel</a>
+            } else {
+                <a asp-action="CustomerHome" asp-controller="Hvkuser" class="btn btn-secondary">Cancel</a>
+            }
+        </div>
+    </form>
+</div>

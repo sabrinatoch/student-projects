@@ -1,0 +1,65 @@
+﻿@model HVK.Models.Hvkuser
+@{
+    ViewData["HvkuserId"] = Model.HvkuserId;
+}
+@await Html.PartialAsync("_Navigation")
+@{
+    var reservations = Model.Pets.SelectMany(p => p.PetReservations)
+                                .GroupBy(pr => pr.ReservationId)
+                                .OrderBy(pr => pr.First().Reservation.StartDate)
+                                .ThenBy(pr => pr.First().Reservation.EndDate);
+
+    TempData.Keep();
+}
+<main>
+    <div class="text-center">
+        <h1 class="display-5">Welcome Back, @Model.FirstName!</h1>
+        <a asp-action="CustomerDetails" asp-route-id="@Model.HvkuserId" id="my-account-btn">
+            My Account
+        </a>
+    </div>
+    <h2 class="display-7">My Pets</h2>
+    <table class="table table-bordered pet-table">
+        <tr class="bg-dark text-white">
+            <th>Name</th>
+            <th>Details</th>
+            <th>Edit</th>
+            <th>Remove</th>
+        </tr>
+        @foreach (var pet in Model.Pets)
+        {
+            <tr class="bg-white">
+                <td>@pet.Name</td>
+                <td>@Html.ActionLink("Details", "PetDetails", "Pet", new { id = pet.PetId }, null)</td>
+                <td>@Html.ActionLink("Edit", "Edit", "Pet", new { id = pet.PetId }, null)</td>
+                <td>@Html.ActionLink("Remove", "Delete", "Pet", new { id = pet.PetId }, null)</td>
+            </tr>
+        }
+    </table>
+    <h2 class="display-7">My Reservations</h2>
+    @if (reservations.Count() == 0) {
+        <p>No reservations found.</p>
+    } else {
+        <table class="table table-bordered">
+            <tr class="bg-dark text-white">
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Pets</th>
+                <th>Edit</th>
+                <th>Cancel</th>
+            </tr>
+            @foreach (var pr in reservations) {
+                var res = pr.First().Reservation;
+                var pets = pr.Select(pr => pr.Pet.Name);
+                <tr class="bg-white">
+                    <td>@res.StartDate.ToString("yyyy/MM/dd")</td>
+                    <td>@res.EndDate.ToString("yyyy/MM/dd")</td>
+                    <td>@string.Join(", ", pets)</td>
+                    <td><a asp-action="Edit" asp-controller="Reservation" asp-route-id="@res.ReservationId">Edit</a></td>
+                    <td><a asp-action="Delete" asp-controller="Reservation" asp-route-id="@res.ReservationId">Cancel</a></td>
+                </tr>
+            }
+        </table>
+    }
+
+</main>

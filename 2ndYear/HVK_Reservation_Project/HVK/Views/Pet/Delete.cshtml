@@ -1,0 +1,31 @@
+﻿@model HVK.Models.Pet
+@await Html.PartialAsync("_Navigation")
+
+@{
+    ViewData["Title"] = "Delete";
+    var usertype = Context.Session.GetString("usertype").ToLower();
+}
+<main>
+    <h1 class="text-center display-5">Delete Pet</h1>
+    <hr />
+    <div class="details">
+        <div class="detail-inside delete-content">
+            <h5>Are you sure you want to delete @Model.Name?</h5>
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="PetId" />
+                <div class="form-group">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    @if (usertype == "employee") {
+                        <a asp-action="AllCustomers" asp-controller="Hvkuser" class="btn btn-secondary">Cancel</a>
+                    } else {
+                        <a asp-action="CustomerHome" asp-controller="Hvkuser" class="btn btn-secondary">Cancel</a>
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+@{
+    TempData.Keep();
+}

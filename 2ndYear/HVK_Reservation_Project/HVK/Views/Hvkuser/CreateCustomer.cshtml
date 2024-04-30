@@ -1,0 +1,117 @@
+﻿@model HVK.Models.Hvkuser
+@{
+    var usertype = Context.Session?.GetString("usertype")?.ToLower() ?? "";
+
+}
+@if (usertype == "employee") {
+    
+    @await Html.PartialAsync("_Navigation")
+}
+<h1 class="display-5 text-center">New Customer</h1>
+<form asp-controller="Hvkuser">
+    <fieldset>
+        <legend>Contact Information</legend>
+        <div>
+            <div class="form-group">
+                @* <div asp-validation-summary="All" class="text-danger"></div> *@
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CellPhone"></label>
+                <input asp-for="CellPhone" class="form-control" />
+                <span asp-validation-for="CellPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+          @*   <div class="form-group">
+                <label asp-for="Password">Re-enter password</label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div> *@
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Address Information</legend>
+        <div>
+            <div class="form-group">
+                <label asp-for="Street"></label>
+                <input asp-for="Street" class="form-control" />
+                <span asp-validation-for="Street" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="City"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Province"></label>
+                <select asp-for="Province" class="form-control">
+                    <option value="ON">ON</option>
+                    <option value="QC" selected>QC</option>
+                </select>
+                <span asp-validation-for="Province" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PostalCode"></label>
+                <input asp-for="PostalCode" class="form-control" />
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Emergency Contact</legend>
+        <div>
+            <div class="form-group">
+                <label asp-for="EmergencyContactFirstName"></label>
+                <input asp-for="EmergencyContactFirstName" class="form-control" />
+                <span asp-validation-for="EmergencyContactFirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EmergencyContactLastName"></label>
+                <input asp-for="EmergencyContactLastName" class="form-control" />
+                <span asp-validation-for="EmergencyContactLastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EmergencyContactPhone"></label>
+                <input asp-for="EmergencyContactPhone" class="form-control" />
+                <span asp-validation-for="EmergencyContactPhone" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="UserType" value="Customer" />
+        </div>
+    </fieldset>
+    @if (usertype == "employee") {
+        <button type="button">@Html.ActionLink("Cancel", "EmployeeHome", "Hvkuser")</button>
+    } else {
+        <button type="button">@Html.ActionLink("Cancel", "Login", "Account")</button>
+    }
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,132 @@
+﻿@model PetVaccinationViewModel
+@await Html.PartialAsync("_Navigation")
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center display-5">Edit Pet: @(Model.Pet.Name != null ? Model.Pet.Name : "N/A")</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Pet.PetId" />
+            <input type="hidden" asp-for="Pet.HvkuserId" />
+            <fieldset>
+                <legend>General</legend>
+                <div class="form-group">
+                    <label asp-for="Pet.Name" class="control-label"></label>
+                    <input asp-for="Pet.Name" class="form-control" />
+                    <span asp-validation-for="Pet.Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Gender</label><br />
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" asp-for="Pet.Gender" value="F" id="genderF" />
+                        <label class="form-check-label" for="genderF">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" asp-for="Pet.Gender" value="M" id="genderM" />
+                        <label class="form-check-label" for="genderM">Male</label>
+                    </div>
+                    <span asp-validation-for="Pet.Gender" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Pet.Breed" class="control-label"></label>
+                    <input asp-for="Pet.Breed" class="form-control" />
+                    <span asp-validation-for="Pet.Breed" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Pet.Birthyear" class="control-label"></label>
+                    <input asp-for="Pet.Birthyear" class="form-control" />
+                    <span asp-validation-for="Pet.Birthyear" class="text-danger"></span>
+                </div>
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend>Traits</legend>
+                <div class="form-group">
+                    <label class="control-label">Dog Size</label><br />
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" asp-for="Pet.DogSize" value="S" id="sizeS" />
+                        <label class="form-check-label" for="sizeS">S</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" asp-for="Pet.DogSize" value="M" id="sizeM" />
+                        <label class="form-check-label" for="sizeM">M</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" asp-for="Pet.DogSize" value="L" id="sizeL" />
+                        <label class="form-check-label" for="sizeL">L</label>
+                    </div>
+                    <span asp-validation-for="Pet.DogSize" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-check-label">
+                        Behaviour:
+                    </label>
+                </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Pet.Climber" /> Climber
+                    </label>
+                </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Pet.Barker" /> Barker
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Pet.SpecialNotes" class="control-label"></label>
+                    <input asp-for="Pet.SpecialNotes" class="form-control" />
+                    <span asp-validation-for="Pet.SpecialNotes" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Pet.Sterilized" class="control-label"></label>
+                    <div>
+                        <input class="form-check-input" asp-for="Pet.Sterilized" />
+                        <label class="form-check-label" for="Sterilized">Yes</label>
+                    </div>
+                    <span asp-validation-for="Pet.Sterilized" class="text-danger"></span>
+                </div>
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend>Vaccination Information</legend>
+                <table class="table table-bordered pet-table">
+                    <thead class="bg-dark text-white">
+                        <tr>
+                            <th>Vaccination Name</th>
+                            <th>Expiry Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < ViewBag.VaccinationNames.Length; i++) {
+                            var vaccinationId = i + 1;
+                            <tr class="bg-white">
+                                <td>@ViewBag.VaccinationNames[i]</td>
+                                <td>
+                                    <input class="form-control" type="date" asp-for="VaccinationExpiryDates[vaccinationId]" value="@(Model.VaccinationExpiryDates[vaccinationId]?.ToString("yyyy-MM-dd"))" />
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </fieldset>
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

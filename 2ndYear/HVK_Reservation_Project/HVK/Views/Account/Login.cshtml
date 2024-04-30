@@ -1,0 +1,24 @@
+﻿@model HVK.Models.Hvkuser
+
+<div class="text-center">
+    <h1 class="display-4">Login</h1>
+</div>
+<form class="form login-form" method="post">
+    <fieldset>
+        <p class="text-center">Don't have an account? @Html.ActionLink("Create Account", "CreateCustomer", "Hvkuser")</p>
+        @if (TempData["ErrorMessage"] != null) {
+            <div class="alert alert-danger error" role="alert">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+        <label for="username">Email:</label>
+        <br />
+        <input type="text" name="username" id="username" value="@ViewData["username"]" class="form-control" />
+        <br />
+        <label for="password">Password:</label>
+        <br />
+        <input type="password" name="password" id="password" value="@ViewData["password"]" class="form-control" />
+        <br />
+        <input type="submit" value="LOGIN" class="dark-button marg" />
+    </fieldset>
+</form>
